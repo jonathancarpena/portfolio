@@ -1,10 +1,58 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // Framer
 import { motion } from 'framer-motion'
 
+// Icons
+import { FiMail, FiMessageSquare, FiUser } from 'react-icons/fi'
+import { IoMdCloseCircle } from 'react-icons/io'
+
+function FormInput({ type = "text", placeholder = "", label, value, setValue, icon }) {
+
+    return (
+
+        <div className={` pt-7   cursor-text relative text-lg w-full `}>
+            <label htmlFor={label} className=" absolute top-0 flex space-x-1.5 items-center capitalize ">
+                <span>{icon}</span>
+                <span>{label}</span>
+            </label>
+
+
+            {type === "textarea"
+                ? <textarea
+                    id={label}
+                    name={label}
+                    value={value}
+                    placeholder={placeholder}
+                    onChange={(e) => setValue(e.target.value)}
+                    className='w-full min-h-[150px] bg-light outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
+                />
+                : <input
+                    id={label}
+                    name={label}
+                    value={value}
+                    placeholder={placeholder}
+                    onChange={(e) => setValue(e.target.value)}
+                    className='w-full bg-light  outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
+                />
+            }
+
+
+            <button
+                onClick={() => setValue('')}
+                type="button" className='cursor-pointer hover:text-neutral-600 absolute right-3 bottom-3 text-xl text-neutral-500'>
+                <IoMdCloseCircle />
+            </button>
+
+
+        </div>
+    )
+}
 
 function Footer() {
+    const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
+    const [message, setMessage] = useState("")
 
     const mainContainer = {
         initial: {},
@@ -45,7 +93,7 @@ function Footer() {
 
 
                 {/* Header */}
-                <div className='w-max relative  flex flex-col justify-center items-center space-y-2 lg:space-y-0'>
+                <div className='w-full relative  flex flex-col justify-center items-center space-y-2 lg:space-y-0'>
                     <motion.h2
                         variants={header}
                         className='text-5xl p-3  text-accent-500 font-bold uppercase rounded-xl  bg-lighter   lg:text-[6rem] lg:px-3'>
@@ -60,8 +108,44 @@ function Footer() {
                     </motion.p>
                 </div>
 
-                <form className='text-dark'>
-                    <input />
+                <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    className='w-full flex flex-col space-y-7 text-dark p-10 rounded-xl bg-lighter'>
+
+                    <FormInput
+                        label={'name'}
+                        value={name}
+                        setValue={setName}
+                        icon={<FiUser />}
+                        placeholder=""
+                    />
+
+                    <FormInput
+                        label={'email'}
+                        value={email}
+                        setValue={setEmail}
+                        icon={<FiMail />}
+                        placeholder=""
+                    />
+
+                    <FormInput
+                        type="textarea"
+                        label={'message'}
+                        value={message}
+                        setValue={setMessage}
+                        icon={<FiMessageSquare />}
+                        placeholder=""
+                    />
+
+                    <button
+                        type="submit"
+                        className='bg-accent-500 py-4 rounded-lg text-white text-xl'>
+                        Submit
+                    </button>
+
+
                 </form>
 
 
