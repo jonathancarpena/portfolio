@@ -4,6 +4,9 @@ import { useChangeScreen } from '../../lib/context/ScreenProvider'
 // Framer
 import { motion } from 'framer-motion'
 
+// Components
+import Password from './Password'
+
 
 
 function Welcome() {
@@ -17,7 +20,8 @@ function Welcome() {
             exit={{ opacity: 0, transition: { duration: 2 } }}
             className='overflow-hidden h-screen w-screen flex flex-col items-center justify-center'>
 
-            <button onClick={() => change('main')} >Change Screen</button>
+            <Password />
+
         </motion.div>
     )
 }
