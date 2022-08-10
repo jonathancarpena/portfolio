@@ -181,13 +181,13 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Links */}
                     <div className='flex items-center space-x-4'>
                         {project.externalLink &&
-                            <a href={project.externalLink} target="_blank" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Visit Site</span> <FiExternalLink />
                             </a>
                         }
 
                         {project.github &&
-                            <a href={project.github} target="_blank" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Github</span> <FiGithub />
                             </a>
                         }
@@ -380,13 +380,13 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Links */}
                     <div className='flex items-center space-x-4'>
                         {project.externalLink &&
-                            <a href={project.externalLink} target="_blank" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Visit Site</span> <FiExternalLink />
                             </a>
                         }
 
                         {project.github &&
-                            <a href={project.github} target="_blank" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Github</span> <FiGithub />
                             </a>
                         }
@@ -596,12 +596,12 @@ function Card({ project, handleShowDetails }) {
                 <div className='flex justify-between w-full'>
                     <div className=' flex space-x-4'>
                         {project.externalLink &&
-                            <a href={project.externalLink} target="_blank">
+                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer">
                                 <FiExternalLink className='text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out' />
                             </a>
                         }
                         {project.github &&
-                            <a href={project.github} target="_blank">
+                            <a href={project.github} target="_blank" rel="noopener noreferrer">
                                 <FiGithub className='text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out' />
                             </a>
                         }

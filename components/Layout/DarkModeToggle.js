@@ -22,7 +22,7 @@ function DarkModeToggle() {
             setBottomPortion(document.body.scrollHeight - (1002 * 1.5))
         }
 
-    }, [])
+    }, [bottomPortion])
 
 
 

@@ -26,7 +26,7 @@ function Card({ header, skills }) {
             <ul className='grid grid-cols-3 gap-7 justify-items-center '>
                 {skills.map((item) => (
                     <li key={item.name} className='w-[100px]'>
-                        <a href={item.link} target="_blank" className=' flex flex-col items-center text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out'>
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className=' flex flex-col items-center text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out'>
                             <span className='text-[3.5rem]'>{item.icon}</span>
                             <span className='text-lg'>{item.name}</span>
                         </a>

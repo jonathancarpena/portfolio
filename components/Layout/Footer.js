@@ -11,8 +11,8 @@ function FormInput({ type = "text", placeholder = "", label, value, setValue, ic
 
     return (
 
-        <div className={` pt-7   cursor-text relative text-lg w-full `}>
-            <label htmlFor={label} className=" absolute top-0 flex space-x-1.5 items-center capitalize ">
+        <div className={`pt-7 cursor-text relative text-lg w-full `}>
+            <label htmlFor={label} className="absolute top-0 flex space-x-1.5 items-center capitalize">
                 <span>{icon}</span>
                 <span>{label}</span>
             </label>
@@ -103,7 +103,7 @@ function Footer() {
                     <motion.p
                         variants={header}
                         className='flex flex-col text-[1.5rem] text-center rounded-xl text-white  font-semibold  uppercase lg:space-x-2 lg:flex-row lg:text-[2rem]'>
-                        <span>Don't Hesitate. </span>
+                        <span>{`Don't Hesitate. `}</span>
                         <span>My Inbox is always open!</span>
                     </motion.p>
                 </div>

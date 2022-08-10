@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 // Next
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Framer
 import { motion } from 'framer-motion'
@@ -35,7 +36,7 @@ function Navbar() {
         if (active !== '' && scroll === 0) {
             setActive('')
         }
-    }, [scroll])
+    }, [scroll, active])
 
 
     const NavLinks = [
@@ -63,18 +64,19 @@ function Navbar() {
                     {/* Nav Container */}
                     <div className=' py-4 xl:py-3 flex justify-between items-center w-full'>
                         {/* Brand */}
-                        <a href='/#portfolio' onClick={() => setActive('')} className=' flex-1 flex items-center space-x-3 '>
-                            <span className='min-w-[50px] min-h-[50px]'>
-                                <Image
-                                    src={Avatar}
-                                    alt='avatar'
-                                    layout='responsive'
-                                    className=' rounded-full w-max'
-                                />
-                            </span>
-
-                            <span className='font-bold uppercase text-xl  '>Jonathan Carpena</span>
-                        </a>
+                        <Link href='/#portfolio'  >
+                            <a onClick={() => setActive('')} className=' flex-1 flex items-center space-x-3 '>
+                                <span className='min-w-[50px] min-h-[50px]'>
+                                    <Image
+                                        src={Avatar}
+                                        alt='avatar'
+                                        layout='responsive'
+                                        className=' rounded-full w-max'
+                                    />
+                                </span>
+                                <span className='font-bold uppercase text-xl  '>Jonathan Carpena</span>
+                            </a>
+                        </Link>
 
                         {/* NavItems */}
                         <ul className='flex items-center capitalize text-lg space-x-3 xl:text-xl'>

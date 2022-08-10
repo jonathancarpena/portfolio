@@ -42,7 +42,7 @@ function About() {
         }
 
 
-    }, [scroll])
+    }, [scroll, controls, handWave])
 
 
 
@@ -251,8 +251,9 @@ function About() {
                             <span className='font-semibold mx-1'>frontend development</span>
                             and dabble a little bit in the backend.
                         </p>
-                        <p>I'm a self starter with a burning passion in building client web applications,
-                            desigining aesthetic user interfaces, and expanding my ever-growing skillset.
+                        <p>
+                            {`I'm a self starter with a burning passion in building client web applications,
+                            desigining aesthetic user interfaces, and expanding my ever-growing skillset.`}
                         </p>
 
                         <p>
