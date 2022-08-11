@@ -11,7 +11,6 @@ function ContactForm() {
             action="/?success=true"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
         >
             <input
                 type="hidden"
@@ -41,7 +40,7 @@ function ContactForm() {
             <label htmlFor="message">Message *</label>
             <textarea id="message" name="message" required className='bg-light' />
 
-            <div data-netlify-recaptcha="true"></div>
+
             <button type="submit">Submit</button>
         </form>
     )
