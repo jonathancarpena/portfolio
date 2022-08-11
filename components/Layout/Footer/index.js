@@ -143,7 +143,10 @@ function Footer() {
                 </div>
 
                 {/* Contact Form */}
-                <ContactForm />
+                <div className='w-full bg-lighter px-5  pt-1 pb-5 lg:px-10 lg:pb-10 lg:pt-1 rounded-xl'>
+                    <ContactForm />
+                </div>
+
 
                 {/* <form
                     name="contactForm"
