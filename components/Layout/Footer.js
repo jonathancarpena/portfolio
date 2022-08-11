@@ -66,7 +66,7 @@ function Footer() {
     }
 
     function handleSubmit(e) {
-
+        e.preventDefault();
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -75,7 +75,7 @@ function Footer() {
             .then(() => alert("Success!"))
             .catch(error => alert(error));
 
-        e.preventDefault();
+
     };
 
 
