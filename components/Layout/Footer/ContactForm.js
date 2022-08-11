@@ -7,7 +7,7 @@ function ContactForm() {
         <form
             className="container bg-lighter text-dark flex flex-col"
             method="POST"
-            name="contact-form"
+            name="contact-me"
             action="contact/?success=true"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
@@ -17,7 +17,7 @@ function ContactForm() {
                 name="subject"
                 value={`You've got mail from ${submitterName}`}
             />
-            <input type="hidden" name="form-name" value="contact-form" />
+            <input type="hidden" name="form-name" value="contact-me" />
             <p hidden>
                 <label>
                     Don’t fill this out: <input name="bot-field" />
@@ -39,8 +39,6 @@ function ContactForm() {
             <input id="email" type="email" name="email" required className='bg-light' />
             <label htmlFor="message">Message *</label>
             <textarea id="message" name="message" required className='bg-light' />
-
-
             <button type="submit">Submit</button>
         </form>
     )

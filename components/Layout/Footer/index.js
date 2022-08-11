@@ -143,7 +143,6 @@ function Footer() {
                 </div>
 
                 {/* Contact Form */}
-
                 <ContactForm />
 
 
