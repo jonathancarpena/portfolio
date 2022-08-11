@@ -42,7 +42,7 @@ function Navbar() {
         { link: '/#about', text: 'about' },
         { link: '/#work', text: 'work' },
         { link: '/#skills', text: 'skills' },
-        { link: '/#contact', text: 'contact' },
+        { link: '/contact', text: 'contact' },
     ]
 
 

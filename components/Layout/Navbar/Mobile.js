@@ -10,6 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 // Icons
 import { FiLinkedin, FiMail, FiGithub } from 'react-icons/fi'
 
+// Components
+import Popover from "../Popover";
 
 
 const Path = props => {
@@ -147,15 +149,23 @@ function MobileNav() {
                             {/* Socials */}
 
                             <ul className=" bg-accent-600 text-[2rem] absolute  bottom-0 left-0  w-full flex   rounded-t-3xl py-[1.8rem]  justify-around  ">
-                                <a href="/" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
-                                    <FiGithub />
-                                </a>
-                                <a href="/" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
-                                    <FiLinkedin />
-                                </a>
-                                <a href="/" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
-                                    <FiMail />
-                                </a>
+                                <li>
+                                    <a href="https://github.com/jonathancarpena" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
+                                        <FiGithub />
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
+                                        <FiLinkedin />
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <Popover position="top" mobile={true} className="active:scale-90 transition-all ease-in-out">
+                                        <FiMail />
+                                    </Popover>
+                                </li>
                             </ul>
 
                         </motion.div>

@@ -37,9 +37,6 @@ function Main() {
         >
 
             <InteractButtons />
-
-
-
             <Hero />
             <About />
             <Work />

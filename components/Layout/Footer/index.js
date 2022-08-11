@@ -5,11 +5,13 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 // Icons
-import { FiMail, FiMessageSquare, FiUser } from 'react-icons/fi'
+import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi'
 import { IoMdCloseCircle } from 'react-icons/io'
 
 // Components
-import ContactForm from './ContactForm'
+import Popover from '../Popover'
+
+
 
 function FormInput({ type = "text", placeholder = "", label, value, setValue, icon }) {
 
@@ -55,39 +57,6 @@ function FormInput({ type = "text", placeholder = "", label, value, setValue, ic
 }
 
 function Footer() {
-    const [email, setEmail] = useState("")
-    const [name, setName] = useState("")
-    const [message, setMessage] = useState("")
-
-    function encode(data) {
-        return Object.keys(data)
-            .map(
-                (key) =>
-                    encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-            )
-            .join("&");
-    }
-
-    function handleSubmit(e) {
-
-        const form = e.target
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-                "form-name": form.getAttribute('name'),
-                email: email,
-                message: message,
-                name: name
-            })
-        })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
-
-        e.preventDefault();
-    };
-
-
     const mainContainer = {
         initial: {},
         animate: {
@@ -142,8 +111,33 @@ function Footer() {
                     </motion.p>
                 </div>
 
-                {/* Contact Form */}
-                <ContactForm />
+                <ul className='flex flex-col space-y-5'>
+                    <li>
+                        <a href="https://github.com/jonathancarpena" target="_blank" rel="noopener noreferrer" className='flex items-end  text-xl space-x-5'>
+                            <FiGithub className=' text-[3rem] h-[45px]' />
+                            <p className='flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>/jonathancarpena</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className='flex items-end  text-xl space-x-5'>
+                            <FiLinkedin className=' text-[3rem] h-[45px]' />
+                            <p className='flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>/jonathancarpena</p>
+                        </a>
+
+                    </li>
+                    <li >
+                        <Popover long={true} className='w-max flex items-end  text-xl space-x-5 '>
+                            <FiMail className='text-[3rem] h-[45px]' />
+                            <p className=' flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>jonathancarpena01@gmail.com</p>
+                        </Popover>
+                    </li>
+
+
+
+                </ul>
+
+
 
 
 
