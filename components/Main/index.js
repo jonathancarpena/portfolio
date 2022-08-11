@@ -6,7 +6,7 @@ import Hero from './Hero'
 import About from './About'
 import Work from './Work'
 import Skills from './Skills'
-import DarkModeToggle from '../Layout/DarkModeToggle'
+import InteractButtons from '../Layout/InteractButtons'
 
 function Main() {
 
@@ -35,7 +35,11 @@ function Main() {
             animate="animate"
             exit="exit"
         >
-            <DarkModeToggle />
+
+            <InteractButtons />
+
+
+
             <Hero />
             <About />
             <Work />

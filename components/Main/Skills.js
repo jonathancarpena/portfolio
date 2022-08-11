@@ -18,7 +18,7 @@ function Card({ header, skills }) {
     return (
         <motion.li
             variants={card}
-            className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  p-8 space-y-8 drop-shadow-lg flex flex-col overflow-hidden rounded-xl items-center`}>
+            className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  w-full p-8 space-y-8 drop-shadow-lg flex flex-col overflow-hidden rounded-xl items-center`}>
             <h3 className='capitalize font-semibold text-2xl '>
                 {header}
             </h3>
@@ -86,7 +86,7 @@ function Skills() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.3 }}
-            id='skills' className=' px-5 pt-28 pb-40 lg:pb-0 min-h-screen flex flex-col justify-start items-center lg:px-10 xl:px-80  '>
+            id='skills' className='pt-28 pb-40 lg:pb-0 min-h-screen flex flex-col justify-start items-center lg:px-10 xl:px-80  '>
 
 
             {/* Header */}
@@ -118,7 +118,7 @@ function Skills() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.2 }}
-                className='flex flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-10'
+                className='  grid grid-cols-1 gap-5 px-12 md:px-5  md:grid-cols-2  xl:max-w-[1400px] lg:px-0  lg:grid-cols-3 lg:gap-10 '
             >
                 {Object.entries(DATA).map((skill) => (
                     <Card

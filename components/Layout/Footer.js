@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+
 
 // Framer
 import { motion } from 'framer-motion'
@@ -84,7 +85,7 @@ function Footer() {
             variants={mainContainer}
             initial="initial"
             animate="animate"
-            id='contact' className='bg-accent-500 font-sans px-10  min-h-screen flex justify-center items-center w-full relative lg:px-36'>
+            id='contact' className='bg-accent-500 font-sans   min-h-screen flex justify-center items-center w-full relative lg:px-36'>
 
 
             <motion.section
@@ -108,11 +109,12 @@ function Footer() {
                     </motion.p>
                 </div>
 
+                {/* Contact Form */}
                 <form
                     name="contact"
                     method="POST"
                     data-netlify="true"
-                    className='w-full flex flex-col space-y-7 text-dark p-10 rounded-xl bg-lighter'>
+                    className='w-full flex flex-col space-y-7 text-dark  p-5 lg:p-10 rounded-xl bg-lighter'>
 
                     <FormInput
                         label={'name'}
@@ -141,7 +143,7 @@ function Footer() {
 
                     <button
                         type="submit"
-                        className='bg-accent-500 py-4 rounded-lg text-white text-xl'>
+                        className='bg-accent-500 hover:bg-accent-400 active:bg-accent-500 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>
                         Submit
                     </button>
 
@@ -150,11 +152,13 @@ function Footer() {
 
 
 
-                <motion.h3
+
+
+                <motion.span
                     variants={header}
                     className=' font-semibold text-sm bottom-5 lg:text-xl text-lighter absolute lg:bottom-10'>
                     DESIGNED BY JONATHAN CARPENA
-                </motion.h3>
+                </motion.span>
             </motion.section>
 
 

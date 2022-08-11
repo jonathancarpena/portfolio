@@ -27,8 +27,10 @@ function Layout({ children }) {
                 </AnimatePresence>
 
                 {children}
+
                 <AnimatePresence exitBeforeEnter>
-                    {screen !== "welcome" && <Footer key="footer" />}
+                    {screen !== "welcome" &&
+                        <Footer key="footer" />}
                 </AnimatePresence>
             </div>
 

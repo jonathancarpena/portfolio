@@ -12,7 +12,7 @@ import { useDarkMode } from '../../lib/context/ThemeProvider'
 
 
 // Image
-import Avatar from '../../images/avatar.png'
+import Avatar from '../../public/avatar.png'
 
 // Icons 
 import { IoHandRightSharp } from 'react-icons/io5'
@@ -138,8 +138,8 @@ function About() {
             initial="initial"
             exit="exit"
             whileInView="animate"
-            viewport={{ once: true, amount: 0.2 }}
-            id='about' className='   z-0 px-5 flex flex-col justify-center items-center min-h-screen  lg:px-10 xl:px-80'>
+            viewport={{ once: true, amount: 0.0001 }}
+            id='about' className='   z-0 flex flex-col justify-center items-center min-h-screen  lg:px-10 xl:px-80'>
 
             {/* Header */}
             <div className='relative flex justify-center mb-10 items-center  lg:space-x-5 '>
@@ -171,20 +171,17 @@ function About() {
                 exit="exit"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.1 }}
-                className={`${darkMode ? 'bg-dark' : 'bg-lighter'} max-w-[1200px]  relative overflow-hidden drop-shadow-xl rounded-xl flex flex-col space-y-6 p-6 items-center lg:space-y-0 lg:space-x-12  lg:p-10 lg:flex-row`}>
+                className={`${darkMode ? 'bg-dark' : 'bg-lighter'} mx-12 lg:max-w-[1200px]  relative overflow-hidden drop-shadow-xl rounded-xl flex flex-col space-y-6 p-6 items-center lg:space-y-0 lg:space-x-12  lg:p-10 lg:flex-row`}>
 
                 {/* Mobile Header */}
-
                 <div className=' w-full inline-block lg:hidden '>
                     <h3 className='bg-accent-500  rounded-lg text-lighter relative  text-[2rem] text-center '>
                         Nice to meet you!
                     </h3>
                 </div>
 
-
-
                 {/* Avatar */}
-                <div className='relative min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] '>
+                <div className=' lg:right-10 top-2 md:top-1 lg:top-0 relative min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] '>
                     <div className=' rounded-2xl ring-8 ring-white drop-shadow-lg '>
                         <Image
                             variants={avatar}
@@ -196,12 +193,11 @@ function About() {
                         />
                     </div>
 
-
                     {/* Mobile Hand */}
                     <motion.span
                         variants={hand}
                         animate={controls}
-                        className='lg:hidden absolute top-2 right-2 '
+                        className='lg:hidden absolute top-1 right-1 '
                     >
                         <IoHandRightSharp className='text-[5rem] text-yellow-500' />
                     </motion.span>
@@ -211,10 +207,10 @@ function About() {
                 {/* Description */}
                 <motion.div
                     variants={description}
-                    className='  flex flex-col space-y-5 relative '>
+                    className='  flex flex-col lg:space-y-5 relative '>
 
                     {/* Header */}
-                    <div className='relative hidden   lg:flex w-max'>
+                    <div className='relative hidden lg:flex w-max'>
                         <h3 className='bg-accent-500 px-3 rounded-lg text-lighter relative  font-design text-[2.5rem] text-center lg:text-start lg:text-[3.5rem] lg:right-3'>
                             Nice to meet you!
                         </h3>
@@ -229,7 +225,7 @@ function About() {
 
 
                     {/* Details */}
-                    <div className='grid lg:grid-cols-2 '>
+                    <div className='mt-[-2.5rem] mb-[1rem]  md:mt-0 lg:mb-0 grid lg:grid-cols-2 '>
                         <span className='flex py-2'>
                             <span className='font-semibold uppercase w-[120px] lg:w-[100px]'>Name:</span>
                             <span>Jonathan Carpena</span>
@@ -242,7 +238,7 @@ function About() {
                     </div>
 
                     {/* Border */}
-                    <div className='border-b-2 border-b-neutral-400 w-full'></div>
+                    <div className='border-b-2 border-b-neutral-400 w-full mb-[1.3rem] lg:mb-0'></div>
 
                     {/* Bio */}
                     <div className='flex flex-col space-y-4'>

@@ -18,7 +18,7 @@ import PROJECTS from '../../lib/projects'
 import { ICONS } from '../../lib/skills';
 
 // Images
-import Sample from '../../images/projectSample.jpg'
+import Sample from '../../public/projectSample.jpg'
 
 // Icons
 import {
@@ -35,8 +35,7 @@ import {
 function ProjectDetails({ id, handleShowDetails }) {
     const darkMode = useDarkMode()
     const sliderRef = useRef(null)
-    const cardRef = useRef(null)
-    const mobileCardRef = useRef(null)
+    const mobileSliderRef = useRef(null)
     const [activeIndex, setActiveIndex] = useState(0)
 
     const project = PROJECTS.find((item) => item.id === id)
@@ -50,6 +49,14 @@ function ProjectDetails({ id, handleShowDetails }) {
     const handleNext = useCallback(() => {
         if (!sliderRef.current) return;
         sliderRef.current.swiper.slideNext();
+    }, []);
+    const handleMobilePrev = useCallback(() => {
+        if (!mobileSliderRef.current) return;
+        mobileSliderRef.current.swiper.slidePrev();
+    }, []);
+    const handleMobileNext = useCallback(() => {
+        if (!mobileSliderRef.current) return;
+        mobileSliderRef.current.swiper.slideNext();
     }, []);
 
 
@@ -116,7 +123,6 @@ function ProjectDetails({ id, handleShowDetails }) {
             {/* Main Card */}
             <motion.div
                 id="project-details"
-                ref={cardRef}
                 variants={desktopVariant}
                 initial="initial"
                 animate="animate"
@@ -316,7 +322,6 @@ function ProjectDetails({ id, handleShowDetails }) {
             <motion.div
                 id="mobile-project-details"
                 variants={mobileVariant}
-                ref={mobileCardRef}
                 initial="initial"
                 animate="animate"
                 exit="exit"
@@ -346,12 +351,11 @@ function ProjectDetails({ id, handleShowDetails }) {
                         }
 
                         <Swiper
-                            ref={sliderRef}
+                            ref={mobileSliderRef}
                             spaceBetween={0}
                             slidesPerView={1}
                             className='max-h-[70vh] '
                             centeredSlides={true}
-
                             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
                         >
                             {project.screenshots.map((item, index) => (
@@ -362,14 +366,14 @@ function ProjectDetails({ id, handleShowDetails }) {
                         </Swiper>
 
                         {activeIndex !== 0 &&
-                            <button onClick={handlePrev} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 absolute top-[50%] -translate-y-[50%] left-4 lg:left-8 text-darker'>
+                            <button onClick={handleMobilePrev} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 absolute top-[50%] -translate-y-[50%] left-4 lg:left-8 text-darker'>
                                 <FiArrowLeft className='text-4xl lg:text-5xl' />
                                 <span className='hidden md:inline text-sm'>Prev</span>
                             </button>
                         }
 
                         {activeIndex !== project.screenshots.length - 1 &&
-                            <button onClick={handleNext} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 top-[50%] -translate-y-[50%] right-4 lg:right-8 absolute text-darker'>
+                            <button onClick={handleMobileNext} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 top-[50%] -translate-y-[50%] right-4 lg:right-8 absolute text-darker'>
                                 <FiArrowRight className='text-4xl lg:text-5xl' />
                                 <span className='hidden md:inline text-sm'>Next</span>
                             </button>
@@ -715,7 +719,7 @@ function Work() {
             exit="exit"
             whileInView="animate"
             viewport={{ once: true, amount: 0.2 }}
-            id='work' className=' px-5 pt-28 flex flex-col justify-center items-center lg:px-10 xl:px-80 min-h-screen '>
+            id='work' className='  pt-28 flex flex-col justify-center items-center lg:px-10 xl:px-80 min-h-screen '>
 
             {/* Header */}
             <div className='relative flex justify-center mb-10 items-center  lg:space-x-5 '>
@@ -746,7 +750,7 @@ function Work() {
                 exit="exit"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.2 }}
-                className='max-w-[1400px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-10 '>
+                className='  grid grid-cols-1 gap-5 px-12 md:px-5 lg:px-0  xl:max-w-[1400px] md:grid-cols-2 lg:grid-cols-3 lg:gap-10 '>
                 {PROJECTS.map((project) => (
                     <Card
                         key={project.id}

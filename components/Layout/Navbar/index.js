@@ -12,7 +12,7 @@ import useScroll from '../../../lib/hooks/useScroll'
 import { useDarkMode } from '../../../lib/context/ThemeProvider'
 
 // Image 
-import Avatar from '../../../images/avatar.png'
+import Avatar from '../../../public/avatar.png'
 
 // Components
 import NavItem from './NavItem'
@@ -21,7 +21,6 @@ import { useEffect } from 'react'
 
 // Icons
 import { FiFileText } from 'react-icons/fi'
-
 
 
 function Navbar() {
@@ -92,10 +91,18 @@ function Navbar() {
                                 />
                             ))}
 
-                            <button className='transition-all ease-in-out duration-150  bg-accent-500 hover:bg-accent-600 hover:scale-105 active:scale-95 active:bg-accent-600 rounded-xl  flex space-x-1 py-2 px-4 items-center text-white'>
-                                <FiFileText />
-                                <span> Resume</span>
-                            </button>
+                            <a
+                                href="./Jonathan Carpena Resume.pdf"
+                                download
+                                title="Resume"
+                                target="_blank"
+                                rel='noopener noreferrer'
+                            ><button className='transition-all ease-in-out duration-150  bg-accent-500 hover:bg-accent-600 hover:scale-105 active:scale-95 active:bg-accent-600 rounded-xl  flex space-x-1 py-2 px-4 items-center text-white'>
+                                    <FiFileText />
+                                    <span> Resume</span>
+                                </button>
+                            </a>
+
 
 
                         </ul>

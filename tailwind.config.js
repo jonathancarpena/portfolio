@@ -15,9 +15,7 @@ module.exports = {
         sans: 'Poppins',
         serif: 'Merriweather'
       },
-      dropShadow: {
-        'text': '6px 6px 0px rgba(0,0,0,1)',
-      },
+
       colors: {
         accent: {
           100: '#dcd2f9',
