@@ -56,11 +56,35 @@ function Footer() {
     const [name, setName] = useState("")
     const [message, setMessage] = useState("")
 
-    function handleSubmit() {
-        setEmail('')
-        setName('')
-        setMessage('')
+    function encode(data) {
+        return Object.keys(data)
+            .map(
+                (key) =>
+                    encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+            )
+            .join("&");
     }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({
+                "form-name": event.target.getAttribute("name"),
+                ...name,
+            }),
+        })
+            .then(() => {
+                setEmail('')
+                setName('')
+                setMessage('')
+                alert('THANK YOU')
+            })
+            .catch((error) => alert(error));
+    };
+
+
     const mainContainer = {
         initial: {},
         animate: {
@@ -120,11 +144,13 @@ function Footer() {
                     name="contact"
                     onSubmit={handleSubmit}
                     method="POST"
+                    netlify="true"
                     data-netlify="true"
                     data-netlify-recaptcha="true"
-                    className='w-full flex flex-col space-y-7 text-dark  p-5 lg:p-10 rounded-xl bg-lighter'>
+                    className='w-full flex flex-col space-y-7 text-dark px-5  pt-1 pb-5 lg:px-10 lg:pb-10 lg:pt-1 rounded-xl bg-lighter'>
 
                     <input type="hidden" name="form-name" value="contact" />
+
                     <FormInput
                         type="text"
                         label={'name'}
@@ -152,10 +178,11 @@ function Footer() {
                         placeholder=""
                     />
 
-                    <p>
+                    <div data-netlify-recaptcha="true" ></div>
+                    <p className=''>
                         <button
                             type="submit"
-                            className='bg-accent-500 hover:bg-accent-400 active:bg-accent-500 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>
+                            className='w-full bg-accent-500 hover:bg-accent-400 active:bg-accent-500 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>
                             Submit
                         </button>
                     </p>
