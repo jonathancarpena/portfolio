@@ -141,25 +141,25 @@ function Footer() {
 
                 {/* Contact Form */}
                 <form
-                    name="contact"
+                    name="contactForm"
                     method="POST"
                     data-netlify="true"
                     // data-netlify-honeypot="bot-field"
                     className='w-full flex flex-col space-y-7 text-dark px-5  pt-1 pb-5 lg:px-10 lg:pb-10 lg:pt-1 rounded-xl bg-lighter'>
 
-                    <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="form-name" value="contactForm" />
 
                     <p>
-                        <label htmlFor='name'>Name</label>
-                        <input type="text" id="name" name="name" />
+                        <label htmlFor='nameForm'>Name</label>
+                        <input type="text" id="nameForm" name="nameForm" />
                     </p>
                     <p>
-                        <label htmlFor='email'>Email</label>
-                        <input type="email" id="email" name="email" />
+                        <label htmlFor='emailForm'>Email</label>
+                        <input type="email" id="emailForm" name="emailForm" />
                     </p>
                     <p>
-                        <label htmlFor='message'>Message</label>
-                        <textarea id="message" name="message" />
+                        <label htmlFor='messageForm'>Message</label>
+                        <textarea id="messageForm" name="messageForm" />
                     </p>
                     {/* 
 
