@@ -67,10 +67,16 @@ function Footer() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        const form = e.target
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...this.state })
+            body: encode({
+                "form-name": form.getAttribute('name'),
+                email: email,
+                message: message,
+                name: name
+            })
         })
             .then(() => alert("Success!"))
             .catch(error => alert(error));
@@ -137,11 +143,18 @@ function Footer() {
                 <form
                     name="contact"
                     onSubmit={handleSubmit}
-                    method="post" data-netlify="true" data-netlify-honeypot="bot-field"
+                    method="post"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
                     className='w-full flex flex-col space-y-7 text-dark px-5  pt-1 pb-5 lg:px-10 lg:pb-10 lg:pt-1 rounded-xl bg-lighter'>
 
                     <input type="hidden" name="form-name" value="contact" />
 
+                    <p hidden>
+                        <label>
+                            Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+                        </label>
+                    </p>
                     <FormInput
                         type="text"
                         label={'name'}
@@ -169,7 +182,7 @@ function Footer() {
                         placeholder=""
                     />
 
-                    <div data-netlify-recaptcha="true" ></div>
+                    {/* <div data-netlify-recaptcha="true" ></div> */}
                     <p className=''>
                         <button
                             type="submit"

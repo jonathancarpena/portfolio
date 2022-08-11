@@ -59,7 +59,6 @@ function InteractButtons() {
             >
 
                 <button
-                    disabled={scroll > bottomPortion}
                     className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  outline-none flex items-center justify-center cursor-pointer z-[60]   w-[50px] h-[50px] rounded-xl hover:scale-110  active:scale-90 transition-all ease-in-out`}
                     onClick={toggleDarkMode}>
                     {darkMode
