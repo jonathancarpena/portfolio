@@ -71,14 +71,13 @@ function ContactForm() {
                 within 24-48 hours.
             </p>
 
-            <button onClick={() => router.replace("/contact", undefined, { shallow: true })}> Submit Another Response </button>
+
         </React.Fragment>
     );
     return (
-        <div>
-
+        <>
             {formVisible ? Form : ConfirmationMessage}
-        </div>
+        </>
 
     )
 }
