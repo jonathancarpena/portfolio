@@ -8,7 +8,7 @@ function ContactForm() {
             className="container bg-lighter text-dark flex flex-col"
             method="POST"
             name="contact-form"
-            action="/?success=true"
+            action="?success=true"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
         >
