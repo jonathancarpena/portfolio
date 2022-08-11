@@ -8,6 +8,9 @@ import { motion } from 'framer-motion'
 import { FiMail, FiMessageSquare, FiUser } from 'react-icons/fi'
 import { IoMdCloseCircle } from 'react-icons/io'
 
+// Components
+import ContactForm from './ContactForm'
+
 function FormInput({ type = "text", placeholder = "", label, value, setValue, icon }) {
 
     return (
@@ -140,6 +143,8 @@ function Footer() {
                 </div>
 
                 {/* Contact Form */}
+                <ContactForm />
+
                 {/* <form
                     name="contactForm"
                     method="POST"
