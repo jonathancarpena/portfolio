@@ -12,7 +12,7 @@ function FormInput({ type = "text", placeholder = "", label, value, setValue, ic
 
     return (
 
-        <div className={`pt-7 cursor-text relative text-lg w-full `}>
+        <p className={`pt-7 cursor-text relative text-lg w-full `}>
             <label htmlFor={label} className="absolute top-0 flex space-x-1.5 items-center capitalize">
                 <span>{icon}</span>
                 <span>{label}</span>
@@ -29,6 +29,7 @@ function FormInput({ type = "text", placeholder = "", label, value, setValue, ic
                     className='w-full min-h-[150px] bg-light outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
                 />
                 : <input
+                    type={type}
                     id={label}
                     name={label}
                     value={value}
@@ -46,7 +47,7 @@ function FormInput({ type = "text", placeholder = "", label, value, setValue, ic
             </button>
 
 
-        </div>
+        </p>
     )
 }
 
@@ -55,6 +56,11 @@ function Footer() {
     const [name, setName] = useState("")
     const [message, setMessage] = useState("")
 
+    function handleSubmit() {
+        setEmail('')
+        setName('')
+        setMessage('')
+    }
     const mainContainer = {
         initial: {},
         animate: {
@@ -112,11 +118,15 @@ function Footer() {
                 {/* Contact Form */}
                 <form
                     name="contact"
+                    onSubmit={handleSubmit}
                     method="POST"
                     data-netlify="true"
+                    data-netlify-recaptcha="true"
                     className='w-full flex flex-col space-y-7 text-dark  p-5 lg:p-10 rounded-xl bg-lighter'>
 
+                    <input type="hidden" name="form-name" value="contact" />
                     <FormInput
+                        type="text"
                         label={'name'}
                         value={name}
                         setValue={setName}
@@ -125,6 +135,7 @@ function Footer() {
                     />
 
                     <FormInput
+                        type="email"
                         label={'email'}
                         value={email}
                         setValue={setEmail}
@@ -141,11 +152,14 @@ function Footer() {
                         placeholder=""
                     />
 
-                    <button
-                        type="submit"
-                        className='bg-accent-500 hover:bg-accent-400 active:bg-accent-500 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>
-                        Submit
-                    </button>
+                    <p>
+                        <button
+                            type="submit"
+                            className='bg-accent-500 hover:bg-accent-400 active:bg-accent-500 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>
+                            Submit
+                        </button>
+                    </p>
+
 
 
                 </form>
