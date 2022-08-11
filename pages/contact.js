@@ -133,7 +133,7 @@ const ContactPage = () => {
                 variants={toast}
                 className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
               >
-                <span>I'll get back to you within 24-48 hours</span>
+                <span>{`I'll get back to you within 24-48 hours`}</span>
                 <FiClock />
               </motion.span>
               <motion.span
