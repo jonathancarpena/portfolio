@@ -53,7 +53,6 @@ function ContactForm() {
             <textarea
                 id="message"
                 name="message"
-                minLength={10}
                 required
                 className='w-full min-h-[150px] bg-light outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
             />
