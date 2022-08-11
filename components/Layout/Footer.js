@@ -13,40 +13,40 @@ function FormInput({ type = "text", placeholder = "", label, value, setValue, ic
     return (
 
         <p className={`pt-7 cursor-text relative text-lg w-full `}>
-            <label htmlFor={label} className="absolute top-0 flex space-x-1.5 items-center capitalize">
-                <span>{icon}</span>
-                <span>{label}</span>
+            <label htmlFor={label} className="">
+                <div className='absolute top-0 flex space-x-1.5 items-center capitalize'>
+                    <span className=''>{icon}</span>
+                    <span>{label}</span>
+                </div>
+
+                {type === "textarea"
+                    ? <textarea
+                        id={label}
+                        name={label}
+                        value={value}
+                        placeholder={placeholder}
+                        onChange={(e) => setValue(e.target.value)}
+                        className='w-full min-h-[150px] bg-light outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
+                    />
+                    : <input
+                        type={type}
+                        id={label}
+                        name={label}
+                        value={value}
+                        placeholder={placeholder}
+                        onChange={(e) => setValue(e.target.value)}
+                        className='w-full bg-light  outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
+                    />
+                }
+
+
+                <button
+                    onClick={() => setValue('')}
+                    type="button" className='cursor-pointer hover:text-neutral-600 absolute right-3 bottom-3 text-xl text-neutral-500'>
+                    <IoMdCloseCircle />
+                </button>
+
             </label>
-
-
-            {type === "textarea"
-                ? <textarea
-                    id={label}
-                    name={label}
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={(e) => setValue(e.target.value)}
-                    className='w-full min-h-[150px] bg-light outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
-                />
-                : <input
-                    type={type}
-                    id={label}
-                    name={label}
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={(e) => setValue(e.target.value)}
-                    className='w-full bg-light  outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
-                />
-            }
-
-
-            <button
-                onClick={() => setValue('')}
-                type="button" className='cursor-pointer hover:text-neutral-600 absolute right-3 bottom-3 text-xl text-neutral-500'>
-                <IoMdCloseCircle />
-            </button>
-
-
         </p>
     )
 }
