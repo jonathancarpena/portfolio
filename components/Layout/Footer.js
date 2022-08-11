@@ -142,10 +142,9 @@ function Footer() {
                 {/* Contact Form */}
                 <form
                     name="contact"
-                    onSubmit={handleSubmit}
-                    method="post"
+                    method="POST"
                     data-netlify="true"
-                    data-netlify-honeypot="bot-field"
+                    // data-netlify-honeypot="bot-field"
                     className='w-full flex flex-col space-y-7 text-dark px-5  pt-1 pb-5 lg:px-10 lg:pb-10 lg:pt-1 rounded-xl bg-lighter'>
 
                     <input type="hidden" name="form-name" value="contact" />
