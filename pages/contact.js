@@ -35,7 +35,7 @@ const ContactPage = () => {
       action="contact/?success=true"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      data-netlify-recaptcha="true"
+    // data-netlify-recaptcha="true"
     >
       <input
         type="hidden"
@@ -87,7 +87,7 @@ const ContactPage = () => {
         required
         className='mb-5 w-full min-h-[150px] text-dark bg-light focus:bg-lighter outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
       />
-      <div data-netlify-recaptcha="true"></div>
+      {/* <div data-netlify-recaptcha="true"></div> */}
       <button type="submit" className='w-full bg-accent-700 hover:bg-accent-400 active:bg-accent-700 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>Submit</button>
     </form>
   );
@@ -153,7 +153,6 @@ const ContactPage = () => {
 
 
             </motion.ul>
-
           }
         </AnimatePresence>
       </main>
