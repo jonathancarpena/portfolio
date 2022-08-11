@@ -32,7 +32,7 @@ const ContactPage = () => {
       className="flex flex-col w-full bg-accent-500 p-5 rounded-xl"
       method="POST"
       name="contact-form"
-      action={`contact/?success=true&NewFriend=${submitterName}`}
+      action="contact/?success=true"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       data-netlify-recaptcha="true"
