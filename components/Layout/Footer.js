@@ -66,7 +66,7 @@ function Footer() {
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
+
         const form = e.target
         fetch("/", {
             method: "POST",
@@ -81,7 +81,7 @@ function Footer() {
             .then(() => alert("Success!"))
             .catch(error => alert(error));
 
-
+        e.preventDefault();
     };
 
 
