@@ -26,7 +26,7 @@ function BackDrop() {
                 className={`${darkMode ? 'bg-darker' : 'bg-light'} absolute w-screen h-screen  z-[20]`}
             ></motion.div>
             <div
-                className={`  absolute top-0 bg-hero-sm md:bg-hero-md lg:bg-hero bg-cover  w-screen h-screen  `}>
+                className={`absolute top-0 bg-hero-sm md:bg-hero-md lg:bg-hero bg-cover  w-screen h-screen  `}>
             </div>
 
 
@@ -45,7 +45,6 @@ function Hero() {
         },
         exit: {}
     }
-
 
     const headerContainer = {
         initial: { opacity: 0 },

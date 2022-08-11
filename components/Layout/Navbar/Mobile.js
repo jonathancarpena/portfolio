@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+// Next 
+import { useRouter } from "next/router";
+
 // Hooks
 import useScroll from "../../../lib/hooks/useScroll";
 import { useDarkMode } from "../../../lib/context/ThemeProvider";
@@ -63,6 +66,7 @@ function MobileNav() {
     const darkMode = useDarkMode()
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState('')
+    const router = useRouter()
 
     function handleNavItemClick(link) {
         setActive(link)
@@ -99,7 +103,7 @@ function MobileNav() {
         { link: '/#about', text: 'about' },
         { link: '/#work', text: 'work' },
         { link: '/#skills', text: 'skills' },
-        { link: '/#contact', text: 'contact' },
+        { link: '/contact', text: 'contact' },
     ]
 
     return (
@@ -139,7 +143,7 @@ function MobileNav() {
                                     <motion.a
                                         key={`mobile-nav-${item.text}`}
                                         variants={navItem}
-                                        className={`${active === item.text ? 'bg-lighter text-accent-500' : ''}  active:bg-accent-600 w-[110%] rounded-xl  p-5 capitalize text-[3rem]`}
+                                        className={`${(active === item.text || router.pathname === item.link) ? 'bg-lighter text-accent-500' : ''}  active:bg-accent-600 w-[110%] rounded-xl  p-5 capitalize text-[3rem]`}
                                         href={item.link} onClick={() => handleNavItemClick(item.text)} >
                                         {item.text}
                                     </motion.a>

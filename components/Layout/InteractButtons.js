@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 
+// Next
+import { useRouter } from 'next/router';
+
 // Hooks
 import useScroll from '../../lib/hooks/useScroll';
 
@@ -19,6 +22,7 @@ import Popover from './Popover';
 function InteractButtons() {
     const darkMode = useDarkMode()
     const toggleDarkMode = useToggleDarkMode()
+    const { pathname } = useRouter()
     const scroll = useScroll()
     const [bottomPortion, setBottomPortion] = useState(null)
     useEffect(() => {
@@ -30,7 +34,7 @@ function InteractButtons() {
 
 
     const button = {
-        initial: { opacity: 0, x: -25 },
+        initial: { opacity: 0, x: `${pathname.includes('contact') ? '0' : -25}` },
         animate: {
             opacity: 1, x: 0,
             transition: {

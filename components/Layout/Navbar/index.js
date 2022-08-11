@@ -3,6 +3,7 @@ import { useState } from 'react'
 // Next
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // Framer
 import { motion } from 'framer-motion'
@@ -26,6 +27,7 @@ import { FiFileText } from 'react-icons/fi'
 function Navbar() {
     const scroll = useScroll()
     const darkMode = useDarkMode()
+    const { pathname } = useRouter()
     const [active, setActive] = useState('')
     function handleActive(text) {
         setActive(text)
@@ -50,9 +52,9 @@ function Navbar() {
 
         <>
             <motion.nav
-                initial={{ y: '-100%' }}
+                initial={{ y: `${pathname.includes('contact') ? '0' : '-100%'}` }}
                 animate={{ y: 0, transition: { duration: 1.25 } }}
-                exit={{ y: '-100%', transition: { duration: 1.25 } }}
+                exit={{ y: '-100%' }}
                 className={`
             ${scroll > 500 ? `bg-accent-500 text-white drop-shadow-xl` : `${darkMode ? 'text-white' : 'text-dark'} bg-transparent`}  lg:flex
               hidden  z-50   fixed top-0 w-full  justify-center transition-all ease-in-out duration-300 `}

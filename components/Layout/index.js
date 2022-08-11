@@ -31,8 +31,6 @@ function Layout({ children }) {
 
             <div className={`${darkMode ? 'bg-darker text-lighter' : 'bg-light text-darker'}   overflow-hidden w-full    min-h-screen flex flex-col items-center`}>
 
-
-
                 <AnimatePresence exitBeforeEnter>
                     {(screen !== "welcome" || layoutPages.includes(pathname)) &&
                         <Navbar key="navbar" />
