@@ -51,12 +51,18 @@ function About() {
         animate: {
             opacity: 1, y: 0,
             transition: {
+                type: "spring",
+                bounce: 0.3,
                 easeIn: "easeIn",
                 delayChildren: 0.25,
                 staggerChildren: 0.5,
             }
         },
-        exit: { opacity: 0, y: '35%', },
+        exit: {
+            opacity: 0, y: '35%', transition: {
+                easeIn: "easeInOut"
+            }
+        },
     }
     const description = {
         initial: { opacity: 0, x: 200 },
@@ -226,7 +232,7 @@ function About() {
 
 
                     {/* Details */}
-                    <div className='mt-[-2.5rem] mb-[1rem]  md:mt-0 lg:mb-0 grid lg:grid-cols-2 '>
+                    <div className='mt-[-2.5rem] mb-[1rem]  md:mt-0 lg:mb-0 grid lg:grid-cols-2 text-base lg:text-lg '>
                         <span className='flex py-2'>
                             <span className='font-semibold uppercase w-[120px] lg:w-[100px]'>Name:</span>
                             <span>Jonathan Carpena</span>
@@ -242,18 +248,18 @@ function About() {
                     <div className='border-b-2 border-b-neutral-400 w-full mb-[1.3rem] lg:mb-0'></div>
 
                     {/* Bio */}
-                    <div className='flex flex-col space-y-4'>
-                        <p className='text-base lg:text-lg'>
+                    <div className='flex flex-col space-y-4 text-base lg:text-lg'>
+                        <p >
                             My name is Jonathan, and I specialize in
                             <span className='font-semibold mx-1'>frontend development</span>
                             and dabble a little bit in the backend.
                         </p>
-                        <p>
+                        <p >
                             {`I'm a self starter with a burning passion in building client web applications,
                             desigining aesthetic user interfaces, and expanding my ever-growing skillset.`}
                         </p>
 
-                        <p>
+                        <p >
                             Outside the professional environment, I create lifestyle videos and go on food adventures.
                         </p>
                     </div>

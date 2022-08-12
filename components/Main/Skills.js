@@ -11,8 +11,22 @@ import DATA from '../../lib/skills'
 function Card({ header, skills }) {
     const darkMode = useDarkMode()
     const card = {
-        initial: { opacity: 0, y: 100 },
-        animate: { opacity: 1, y: 0, }
+        initial: { opacity: 0, y: '70%', },
+        animate: {
+            opacity: 1, y: 0,
+            transition: {
+                type: "spring",
+                bounce: 0.3,
+                easeIn: "easeIn",
+                delayChildren: 0.25,
+                staggerChildren: 0.5,
+            }
+        },
+        exit: {
+            opacity: 0, y: '35%', transition: {
+                easeIn: "easeInOut"
+            }
+        },
     }
 
     return (
@@ -62,7 +76,7 @@ function Skills() {
         animate: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.3
             }
         }
     }
@@ -85,7 +99,7 @@ function Skills() {
             variants={container}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.0001 }}
             id='skills' className='pt-28 pb-40 lg:pb-0 min-h-screen flex flex-col justify-start items-center lg:px-10 xl:px-80  '>
 
 
@@ -117,7 +131,7 @@ function Skills() {
                 variants={gridContainer}
                 initial="initial"
                 whileInView="animate"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.0001 }}
                 className='  grid grid-cols-1 gap-5 px-12 md:px-5  md:grid-cols-2  xl:max-w-[1400px] lg:px-0  lg:grid-cols-3 lg:gap-10 '
             >
                 {Object.entries(DATA).map((skill) => (

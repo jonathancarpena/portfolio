@@ -29,7 +29,7 @@ const ContactPage = () => {
 
   const ContactForm = (
     <form
-      className="flex flex-col w-full bg-accent-500 p-5 rounded-xl"
+      className="ring-8  ring-accent-600 flex flex-col w-full bg-accent-500 p-5 rounded-xl"
       method="POST"
       name="contact-form"
       action={`contact/?success=true&NewFriend=${submitterName}`}
@@ -110,16 +110,21 @@ const ContactPage = () => {
     }
   }, [7000])
 
+
+
+
   return (
     <div
 
       className="  bg-hero-sm md:bg-hero-md lg:bg-hero bg-cover  w-screen h-screen flex flex-col justify-center items-center">
 
-      <h1 className="  text-[2rem] md:text-[3rem] lg:text-[4rem]">
+      <h1 className=" mb-8 text-[3rem] lg:text-[4rem]">
         Contact Me
       </h1>
-      <main className={`w-[90vw] max-w-[600px] min-h-[450px] `}>
+      <main className={`drop-shadow-2xl w-[90vw] max-w-[600px] min-h-[450px] `}>
         {ContactForm}
+
+        {/* Toast */}
         <AnimatePresence exitBeforeEnter>
           {(!formComplete && showToast) &&
             <motion.ul
@@ -127,7 +132,7 @@ const ContactPage = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-sm md:text-base fixed bottom-5 right-5 space-y-2 md:bottom-10 md:right-10 flex flex-col items-end md:space-y-5"
+              className="text-sm md:text-base z-[105] fixed bottom-5 right-5 space-y-2 md:bottom-10 md:right-10 flex flex-col items-end md:space-y-5"
             >
               <motion.span
                 variants={toast}

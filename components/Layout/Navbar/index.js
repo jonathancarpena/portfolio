@@ -67,13 +67,13 @@ function Navbar() {
                         {/* Brand */}
                         <Link href='/#portfolio'  >
                             <a onClick={() => setActive('')} className=' flex-1 flex items-center space-x-3 '>
-                                <span className='min-w-[50px] min-h-[50px]'>
+                                <span className='rounded-full overflow-hidden min-w-[50px] min-h-[50px]'>
                                     <Image
                                         placeholder='blur'
                                         src={Avatar}
                                         alt='avatar'
                                         layout='responsive'
-                                        className=' rounded-full w-max'
+                                        className='  w-max'
                                     />
                                 </span>
                                 <span className='font-bold uppercase text-xl  '>Jonathan Carpena</span>

@@ -74,7 +74,7 @@ function InteractButtons() {
                             className={` hidden lg:flex flex-col items-end  space-y-10  ${darkMode ? 'text-lighter' : 'text-dark'}`}>
                             <li className=''>
                                 <Popover className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  outline-none flex items-center justify-center cursor-pointer z-[60]   w-[50px] h-[50px] rounded-xl hover:scale-110  active:scale-90 transition-all ease-in-out`}>
-                                    <FiMail className='text-[2rem] ' />
+                                    <FiMail data="jonathancarpena99@gmail.com" className='text-[2rem] ' />
                                 </Popover>
                             </li>
                             <li>

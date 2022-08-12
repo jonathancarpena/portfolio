@@ -16,7 +16,7 @@ function Popover({ children, className, long, mobile, position = "right" }) {
         bottom: `-right-6 top-[110%]`,
     }
     function copyToClipboard(e) {
-        const text = e.target.innerText
+        const text = e.target.getAttribute('data')
         const el = document.createElement('textarea');
         el.value = text;
         el.setAttribute('readonly', '');
@@ -39,7 +39,7 @@ function Popover({ children, className, long, mobile, position = "right" }) {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1, transition: { duration: 0.2 } }}
                         exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
-                        className={`absolute ${positionStyles[position]}  ${mobile ? 'text-base' : ''} drop-shadow-lg bg-accent-500 text-lighter  z-[100] flex items-center space-x-1  px-2 py-1 rounded-lg  font-semibold  `}>
+                        className={`absolute ${positionStyles[position]}  ${mobile ? 'text-base' : ''} drop-shadow-lg bg-accent-500 text-lighter  z-[105] flex items-center space-x-1  px-2 py-1 rounded-lg  font-semibold  `}>
                         <FiClipboard />
                         <span>Copied!</span>
                     </motion.span>

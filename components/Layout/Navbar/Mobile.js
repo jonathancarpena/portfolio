@@ -167,7 +167,7 @@ function MobileNav() {
 
                                 <li>
                                     <Popover position="top" mobile={true} className="active:scale-90 transition-all ease-in-out">
-                                        <FiMail />
+                                        <FiMail data="jonathancarpena99@gmail.com" />
                                     </Popover>
                                 </li>
                             </ul>

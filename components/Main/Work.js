@@ -79,18 +79,18 @@ function ProjectDetails({ id, handleShowDetails }) {
         animate: {
             x: 0, y: 0,
             transition: {
-                type: "tween",
+                type: "spring",
+                bounce: 0.15,
                 easeIn: "easeInOut",
-                duration: 0.5
             }
         },
         exit: {
             x: '100%',
             y: 0,
             transition: {
-                type: "tween",
+                type: "spring",
+                bounce: 0.15,
                 easeIn: "easeInOut",
-                duration: 0.5
             }
         }
     }
@@ -102,18 +102,18 @@ function ProjectDetails({ id, handleShowDetails }) {
         animate: {
             x: 0, y: 0,
             transition: {
-                type: "tween",
+                type: "spring",
+                bounce: 0.15,
                 easeIn: "easeInOut",
-                duration: 0.5
             }
         },
         exit: {
             x: 0,
             y: '100%',
             transition: {
-                type: "tween",
+                type: "spring",
+                bounce: 0.15,
                 easeIn: "easeInOut",
-                duration: 0.5
             }
         }
     }
@@ -532,19 +532,27 @@ function Card({ project, handleShowDetails }) {
 
     const darkMode = useDarkMode()
     const card = {
-        initial: { opacity: 0, y: 100 },
-        animate: { opacity: 1, y: 0, },
-        exit: {
-            opacity: 0, y: 50,
+        initial: { opacity: 0, y: '70%', },
+        animate: {
+            opacity: 1, y: 0,
             transition: {
+                type: "spring",
+                bounce: 0.3,
+                easeIn: "easeIn",
+                delayChildren: 0.25,
+                staggerChildren: 0.5,
+            }
+        },
+        exit: {
+            opacity: 0, y: '35%', transition: {
                 easeIn: "easeInOut"
             }
-        }
+        },
     }
     const details = {
         initial: { opacity: 0, y: "50%" },
-        animate: { opacity: 1, y: 0, transition: { easeIn: "easeIn", duration: 0.2 } },
-        exit: { opacity: 0, y: 0, transition: { duration: 0.2 } }
+        animate: { opacity: 1, y: 0, transition: { easeIn: "easeInOut", duration: 0.2 } },
+        exit: { opacity: 0, y: 0, transition: { easeIn: "easeInOut", duration: 0.2 } }
     }
 
 
@@ -679,7 +687,7 @@ function Work() {
         animate: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.3
             }
         },
         exit: {
@@ -719,7 +727,7 @@ function Work() {
             initial="initial"
             exit="exit"
             whileInView="animate"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.0001 }}
             id='work' className='  pt-28 flex flex-col justify-center items-center lg:px-10 xl:px-80 min-h-screen '>
 
             {/* Header */}
@@ -750,7 +758,7 @@ function Work() {
                 initial="initial"
                 exit="exit"
                 whileInView="animate"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.0001 }}
                 className='  grid grid-cols-1 gap-5 px-12 md:px-5 lg:px-0  xl:max-w-[1400px] md:grid-cols-2 lg:grid-cols-3 lg:gap-10 '>
                 {PROJECTS.map((project) => (
                     <Card

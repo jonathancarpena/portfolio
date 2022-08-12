@@ -69,28 +69,28 @@ function Footer() {
 
                 <ul className='flex flex-col space-y-5'>
                     <li>
-                        <a href="https://github.com/jonathancarpena" target="_blank" rel="noopener noreferrer" className='flex items-end  text-lg md:text-xl space-x-2 md:space-x-5'>
-                            <FiGithub className=' text-[3rem] h-[40px] md:h-[45px]' />
-                            <p className='flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>/jonathancarpena</p>
+                        <a href="https://github.com/jonathancarpena" target="_blank" rel="noopener noreferrer" className='flex items-end  text-base md:text-xl space-x-3 md:space-x-5'>
+                            <FiGithub className='w-[40px] md:w-[40px] h-[40px] md:h-[45px]' />
+                            <p className='flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[40px] md:h-[45px] rounded-md'>/jonathancarpena</p>
                         </a>
                     </li>
 
                     <li>
-                        <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className='flex items-end  text-lg md:text-xl space-x-2 md:space-x-5'>
-                            <FiLinkedin className=' text-[3rem] h-[40px] md:h-[45px]' />
-                            <p className='flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>/jonathancarpena</p>
+                        <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className='flex items-end  text-base md:text-xl space-x-3 md:space-x-5'>
+                            <FiLinkedin className='w-[40px] md:w-[40px] h-[40px] md:h-[45px]' />
+                            <p className='flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[40px] md:h-[45px] rounded-md'>/jonathancarpena</p>
                         </a>
                     </li>
                     <li className='hidden md:block'>
-                        <Popover long={true} className='w-max flex items-end  text-xl space-x-2 md:space-x-5'>
-                            <FiMail className='text-[3rem] h-[40px] md:h-[45px]' />
-                            <p className=' flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>jonathancarpena01@gmail.com</p>
+                        <Popover long={true} className='w-max flex items-end text-base md:text-xl space-x-3 md:space-x-5'>
+                            <FiMail className='w-[40px] md:w-[40px] h-[40px] md:h-[45px]' />
+                            <p className=' flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[40px] md:h-[45px] rounded-md'>jonathancarpena99@gmail.com</p>
                         </Popover>
                     </li>
                     <li className=' md:hidden'>
-                        <Popover long={true} mobile={true} position="bottom" className='w-max flex items-end  text-lg md:text-xl space-x-2 md:space-x-5 '>
-                            <FiMail className='text-[3rem] h-[40px] md:h-[45px]' />
-                            <p className=' flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[45px] rounded-md'>jonathancarpena01@gmail.com</p>
+                        <Popover long={true} mobile={true} position="bottom" className='w-max flex items-end  text-base md:text-xl space-x-3 md:space-x-5 '>
+                            <FiMail data="jonathancarpena99@gmail.com" className='w-[40px] md:w-[40px] h-[40px] md:h-[45px]' />
+                            <p className=' flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[40px] md:h-[45px] rounded-md'>jonathancarpena99@gmail.com</p>
                         </Popover>
                     </li>
                 </ul>
