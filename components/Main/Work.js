@@ -163,7 +163,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                         >
                             {project.screenshots.map((item, index) => (
                                 <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full cursor-grab active:cursor-grabbing'>
-                                    <Image alt={`${project.title}-screenshot-${index}`} src={Sample} className='w-full h-full' />
+                                    <Image placeholder='blur' alt={`${project.title}-screenshot-${index}`} src={Sample} className='w-full h-full' />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -360,7 +360,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                         >
                             {project.screenshots.map((item, index) => (
                                 <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full cursor-grab active:cursor-grabbing'>
-                                    <Image alt={`${project.title}-screenshot-${index}`} src={Sample} className='w-full h-full' />
+                                    <Image placeholder='blur' alt={`${project.title}-screenshot-${index}`} src={Sample} className='w-full h-full' />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -564,6 +564,7 @@ function Card({ project, handleShowDetails }) {
                     </div>
                 }
                 <Image
+                    placeholder='blur'
                     src={Sample}
                     alt={`${project.title}`}
                     className={`w-full ${hover ? 'scale-110' : 'scale-100'}  transition-all duration-200 ease-in-out`}

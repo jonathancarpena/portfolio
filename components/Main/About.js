@@ -184,6 +184,7 @@ function About() {
                 <div className=' lg:right-10 top-2 md:top-1 lg:top-0 relative min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] '>
                     <div className=' rounded-2xl ring-8 ring-white drop-shadow-lg '>
                         <Image
+                            placeholder='blur'
                             variants={avatar}
                             src={Avatar}
                             alt='avatar'

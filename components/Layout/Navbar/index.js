@@ -69,6 +69,7 @@ function Navbar() {
                             <a onClick={() => setActive('')} className=' flex-1 flex items-center space-x-3 '>
                                 <span className='min-w-[50px] min-h-[50px]'>
                                     <Image
+                                        placeholder='blur'
                                         src={Avatar}
                                         alt='avatar'
                                         layout='responsive'

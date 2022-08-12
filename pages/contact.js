@@ -127,7 +127,7 @@ const ContactPage = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-sm md:text-base absolute bottom-5 right-5 space-y-2 md:bottom-10 md:right-10 flex flex-col items-end md:space-y-5"
+              className="text-sm md:text-base fixed bottom-5 right-5 space-y-2 md:bottom-10 md:right-10 flex flex-col items-end md:space-y-5"
             >
               <motion.span
                 variants={toast}
