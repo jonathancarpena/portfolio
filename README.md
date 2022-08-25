@@ -8,11 +8,6 @@
 
 
 
-## Demo
-
-Insert gif or link to demo
-
-
 ## 🛠 Installation & Set Up
 
 Clone down this repository. You will need node and npm installed globally on your machine.
