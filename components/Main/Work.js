@@ -142,7 +142,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Screenshot Carousel */}
                     <div className='relative overflow-hidden'>
 
-                        {!project.time.end &&
+                        {!project.complete &&
                             <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                                 <FiClock className='text-[1.5rem]' />
                                 <span>In Progress</span>
@@ -235,21 +235,23 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Overview */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Description
+                            Overview
                         </h3>
-                        <p className='text-lg '>{project.description}</p>
+                        <p className='text-lg '>{project.overview}</p>
                     </div>
 
-                    {/* Time */}
+                    {/* Features */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Time
+                            Features
                         </h3>
-                        {project.time.end
-                            ? <p className='text-lg'>
-                                {project.time.start} - {project.time.end} (~{project.time.length})</p>
-                            : <p className='text-lg'>{project.time.start} - Present</p>
-                        }
+                        <ul className='text-lg'>
+                            {project.features.map((item, idx) => (
+                                <li key={`${project.id}-features-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                    - {item}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
                     {/* Focus */}
@@ -350,7 +352,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Screenshot Carousel */}
                     <div className='relative overflow-hidden'>
 
-                        {!project.time.end &&
+                        {!project.complete &&
                             <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                                 <FiClock className='text-[1.5rem]' />
                                 <span>In Progress</span>
@@ -445,21 +447,23 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Overview */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Description
+                            Overview
                         </h3>
-                        <p className='text-lg '>{project.description}</p>
+                        <p className='text-lg '>{project.overview}</p>
                     </div>
 
-                    {/* Time */}
+                    {/* Features */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Time
+                            Features
                         </h3>
-                        {project.time.end
-                            ? <p className='text-lg'>
-                                {project.time.start} - {project.time.end} (~{project.time.length})</p>
-                            : <p className='text-lg'>{project.time.start} - Present</p>
-                        }
+                        <ul className='text-lg'>
+                            {project.features.map((item, idx) => (
+                                <li key={`${project.id}-focus-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                    - {item}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
                     {/* Focus */}
@@ -584,7 +588,7 @@ function Card({ project, handleShowDetails }) {
             className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  drop-shadow-lg flex flex-col  overflow-hidden rounded-xl  `}>
             {/* ScreenShots */}
             <div onClick={() => handleShowDetails(project.id)} className=' cursor-pointer w-full overflow-hidden relative'>
-                {!project.time.end &&
+                {!project.complete &&
                     <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                         <FiClock className='text-[1.5rem]' />
                         <span>In Progress</span>
