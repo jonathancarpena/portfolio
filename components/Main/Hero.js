@@ -118,7 +118,7 @@ function Hero() {
                 <motion.h2
                     variants={job}
                     className={`${darkMode ? 'bg-dark text-lighter' : 'bg-lighter text-dark'} z-[20] mx-auto px-6 py-3 w-max text-3xl text-center rounded-xl   font-semibold  tracking-tight uppercase md:text-4xl lg:text-[2rem]`}>
-                    Front End Developer
+                    Front End Engineer
                 </motion.h2>
 
             </motion.div>

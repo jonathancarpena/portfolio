@@ -11,7 +11,7 @@ import { useDarkMode } from "../../../lib/context/ThemeProvider";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Icons
-import { FiLinkedin, FiMail, FiGithub } from 'react-icons/fi'
+import { FiLinkedin, FiMail, FiGithub, FiFileText } from 'react-icons/fi'
 
 // Components
 import Popover from "../Popover";
@@ -148,6 +148,18 @@ function MobileNav() {
                                         {item.text}
                                     </motion.a>
                                 ))}
+
+                                <motion.a
+                                    variants={navItem}
+                                    href="./Jonathan Carpena Resume.pdf"
+                                    download
+                                    title="Resume"
+                                    target="_blank"
+                                    rel='noopener noreferrer'
+                                    className={`  active:bg-accent-600 w-[110%] rounded-xl  p-5 capitalize text-[3rem]`}
+                                >
+                                    Resume
+                                </motion.a>
                             </ul>
 
                             {/* Socials */}
@@ -170,6 +182,7 @@ function MobileNav() {
                                         <FiMail data="jonathancarpena99@gmail.com" />
                                     </Popover>
                                 </li>
+
                             </ul>
 
                         </motion.div>

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef } from 'react'
 
 // Next
 import Image from 'next/image'
@@ -16,9 +16,6 @@ import "swiper/css";
 // Data
 import PROJECTS from '../../lib/projects'
 import { ICONS } from '../../lib/skills';
-
-// Images
-import Sample from '../../public/projectSample.jpg'
 
 // Icons
 import {
@@ -39,7 +36,7 @@ function ProjectDetails({ id, handleShowDetails }) {
     const [activeIndex, setActiveIndex] = useState(0)
 
     const project = PROJECTS.find((item) => item.id === id)
-
+    let mobilePhoto = project.screenshots.some((item) => item.includes('mobile'))
 
     // Carousel Navigator Functions
     const handlePrev = useCallback(() => {
@@ -145,7 +142,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Screenshot Carousel */}
                     <div className='relative overflow-hidden'>
 
-                        {!project.externalLink &&
+                        {!project.time.end &&
                             <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                                 <FiClock className='text-[1.5rem]' />
                                 <span>In Progress</span>
@@ -156,16 +153,36 @@ function ProjectDetails({ id, handleShowDetails }) {
                             ref={sliderRef}
                             spaceBetween={0}
                             slidesPerView={1}
-                            className='max-h-[70vh] '
+                            className='bg-neutral-100 max-h-[540px] rounded-lg'
                             centeredSlides={true}
-
                             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
                         >
-                            {project.screenshots.map((item, index) => (
-                                <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full cursor-grab active:cursor-grabbing'>
-                                    <Image placeholder='blur' alt={`${project.title}-screenshot-${index}`} src={Sample} className='w-full h-full' />
-                                </SwiperSlide>
-                            ))}
+                            {project.screenshots.map((item, index) => {
+                                if (item.includes('mobile')) {
+                                    return (
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='py-5  max-h-[540px] w-full  flex  justify-center items-center cursor-grab active:cursor-grabbing'>
+                                            <img
+                                                alt={`${project.title}-screenshot-${index}`}
+                                                src={item}
+                                                className='max-h-[500px] rounded-xl drop-shadow-xl ring-4 ring-neutral-700'
+                                            />
+                                        </SwiperSlide>
+                                    )
+                                } else {
+                                    return (
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full block   cursor-grab active:cursor-grabbing '>
+                                            <div className='drop-shadow-xl relative w-[100%] h-[540px]' >
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="contain"
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                }
+                            })}
                         </Swiper>
 
                         {activeIndex !== 0 &&
@@ -205,9 +222,9 @@ function ProjectDetails({ id, handleShowDetails }) {
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-2'>
                             Tools
                         </h3>
-                        <ul className='flex flex-col space-y-1 md:space-y-0 md:flex-row md:space-x-2'>
+                        <ul className='grid md:grid-cols-3 lg:grid-cols-5 gap-2'>
                             {project.tools.map((item) => (
-                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} w-max px-3 py-1 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
+                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} w-full  px-3 py-2 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
                                     <span>{ICONS[item].icon}</span>
                                     <span>{ICONS[item].name}</span>
                                 </li>
@@ -218,7 +235,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Overview */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Overview
+                            Description
                         </h3>
                         <p className='text-lg '>{project.description}</p>
                     </div>
@@ -235,58 +252,48 @@ function ProjectDetails({ id, handleShowDetails }) {
                         }
                     </div>
 
-                    {/* Goals */}
+                    {/* Focus */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Goal
+                            Focus
                         </h3>
                         <ul className='text-lg'>
-                            {project.goals.map((goal, idx) => (
-                                <li key={`${project.id}-goal-${idx}`} className='list-inside flex space-x-1 items-center'>
-                                    - {goal}
+                            {project.focus.map((focus, idx) => (
+                                <li key={`${project.id}-focus-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                    - {focus}
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Challenges */}
-                    {project.challenges.length &&
-                        <div className=''>
-                            <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                                Challenges
-                            </h3>
-                            <ul className='text-lg'>
-                                {project.challenges.map((goal, idx) => (
-                                    <li key={`${project.id}-goal-${idx}`} className='list-inside list-decimal '>
-                                        {goal}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    }
 
-                    {/* Conclusion */}
+
+                    {/* Reflection */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Conclusion
+                            Reflection
                         </h3>
-                        <p className='text-lg'>
-                            {project.conclusion}
-                        </p>
+                        <ul className='text-lg'>
+                            {project.reflection.map((item, idx) => (
+                                <li key={`${project.id}-reflection-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                    - {item}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
 
                     {/* Project Navigators */}
-                    <div className='py-10 relative w-full bg-inherit'>
+                    <div className='py-12 relative w-full bg-inherit'>
                         {id !== 1 &&
-                            <button onClick={() => projectChange(id - 1)} className='overflow-hidden w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 left-0 flex flex-col space-y-1 bg-inherit drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out'>
+                            <button onClick={() => projectChange(id - 1)} className=' text-white overflow-hidden w-[175px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 left-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out'>
                                 <span className='flex items-center space-x-2 place-self-start text-sm'>
-                                    <FiArrowLeft className='text-accent-500 text-base' />
+                                    <FiArrowLeft className=' text-base' />
                                     <span>Prev</span>
                                 </span>
-                                <span className='font-semibold place-self-start'>
-                                    {PROJECTS[id - 2].title.length > 10
-                                        ? PROJECTS[id - 2].title.substring(0, 11) + '...'
+                                <span className='font-semibold place-self-start '>
+                                    {PROJECTS[id - 2].title.length > 14
+                                        ? PROJECTS[id - 2].title.substring(0, 13) + '...'
                                         : PROJECTS[id - 2].title
                                     }
                                 </span>
@@ -294,14 +301,14 @@ function ProjectDetails({ id, handleShowDetails }) {
                         }
 
                         {id !== PROJECTS.length &&
-                            <button onClick={() => projectChange(id + 1)} className='overflow-hidden  w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 right-0 flex flex-col space-y-1 bg-inherit drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out '>
+                            <button onClick={() => projectChange(id + 1)} className=' text-white overflow-hidden  w-[175px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 right-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out '>
                                 <span className='flex items-center space-x-2 place-self-end text-sm'>
                                     <span>Next</span>
-                                    <FiArrowRight className='text-accent-500 text-base' />
+                                    <FiArrowRight className=' text-base' />
                                 </span>
-                                <span className='font-semibold place-self-end '>
-                                    {PROJECTS[id].title.length > 10
-                                        ? PROJECTS[id].title.substring(0, 9) + '...'
+                                <span className='font-semibold place-self-end  '>
+                                    {PROJECTS[id].title.length > 14
+                                        ? PROJECTS[id].title.substring(0, 13) + '...'
                                         : PROJECTS[id].title
                                     }
                                 </span>
@@ -343,7 +350,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Screenshot Carousel */}
                     <div className='relative overflow-hidden'>
 
-                        {!project.externalLink &&
+                        {!project.time.end &&
                             <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                                 <FiClock className='text-[1.5rem]' />
                                 <span>In Progress</span>
@@ -354,15 +361,38 @@ function ProjectDetails({ id, handleShowDetails }) {
                             ref={mobileSliderRef}
                             spaceBetween={0}
                             slidesPerView={1}
-                            className='max-h-[70vh] '
+                            className='bg-neutral-200  h-max rounded-lg flex justify-center items-center'
                             centeredSlides={true}
                             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
                         >
-                            {project.screenshots.map((item, index) => (
-                                <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full cursor-grab active:cursor-grabbing'>
-                                    <Image placeholder='blur' alt={`${project.title}-screenshot-${index}`} src={Sample} className='w-full h-full' />
-                                </SwiperSlide>
-                            ))}
+                            {project.screenshots.map((item, index) => {
+                                if (item.includes('mobile')) {
+                                    return (
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='py-5  max-h-[50vh] w-full  flex  justify-center items-center cursor-grab active:cursor-grabbing'>
+                                            <img
+                                                alt={`${project.title}-screenshot-${index}`}
+                                                src={item}
+                                                className='max-h-[40vh] rounded-xl drop-shadow-xl ring-4 ring-neutral-700'
+                                            />
+                                        </SwiperSlide>
+                                    )
+                                } else {
+                                    return (
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className={`${mobilePhoto ? 'relative top-[4.5rem]  ' : ''} w-full h-full block  cursor-grab active:cursor-grabbing`}>
+                                            <div className='drop-shadow-xl relative w-[100%] h-[30vh] ' >
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="contain"
+                                                />
+                                            </div>
+
+                                        </SwiperSlide>
+                                    )
+                                }
+                            })}
+
                         </Swiper>
 
                         {activeIndex !== 0 &&
@@ -382,7 +412,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     </div>
 
                     {/* Links */}
-                    <div className='flex items-center space-x-4'>
+                    <div className='flex items-center space-x-4 relative top-1'>
                         {project.externalLink &&
                             <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Visit Site</span> <FiExternalLink />
@@ -402,9 +432,9 @@ function ProjectDetails({ id, handleShowDetails }) {
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-2'>
                             Tools
                         </h3>
-                        <ul className='flex flex-col space-y-1 md:space-y-0 md:flex-row md:space-x-2'>
+                        <ul className='grid grid-cols-2 gap-2 '>
                             {project.tools.map((item) => (
-                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} w-max px-3 py-1 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
+                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} w-full px-3 py-2 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
                                     <span>{ICONS[item].icon}</span>
                                     <span>{ICONS[item].name}</span>
                                 </li>
@@ -415,7 +445,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                     {/* Overview */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Overview
+                            Description
                         </h3>
                         <p className='text-lg '>{project.description}</p>
                     </div>
@@ -432,53 +462,42 @@ function ProjectDetails({ id, handleShowDetails }) {
                         }
                     </div>
 
-                    {/* Goals */}
+                    {/* Focus */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Goal
+                            Focus
                         </h3>
                         <ul className='text-lg'>
-                            {project.goals.map((goal, idx) => (
-                                <li key={`${project.id}-goal-${idx}`} className='list-inside flex space-x-1 items-center'>
-                                    - {goal}
+                            {project.focus.map((focus, idx) => (
+                                <li key={`${project.id}-focus-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                    - {focus}
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Challenges */}
-                    {project.challenges.length &&
-                        <div className=''>
-                            <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                                Challenges
-                            </h3>
-                            <ul className='text-lg'>
-                                {project.challenges.map((goal, idx) => (
-                                    <li key={`${project.id}-goal-${idx}`} className='list-inside list-decimal '>
-                                        {goal}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    }
 
-                    {/* Conclusion */}
+                    {/* Reflection */}
                     <div className=''>
                         <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Conclusion
+                            Reflection
                         </h3>
-                        <p className='text-lg'>
-                            {project.conclusion}
-                        </p>
+                        <ul className='text-lg'>
+                            {project.reflection.map((item, idx) => (
+                                <li key={`${project.id}-reflection-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                    - {item}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
 
                     {/* Project Navigators */}
                     <div className='py-10 relative w-full bg-inherit'>
                         {id !== 1 &&
-                            <button onClick={() => projectChange(id - 1)} className='overflow-hidden w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 left-0 flex flex-col space-y-1 bg-inherit drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out'>
+                            <button onClick={() => projectChange(id - 1)} className='text-white overflow-hidden w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 left-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out'>
                                 <span className='flex items-center space-x-2 place-self-start text-sm'>
-                                    <FiArrowLeft className='text-accent-500 text-base' />
+                                    <FiArrowLeft className='text-white text-base' />
                                     <span>Prev</span>
                                 </span>
                                 <span className='font-semibold place-self-start'>
@@ -491,10 +510,10 @@ function ProjectDetails({ id, handleShowDetails }) {
                         }
 
                         {id !== PROJECTS.length &&
-                            <button onClick={() => projectChange(id + 1)} className='overflow-hidden  w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 right-0 flex flex-col space-y-1 bg-inherit drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out '>
+                            <button onClick={() => projectChange(id + 1)} className='text-white overflow-hidden  w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 right-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out '>
                                 <span className='flex items-center space-x-2 place-self-end text-sm'>
                                     <span>Next</span>
-                                    <FiArrowRight className='text-accent-500 text-base' />
+                                    <FiArrowRight className='text-white text-base' />
                                 </span>
                                 <span className='font-semibold place-self-end '>
                                     {PROJECTS[id].title.length > 10
@@ -564,24 +583,27 @@ function Card({ project, handleShowDetails }) {
             variants={card}
             className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  drop-shadow-lg flex flex-col  overflow-hidden rounded-xl  `}>
             {/* ScreenShots */}
-            <div onClick={() => handleShowDetails(project.id)} className='cursor-pointer w-full overflow-hidden relative'>
-                {!project.externalLink &&
+            <div onClick={() => handleShowDetails(project.id)} className=' cursor-pointer w-full overflow-hidden relative'>
+                {!project.time.end &&
                     <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                         <FiClock className='text-[1.5rem]' />
                         <span>In Progress</span>
                     </div>
                 }
-                <Image
-                    placeholder='blur'
-                    src={Sample}
-                    alt={`${project.title}`}
-                    className={`w-full ${hover ? 'scale-110' : 'scale-100'}  transition-all duration-200 ease-in-out`}
-                />
+                <div className='drop-shadow-xl relative w-[100%] h-[30vh] ' >
+                    <Image
+                        layout="fill"
+                        objectFit="cover"
+                        src={project.preview}
+                        alt={`${project.title}`}
+                        className={`w-full ${hover ? 'scale-110' : 'scale-100'}  transition-all duration-200 ease-in-out`}
+                    />
+                </div>
 
             </div>
 
             {/* Project Details */}
-            <div className='flex-1  p-8 flex flex-col space-y-4 justify-between   w-full'>
+            <div className='flex-1 border-t-2 border-t-accent-500 p-8 flex flex-col space-y-4 justify-between   w-full'>
 
                 <div className=' flex flex-col space-y-4'>
                     {/* Title */}
@@ -597,7 +619,7 @@ function Card({ project, handleShowDetails }) {
                     {/* Tools */}
                     <ul className='flex  flex-wrap relative right-1'>
                         {project.tools.map((tool) => (
-                            <li key={`${project.title}-tool-${tool}`} className={`${darkMode ? 'bg-darker' : 'bg-light'} mb-3 px-3 py-1 rounded-xl text-sm capitalize  mr-2.5`}>
+                            <li key={`${project.title}-tool-${tool}`} className={`${darkMode ? 'bg-darker' : 'bg-light'} select-none cursor-default mb-2 px-3 py-1 rounded-xl text-sm capitalize  mr-2`}>
                                 {ICONS[tool].name}
                             </li>
                         ))}

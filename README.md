@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# jonathancarpena.com - v1
 
-First, run the development server:
+> The first iteration of <a href="https://jonathancarpena.netlify.app/" target="_blank" rel="noopener noreferrer">jonathancarpena.com</a> built with <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a> and hosted with <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.
+## Screenshots
 
-```bash
+![App Screenshot](https://via.placeholder.com/830x425?text=App+Screenshot+Here)
+
+
+
+## Demo
+
+Insert gif or link to demo
+
+
+## 🛠 Installation & Set Up
+
+Clone down this repository. You will need node and npm installed globally on your machine.
+```
+$ git clone https://github.com/jonathancarpena/portfolio.git
+```
+1. Install dependencies `npm install`
+
+
+
+
+
+
+
+    ## 🚀 Building and Running for Production
+
+
+Development mode. Open http://localhost:3000 to view it in the browser.
+```
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🎨 Color Reference
 
-## Learn More
+| Accent Color          | Hex                                                                |
+| -------------- | ------------------------------------------------------------------ |
+| 100            | ![#dcd2f9](https://via.placeholder.com/10/dcd2f9?text=+) `#dcd2f9` |
+| 200            | ![#b9a6f2](https://via.placeholder.com/10/b9a6f2?text=+) `#b9a6f2` |
+| 300            | ![#9679ec](https://via.placeholder.com/10/9679ec?text=+) `#9679ec` |
+| 400            | ![#734de5](https://via.placeholder.com/10/734de5?text=+) `#734de5` |
+| 500            | ![#5020df](https://via.placeholder.com/10/5020df?text=+) `#5020df` |
+| 600            | ![#401ab2](https://via.placeholder.com/10/401ab2?text=+) `#401ab2` |
+| 700            | ![#301386](https://via.placeholder.com/10/301386?text=+) `#301386` |
+| 800            | ![#200d59](https://via.placeholder.com/10/200d59?text=+) `#200d59` |
+| 900            | ![#10062d](https://via.placeholder.com/10/10062d?text=+) `#10062d` |
 
-To learn more about Next.js, take a look at the following resources:
+| Light Mode          | Hex                                                                |
+| -------------- | ------------------------------------------------------------------ |
+| Light              | ![#e8e8e8](https://via.placeholder.com/10/e8e8e8?text=+) `#e8e8e8` |
+| Lighter            | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) `#ffffff` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Dark Mode          | Hex                                                                |
+| -------------- | ------------------------------------------------------------------ |
+| Dark              | ![#272727](https://via.placeholder.com/10/272727?text=+) `#272727` |
+| Darker            | ![#1A1A1A](https://via.placeholder.com/10/1A1A1A?text=+) `#1A1A1A` |
