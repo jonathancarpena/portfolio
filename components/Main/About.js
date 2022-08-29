@@ -76,13 +76,26 @@ function About() {
         }
     }
 
-    const avatar = {
+    const avatarContainer = {
         initial: { opacity: 0, y: 200 },
         animate: {
             opacity: 1, y: 0,
             transition: {
+                when: "beforeChildren",
                 type: "spring",
                 bounce: 0.4,
+                duration: 0.8
+            }
+        }
+    };
+
+    const avatar = {
+        initial: { opacity: 0, scale: 0.3 },
+        animate: {
+            opacity: 1, scale: 1,
+            transition: {
+                type: "spring",
+                bounce: 0.5,
                 duration: 0.8
             }
         }
@@ -153,7 +166,6 @@ function About() {
                     Welcome
                 </h3>
                 <span className='w-[65px] h-[65px] ml-3 mb-1 md:w-[70px] md:h-[70px] md:mb-1 lg:w-[100px] lg:h-[100px] lg:mr-0  lg:mb-4'>
-
                     <motion.svg
                         variants={svgContainer}
                         xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +178,6 @@ function About() {
                         <motion.line variants={draw} x1="10" y1="1" x2="10" y2="4"></motion.line>
                         <motion.line variants={draw} x1="14" y1="1" x2="14" y2="4"></motion.line>
                     </motion.svg>
-
                 </span>
             </div>
 
@@ -186,29 +197,32 @@ function About() {
                     </h3>
                 </div>
 
+
                 {/* Avatar */}
-                <div className=' lg:right-10 top-2 md:top-1 lg:top-0 relative min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] '>
-                    <div className=' rounded-2xl ring-8 ring-white drop-shadow-lg '>
+                <motion.div
+                    variants={avatarContainer}
+                    className=' flex justify-center items-center rounded-2xl ring-8 ring-accent-600 bg-accent-500 lg:right-10 top-2 md:top-1 lg:top-0 relative min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] '>
+                    <motion.div
+                        variants={avatar}
+                        className='min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] drop-shadow-[10px_10px_7px_rgba(0,0,0,0.9)] '>
                         <Image
                             placeholder='blur'
-                            variants={avatar}
                             src={Avatar}
                             alt='avatar'
-                            sizes="(min-width: 300px) ,
-                            (min-width: 350px) ,
-                            "
+                            layout='fill'
+                            objectFit='contain'
                         />
-                    </div>
+                    </motion.div>
 
                     {/* Mobile Hand */}
                     <motion.span
                         variants={hand}
                         animate={controls}
-                        className='lg:hidden absolute top-1 right-1 '
+                        className='lg:hidden absolute top-1 -right-2 '
                     >
-                        <IoHandRightSharp className='text-[5rem] text-yellow-500' />
+                        <IoHandRightSharp className='text-[5rem] text-yellow-500 ' />
                     </motion.span>
-                </div>
+                </motion.div>
 
 
                 {/* Description */}
@@ -221,18 +235,19 @@ function About() {
                         <h3 className='bg-accent-500 px-3 rounded-lg text-lighter relative  font-design text-[2.5rem] text-center lg:text-start lg:text-[3.5rem] lg:right-3'>
                             Nice to meet you!
                         </h3>
+
                         <motion.span
                             variants={hand}
                             animate={controls}
                             className='hidden lg:block   '
                         >
-                            <IoHandRightSharp className='text-[5rem] text-yellow-500' />
+                            <IoHandRightSharp className='text-[5rem] text-yellow-500 ' />
                         </motion.span>
                     </div>
 
 
                     {/* Details */}
-                    <div className='mt-[-2.5rem] mb-[1rem]  md:mt-0 lg:mb-0 grid lg:grid-cols-2 text-base lg:text-lg '>
+                    <div className=' mt-5 mb-[1rem]  lg:mb-0 grid lg:grid-cols-2 text-base lg:text-lg '>
                         <span className='flex py-2'>
                             <span className='font-semibold uppercase w-[120px] lg:w-[100px]'>Name:</span>
                             <span>Jonathan Carpena</span>

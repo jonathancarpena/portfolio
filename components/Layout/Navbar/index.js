@@ -13,7 +13,7 @@ import useScroll from '../../../lib/hooks/useScroll'
 import { useDarkMode } from '../../../lib/context/ThemeProvider'
 
 // Image 
-import Avatar from '../../../public/avatar.png'
+import Logo from '../../../public/logo.png'
 
 // Components
 import NavItem from './NavItem'
@@ -67,15 +67,17 @@ function Navbar() {
                         {/* Brand */}
                         <Link href='/#portfolio'  >
                             <a onClick={() => setActive('')} className=' flex-1 flex items-center space-x-3 '>
-                                <span className='rounded-full overflow-hidden min-w-[50px] min-h-[50px]'>
+                                <div className={`${scroll > 500 ? 'bg-dark' : 'bg-accent-500'} rounded-lg overflow-hidden min-w-[50px] min-h-[50px] flex justify-center items-center`}>
                                     <Image
                                         placeholder='blur'
-                                        src={Avatar}
-                                        alt='avatar'
-                                        layout='responsive'
-                                        className='  w-max'
+                                        src={Logo}
+                                        alt='logo'
+                                        width={27}
+                                        height={27}
+                                        objectFit='contain'
                                     />
-                                </span>
+                                </div>
+
                                 <span className='font-bold uppercase text-xl  '>Jonathan Carpena</span>
                             </a>
                         </Link>

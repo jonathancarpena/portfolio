@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider>
       <ScreenProvider>
         <Layout>
-          <Component {...pageProps} />
+          <Component  {...pageProps} />
         </Layout>
       </ScreenProvider>
     </ThemeProvider>

@@ -5,6 +5,17 @@
 
 html {
 	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	scrollbar-color: #e8e8e8;
+}
+::-webkit-scrollbar {
+	width: 12px;
+}
+::-webkit-scrollbar-track {
+	background: #e8e8e8;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgb(192, 192, 192);
 }
 * {
 	margin: 0;
