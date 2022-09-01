@@ -98,7 +98,7 @@ function Hero() {
             animate="animate"
             exit="exit"
             id='portfolio'
-            className='overflow-visible font-sans px-10  min-h-screen lg:min-h-[90vh] flex justify-center items-center w-full relative lg:px-36'>
+            className='overflow-visible font-sans px-10  min-h-screen  flex justify-center items-center w-full relative lg:px-36'>
 
 
             <BackDrop />
@@ -111,14 +111,14 @@ function Hero() {
 
                 <motion.h1
                     variants={header}
-                    className={`${darkMode ? 'text-white' : 'text-dark'} z-[30] text-center  font-bold uppercase   lg:text-[6rem] lg:px-3  text-6xl flex flex-col -space-y-2 drop-shadow-xl`}>
+                    className={`${darkMode ? 'text-white' : 'text-dark'} z-[30] text-center  text-5xl font-bold uppercase   lg:text-[6rem] lg:px-3   flex flex-col -space-y-2 drop-shadow-xl`}>
                     Jonathan Carpena
                 </motion.h1>
 
                 <motion.h2
                     variants={job}
-                    className={`${darkMode ? 'bg-dark text-lighter' : 'bg-lighter text-dark'} z-[20] mx-auto px-6 py-3 w-max text-3xl text-center rounded-xl   font-semibold  tracking-tight uppercase md:text-4xl lg:text-[2rem]`}>
-                    Front End Engineer
+                    className={`${darkMode ? 'bg-dark text-lighter' : 'bg-lighter text-dark'} z-[20] mx-auto px-6 py-3 w-max text-xl text-center rounded-xl   font-semibold  tracking-tight uppercase md:text-4xl lg:text-[2rem]`}>
+                    Full Stack Developer
                 </motion.h2>
 
             </motion.div>

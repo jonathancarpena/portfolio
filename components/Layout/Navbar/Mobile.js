@@ -11,7 +11,7 @@ import { useDarkMode } from "../../../lib/context/ThemeProvider";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Icons
-import { FiLinkedin, FiMail, FiGithub, FiFileText } from 'react-icons/fi'
+import { FiLinkedin, FiMail, FiGithub } from 'react-icons/fi'
 
 // Components
 import Popover from "../Popover";
@@ -152,7 +152,7 @@ function MobileNav() {
                                 <motion.a
                                     variants={navItem}
                                     href="./Jonathan Carpena Resume.pdf"
-                                    download
+                                    // download
                                     title="Resume"
                                     target="_blank"
                                     rel='noopener noreferrer'

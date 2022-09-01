@@ -69,7 +69,6 @@ function Navbar() {
                             <a onClick={() => setActive('')} className=' flex-1 flex items-center space-x-3 '>
                                 <div className={`${scroll > 500 ? 'bg-dark' : 'bg-accent-500'} rounded-lg overflow-hidden min-w-[50px] min-h-[50px] flex justify-center items-center`}>
                                     <Image
-                                        placeholder='blur'
                                         src={Logo}
                                         alt='logo'
                                         width={27}
@@ -90,7 +89,7 @@ function Navbar() {
                                     handleActive={handleActive}
                                     scroll={scroll}
                                     darkMode={darkMode}
-                                    active={active === item.text}
+                                    active={scroll > 500 && active === item.text}
                                     link={item.link}
                                     text={item.text}
                                 />
@@ -98,7 +97,7 @@ function Navbar() {
 
                             <a
                                 href="./Jonathan Carpena Resume.pdf"
-                                download
+                                // download
                                 title="Resume"
                                 target="_blank"
                                 rel='noopener noreferrer'

@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero': "url('/hero.svg')",
-        'hero-sm': "url('/hero-sm.svg')",
-        'hero-md': "url('/hero-md.svg')",
+        'hero': "url('/background/hero.svg')",
+        'hero-sm': "url('/background/hero-sm.svg')",
+        'hero-md': "url('/background/hero-md.svg')",
       },
       fontFamily: {
         sans: 'Poppins',

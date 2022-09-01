@@ -1,40 +1,12 @@
-import { useState } from 'react'
-
-// Hooks
-import { useChangeScreen } from '../../lib/context/ScreenProvider'
-
-import Popover from '../Layout/Popover'
-
-function Password() {
-    const [value, setValue] = useState("")
-    const [error, setError] = useState(false)
-    const change = useChangeScreen()
-    const password = "jackjackjack"
-
-    function validate(e) {
-        e.preventDefault()
-        if (value === password) {
-            change("main")
-            setValue("")
-        } else {
-            setValue("")
-            showError()
-        }
-    }
-
-    function showError() {
-        setError(true)
-        setTimeout(() => {
-            setError(false)
-        }, [2000])
-    }
-
+import { useState } from "react"
+function Password({ validate, error }) {
+    const [input, setInput] = useState('')
     return (
-        <form onSubmit={validate} className='relative text-lg flex space-x-2'>
+        <form onSubmit={(e) => validate(e, input)} className='text-lg flex space-x-2 fixed top-[50%] -translate-y-[50%]'>
             <input
                 type="password"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
                 className="py-2 px-4 outline-none rounded-md text-dark focus:ring-4 focus:ring-accent-500"
             />
             {error && <span className='absolute -top-8 '>Incorrect. Try again.</span>}

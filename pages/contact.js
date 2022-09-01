@@ -123,44 +123,44 @@ const ContactPage = () => {
       </h1>
       <main className={`drop-shadow-2xl w-[90vw] max-w-[600px] min-h-[450px] `}>
         {ContactForm}
-
-        {/* Toast */}
-        <AnimatePresence exitBeforeEnter>
-          {(!formComplete && showToast) &&
-            <motion.ul
-              variants={toastContainer}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="text-sm md:text-base z-[105] fixed bottom-5 right-5 space-y-2 md:bottom-10 md:right-10 flex flex-col items-end md:space-y-5"
-            >
-              <motion.span
-                variants={toast}
-                className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
-              >
-                <span>{`I'll get back to you within 24-48 hours`}</span>
-                <FiClock />
-              </motion.span>
-              <motion.span
-                variants={toast}
-                className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
-              >
-                <span>Thank You {router.query.NewFriend ? router.query.NewFriend : 'Friend'}!</span>
-                <FaSmileWink className="text-yellow-500" />
-              </motion.span>
-              <motion.span
-                variants={toast}
-                className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
-              >
-                <span>Form Submitted</span>
-                <BsFillCheckCircleFill className="text-green-500" />
-              </motion.span>
-
-
-            </motion.ul>
-          }
-        </AnimatePresence>
       </main>
+
+      {/* Toast */}
+      <AnimatePresence exitBeforeEnter>
+        {(!formComplete && showToast) &&
+          <motion.ul
+            variants={toastContainer}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="text-sm md:text-base z-[105] fixed bottom-5 right-5 space-y-2 md:bottom-10 md:right-10 flex flex-col items-end md:space-y-5"
+          >
+            <motion.span
+              variants={toast}
+              className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
+            >
+              <span>{`I'll get back to you within 24-48 hours`}</span>
+              <FiClock />
+            </motion.span>
+            <motion.span
+              variants={toast}
+              className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
+            >
+              <span>Thank You {router.query.NewFriend ? router.query.NewFriend : 'Friend'}!</span>
+              <FaSmileWink className="text-yellow-500" />
+            </motion.span>
+            <motion.span
+              variants={toast}
+              className={`${darkMode ? 'bg-dark text-white' : 'bg-lighter text-dark'} drop-shadow-lg w-max z-[100]  p-3 rounded-md flex justify-end space-x-2 items-center`}
+            >
+              <span>Form Submitted</span>
+              <BsFillCheckCircleFill className="text-green-500" />
+            </motion.span>
+
+
+          </motion.ul>
+        }
+      </AnimatePresence>
       <InteractButtons />
     </div>
   );

@@ -9,6 +9,7 @@ import useScroll from '../../lib/hooks/useScroll';
 // Context
 import { useDarkMode, useToggleDarkMode } from '../../lib/context/ThemeProvider';
 
+
 // Framer
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -59,11 +60,11 @@ function InteractButtons() {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        className='z-[99] flex flex-col items-center space-y-10 fixed bottom-5 lg:bottom-0 left-5'
+                        className=' z-[40] drop-shadow-lg  flex flex-col items-center space-y-10 fixed bottom-10 lg:bottom-0 left-5 lg:z-[99]'
                     >
 
                         <button
-                            className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  outline-none flex items-center justify-center cursor-pointer z-[60]   w-[50px] h-[50px] rounded-xl hover:scale-110  active:scale-90 transition-all ease-in-out`}
+                            className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  outline-none flex items-center justify-center cursor-pointer z-[50]   w-[50px] h-[50px] rounded-xl hover:scale-110  active:scale-90 transition-all ease-in-out`}
                             onClick={toggleDarkMode}>
                             {darkMode
                                 ? <FiMoon className='text-light text-[2rem]' />

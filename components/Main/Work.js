@@ -26,6 +26,7 @@ import {
     FiX,
     FiArrowLeft,
     FiArrowRight,
+    FiPlay
 } from 'react-icons/fi'
 
 
@@ -62,6 +63,8 @@ function ProjectDetails({ id, handleShowDetails }) {
         handleShowDetails(projectId)
         const myDiv = document.getElementById('project-details');
         const mobileDiv = document.getElementById('mobile-project-details');
+        sliderRef.current.swiper.slideTo(0)
+        mobileSliderRef.current.swiper.slideTo(0)
         setActiveIndex(0)
         myDiv.scroll({ top: 0, behavior: 'smooth' })
         mobileDiv.scroll({ top: 0, behavior: 'smooth' })
@@ -153,6 +156,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                             ref={sliderRef}
                             spaceBetween={0}
                             slidesPerView={1}
+                            initialSlide={0}
                             className='bg-neutral-100 max-h-[540px] rounded-lg'
                             centeredSlides={true}
                             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
@@ -161,22 +165,34 @@ function ProjectDetails({ id, handleShowDetails }) {
                                 if (item.includes('mobile')) {
                                     return (
                                         <SwiperSlide key={`${project.id}-slide-${index}`} className='py-5  max-h-[540px] w-full  flex  justify-center items-center cursor-grab active:cursor-grabbing'>
-                                            <img
-                                                alt={`${project.title}-screenshot-${index}`}
-                                                src={item}
-                                                className='max-h-[500px] rounded-xl drop-shadow-xl ring-4 ring-neutral-700'
-                                            />
-                                        </SwiperSlide>
-                                    )
-                                } else {
-                                    return (
-                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full block   cursor-grab active:cursor-grabbing '>
-                                            <div className='drop-shadow-xl relative w-[100%] h-[540px]' >
+                                            <div className='max-h-[500px] h-[500px] w-[230px] overflow-hidden rounded-xl drop-shadow-xl ring-4 ring-neutral-700'>
                                                 <Image
                                                     alt={`${project.title}-screenshot-${index}`}
                                                     src={item}
                                                     layout="fill"
                                                     objectFit="contain"
+                                                />
+                                            </div>
+
+                                        </SwiperSlide>
+                                    )
+                                } else {
+                                    return (
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full block   cursor-grab active:cursor-grabbing '>
+                                            <div className='lg:hidden drop-shadow-xl relative w-[100%] h-[540px]' >
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="contain"
+                                                />
+                                            </div>
+                                            <div className='drop-shadow-xl relative w-[100%] h-[540px]' >
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="cover"
                                                 />
                                             </div>
                                         </SwiperSlide>
@@ -212,6 +228,12 @@ function ProjectDetails({ id, handleShowDetails }) {
                         {project.github &&
                             <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Github</span> <FiGithub />
+                            </a>
+                        }
+
+                        {project.demo &&
+                            <a href={`/demo/${project.title}`} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                                <span>Live Demo</span> <FiPlay />
                             </a>
                         }
 
@@ -371,16 +393,20 @@ function ProjectDetails({ id, handleShowDetails }) {
                                 if (item.includes('mobile')) {
                                     return (
                                         <SwiperSlide key={`${project.id}-slide-${index}`} className='py-5  max-h-[50vh] w-full  flex  justify-center items-center cursor-grab active:cursor-grabbing'>
-                                            <img
-                                                alt={`${project.title}-screenshot-${index}`}
-                                                src={item}
-                                                className='max-h-[40vh] rounded-xl drop-shadow-xl ring-4 ring-neutral-700'
-                                            />
+                                            <div className='max-h-[300px] h-[300px] w-[138px] overflow-hidden rounded-xl drop-shadow-xl ring-4 ring-neutral-700'>
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="contain"
+                                                />
+                                            </div>
+
                                         </SwiperSlide>
                                     )
                                 } else {
                                     return (
-                                        <SwiperSlide key={`${project.id}-slide-${index}`} className={`${mobilePhoto ? 'relative top-[4.5rem]  ' : ''} w-full h-full block  cursor-grab active:cursor-grabbing`}>
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className={`${mobilePhoto ? 'relative top-[3rem]  ' : ''} w-full h-full block  cursor-grab active:cursor-grabbing`}>
                                             <div className='drop-shadow-xl relative w-[100%] h-[30vh] ' >
                                                 <Image
                                                     alt={`${project.title}-screenshot-${index}`}
@@ -424,6 +450,11 @@ function ProjectDetails({ id, handleShowDetails }) {
                         {project.github &&
                             <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Github</span> <FiGithub />
+                            </a>
+                        }
+                        {project.demo &&
+                            <a href={`/demo/${project.title}`} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                                <span>Live Demo</span> <FiPlay />
                             </a>
                         }
 
@@ -598,7 +629,7 @@ function Card({ project, handleShowDetails }) {
                     <Image
                         layout="fill"
                         objectFit="cover"
-                        src={project.preview}
+                        src={!darkMode ? project['preview-dark'] ? project['preview-dark'] : project.preview : project.preview}
                         alt={`${project.title}`}
                         className={`w-full ${hover ? 'scale-110' : 'scale-100'}  transition-all duration-200 ease-in-out`}
                     />
@@ -642,6 +673,11 @@ function Card({ project, handleShowDetails }) {
                         {project.github &&
                             <a href={project.github} target="_blank" rel="noopener noreferrer">
                                 <FiGithub className='text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out' />
+                            </a>
+                        }
+                        {project.demo &&
+                            <a href={`/demo/${project.title}`} target="_blank" rel="noopener noreferrer">
+                                <FiPlay className='text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out' />
                             </a>
                         }
                     </div>

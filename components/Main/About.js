@@ -83,8 +83,8 @@ function About() {
             transition: {
                 when: "beforeChildren",
                 type: "spring",
-                bounce: 0.4,
-                duration: 0.8
+                bounce: 0.3,
+                duration: 0.5
             }
         }
     };
@@ -204,7 +204,7 @@ function About() {
                     className=' flex justify-center items-center rounded-2xl ring-8 ring-accent-600 bg-accent-500 lg:right-10 top-2 md:top-1 lg:top-0 relative min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] '>
                     <motion.div
                         variants={avatar}
-                        className='min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] drop-shadow-[10px_10px_7px_rgba(0,0,0,0.9)] '>
+                        className='min-w-[300px] min-h-[350px] md:min-w-[400px] md:min-h-[400px] max-w-[400px] max-h-[400px] drop-shadow-[12px_12px_8px_rgba(0,0,0,0.7)] '>
                         <Image
                             placeholder='blur'
                             src={Avatar}
@@ -255,7 +255,7 @@ function About() {
 
                         <span className='flex py-2'>
                             <span className='font-semibold uppercase  w-[120px]  lg:w-[100px]'>Job Title:</span>
-                            <span>Front End Developer</span>
+                            <span>Full Stack Developer</span>
                         </span>
                     </div>
 

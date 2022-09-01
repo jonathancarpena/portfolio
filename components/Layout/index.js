@@ -20,7 +20,7 @@ function Layout({ children }) {
     const screen = useCurrentScreen()
     const router = useRouter()
     const pathname = router.pathname.split('/')[1]
-    const layoutPages = ["main", "contact"]
+    const layoutPages = ["main", "contact", "demo"]
     return (
         <div className={`${darkMode ? 'bg-darker' : 'bg-light'}   w-full min-h-screen flex justify-center `}>
             <Head>

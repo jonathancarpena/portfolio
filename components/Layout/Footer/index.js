@@ -55,13 +55,13 @@ function Footer() {
                 <div className='w-full relative  flex flex-col justify-center items-center space-y-2 lg:space-y-0'>
                     <motion.h2
                         variants={header}
-                        className='text-5xl p-3  text-accent-500 font-bold uppercase rounded-xl  bg-lighter   lg:text-[6rem] lg:px-3'>
+                        className='text-center text-4xl md:text-5xl p-3 lg:p-10 w-max text-accent-500 font-bold uppercase rounded-xl  bg-lighter   lg:text-[6rem] lg:px-3'>
                         Get In Touch
                     </motion.h2>
 
                     <motion.p
                         variants={header}
-                        className='flex flex-col text-[1.5rem] text-center rounded-xl text-white  font-semibold  uppercase lg:space-x-2 lg:flex-row lg:text-[2rem]'>
+                        className='w-max flex flex-col text-[1rem] md:text-[1.5rem] text-center rounded-xl text-white  font-semibold  uppercase lg:space-x-2 lg:flex-row lg:text-[2rem]'>
                         <span>{`Don't Hesitate. `}</span>
                         <span>My Inbox is always open!</span>
                     </motion.p>
@@ -97,8 +97,8 @@ function Footer() {
 
                 <motion.span
                     variants={header}
-                    className=' font-semibold text-sm bottom-5 lg:text-xl text-lighter absolute lg:bottom-10'>
-                    DESIGNED BY JONATHAN CARPENA
+                    className=' font-semibold text-sm bottom-5  text-lighter absolute lg:bottom-10'>
+                    DESIGNED & BUILT BY JONATHAN CARPENA
                 </motion.span>
             </motion.section>
 
