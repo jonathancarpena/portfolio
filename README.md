@@ -5,11 +5,31 @@
 > built with
 > <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>
 > and hosted with
-> <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.c
+> <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.
 
-## Screenshots
+## 📸 Screenshots
 
-![App Screenshot](https://via.placeholder.com/830x425?text=App+Screenshot+Here)
+<ul style="display:flex flex-direction:column">
+<img src="./public/projects/personal-site-v1/screenshots/landing-dark.PNG" width="690" height="375" alt="landing"> 
+<img src="./public/projects/personal-site-v1/screenshots/about-dark.PNG" width="690" height="375" alt="about"> 
+<img src="./public/projects/personal-site-v1/screenshots/work-dark.PNG" width="690" height="375" alt="work"> 
+</ul>
+
+### Light Mode
+
+<ul style="display:flex flex-direction:column">
+<img src="./public/projects/personal-site-v1/screenshots/landing.PNG" width="690" height="375" alt="landing-light"> 
+<img src="./public/projects/personal-site-v1/screenshots/about.PNG" width="690" height="375" alt="about-light"> 
+<img src="./public/projects/personal-site-v1/screenshots/work.PNG" width="690" height="375" alt="work-light"> 
+</ul>
+
+### Mobile
+
+<ul style="display:flex flex-direction:column">
+<img src="./public/projects/personal-site-v1/screenshots/mobile-landing-dark.PNG" width="173" height="361" alt="mobile-landing"> 
+<img src="./public/projects/personal-site-v1/screenshots/mobile-about-dark.PNG" width="173" height="361" alt="mobile-about"> 
+<img src="./public/projects/personal-site-v1/screenshots/mobile-menu.PNG" width="173" height="361" alt="mobile-menu"> 
+</ul>
 
 ## 🛠 Installation & Set Up
 
