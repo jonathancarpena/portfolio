@@ -111,7 +111,7 @@ function Hero() {
 
                 <motion.h1
                     variants={header}
-                    className={`${darkMode ? 'text-white' : 'text-dark'} z-[30] text-center  text-5xl font-bold uppercase   lg:text-[6rem] lg:px-3   flex flex-col -space-y-2 drop-shadow-xl`}>
+                    className={`${darkMode ? 'text-white' : 'text-dark'} z-[30] text-center  text-5xl font-bold uppercase   lg:text-[6rem] lg:px-3   flex flex-col -space-y-2 `}>
                     Jonathan Carpena
                 </motion.h1>
 
