@@ -52,7 +52,7 @@ function Navbar() {
 
         <>
             <motion.nav
-                initial={{ y: `${pathname.includes('contact') ? '0' : '-100%'}` }}
+                initial={{ y: '-100%' }}
                 animate={{ y: 0, transition: { duration: 1.25 } }}
                 exit={{ y: '-100%' }}
                 className={`
@@ -61,7 +61,7 @@ function Navbar() {
             >
 
                 {/* Responsive Container */}
-                <div className='lg:px-10 xl:px-80 w-full flex items-center justify-between max-w-[1980px]  '>
+                <div className='  px-10 w-full flex items-center justify-between max-w-[1980px]  '>
                     {/* Nav Container */}
                     <div className=' py-4 xl:py-3 flex justify-between items-center w-full'>
                         {/* Brand */}
@@ -89,7 +89,7 @@ function Navbar() {
                                     handleActive={handleActive}
                                     scroll={scroll}
                                     darkMode={darkMode}
-                                    active={scroll > 500 && active === item.text}
+                                    active={scroll > 500 && active === item.text || pathname.includes(item.text)}
                                     link={item.link}
                                     text={item.text}
                                 />

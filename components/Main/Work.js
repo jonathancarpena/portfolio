@@ -130,7 +130,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                 className={`${darkMode ? 'bg-dark text-light' : ' bg-lighter text-dark'}  hidden md:inline-block z-[90]   overflow-y-scroll  scrollbar scrollbar-thumb-accent-500 scrollbar-thumb-rounded-full  scrollbar-track-inherit drop-shadow-2xl fixed bottom-0   w-screen h-[85vh] rounded-t-3xl lg:max-w-[1080px] md:rounded-tr-none md:rounded-l-3xl md:w-[70vw] md:right-0 md:top-0 md:h-screen`}>
 
                 {/* Header */}
-                <div className='sticky top-0 bg-inherit z-[100] px-10 py-4 text-[1.75rem] md:text-[2.5rem]  flex justify-between items-center'>
+                <div className='sticky top-0 bg-inherit z-[100] px-10 py-4 text-3xl lg:text-[2.5rem]  flex justify-between items-center'>
                     <h2 className=' font-semibold'>
                         {project.title}
                     </h2>
@@ -140,7 +140,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                 </div>
 
                 {/* Details */}
-                <div className='px-5 pb-5 md:px-10 md:pb-10 flex flex-col space-y-4  bg-inherit '>
+                <div className='px-10 pb-10 flex flex-col space-y-4  bg-inherit '>
 
                     {/* Screenshot Carousel */}
                     <div className='relative overflow-hidden'>
@@ -157,7 +157,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                             spaceBetween={0}
                             slidesPerView={1}
                             initialSlide={0}
-                            className='bg-neutral-100 max-h-[540px] rounded-lg'
+                            className='bg-neutral-100 max-h-[400px] lg:max-h-[540px] rounded-lg'
                             centeredSlides={true}
                             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
                         >
@@ -165,34 +165,37 @@ function ProjectDetails({ id, handleShowDetails }) {
                                 if (item.includes('mobile')) {
                                     return (
                                         <SwiperSlide key={`${project.id}-slide-${index}`} className='py-5  max-h-[540px] w-full  flex  justify-center items-center cursor-grab active:cursor-grabbing'>
-                                            <div className='max-h-[500px] h-[500px] w-[230px] overflow-hidden rounded-xl drop-shadow-xl ring-4 ring-neutral-700'>
-                                                <Image
-                                                    alt={`${project.title}-screenshot-${index}`}
-                                                    src={item}
-                                                    layout="fill"
-                                                    objectFit="contain"
-                                                />
-                                            </div>
-
-                                        </SwiperSlide>
-                                    )
-                                } else {
-                                    return (
-                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full block   cursor-grab active:cursor-grabbing '>
-                                            <div className='lg:hidden drop-shadow-xl relative w-[100%] h-[540px]' >
-                                                <Image
-                                                    alt={`${project.title}-screenshot-${index}`}
-                                                    src={item}
-                                                    layout="fill"
-                                                    objectFit="contain"
-                                                />
-                                            </div>
-                                            <div className='drop-shadow-xl relative w-[100%] h-[540px]' >
+                                            <div className='max-h-[360px] h-[360px] w-[168px] lg:max-h-[500px] lg:h-[500px] lg:w-[230px] overflow-hidden rounded-xl drop-shadow-xl ring-4 ring-neutral-700'>
                                                 <Image
                                                     alt={`${project.title}-screenshot-${index}`}
                                                     src={item}
                                                     layout="fill"
                                                     objectFit="cover"
+                                                    priority
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                } else {
+                                    return (
+
+                                        <SwiperSlide key={`${project.id}-slide-${index}`} className='w-full h-full block  cursor-grab active:cursor-grabbing '>
+                                            <div className='hidden lg:block drop-shadow-xl relative w-[100%] h-[540px]' >
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="cover"
+                                                    priority
+                                                />
+                                            </div>
+                                            <div className='lg:hidden drop-shadow-xl relative w-[100%] h-[400px] ' >
+                                                <Image
+                                                    alt={`${project.title}-screenshot-${index}`}
+                                                    src={item}
+                                                    layout="fill"
+                                                    objectFit="contain"
+                                                    priority
                                                 />
                                             </div>
                                         </SwiperSlide>
@@ -201,38 +204,40 @@ function ProjectDetails({ id, handleShowDetails }) {
                             })}
                         </Swiper>
 
-                        {activeIndex !== 0 &&
-                            <button onClick={handlePrev} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 absolute top-[50%] -translate-y-[50%] left-4 lg:left-8 text-darker'>
-                                <FiArrowLeft className='text-4xl lg:text-5xl' />
-                                <span className='hidden md:inline text-sm'>Prev</span>
-                            </button>
-                        }
-
-                        {activeIndex !== project.screenshots.length - 1 &&
-                            <button onClick={handleNext} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 top-[50%] -translate-y-[50%] right-4 lg:right-8 absolute text-darker'>
-                                <FiArrowRight className='text-4xl lg:text-5xl' />
-                                <span className='hidden md:inline text-sm'>Next</span>
-                            </button>
-                        }
+                        {/* Screenshot Navigator */}
+                        <>
+                            {activeIndex !== 0 &&
+                                <button onClick={handlePrev} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 absolute top-[50%] -translate-y-[50%] left-4 lg:left-8 text-darker'>
+                                    <FiArrowLeft className='text-4xl lg:text-5xl' />
+                                    <span className='hidden md:inline text-sm'>Prev</span>
+                                </button>
+                            }
+                            {activeIndex !== project.screenshots.length - 1 &&
+                                <button onClick={handleNext} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 top-[50%] -translate-y-[50%] right-4 lg:right-8 absolute text-darker'>
+                                    <FiArrowRight className='text-4xl lg:text-5xl' />
+                                    <span className='hidden md:inline text-sm'>Next</span>
+                                </button>
+                            }
+                        </>
 
                     </div>
 
                     {/* Links */}
                     <div className='flex items-center space-x-4'>
                         {project.externalLink &&
-                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-lg lg:text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Visit Site</span> <FiExternalLink />
                             </a>
                         }
 
                         {project.github &&
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-lg lg:text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Github</span> <FiGithub />
                             </a>
                         }
 
                         {project.demo &&
-                            <a href={`/demo/${project.title}`} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={`work/demo/${project.title}`} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-lg text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Live Demo</span> <FiPlay />
                             </a>
                         }
@@ -241,12 +246,12 @@ function ProjectDetails({ id, handleShowDetails }) {
 
                     {/* Tools */}
                     <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-2'>
+                        <h3 className='text-lg lg:text-xl font-semibold underline underline-offset-2 mb-2'>
                             Tools
                         </h3>
                         <ul className='grid md:grid-cols-3 lg:grid-cols-5 gap-2'>
                             {project.tools.map((item) => (
-                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} w-full  px-3 py-2 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
+                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} text-sm lg:text-base w-full  px-3 py-2 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
                                     <span>{ICONS[item].icon}</span>
                                     <span>{ICONS[item].name}</span>
                                 </li>
@@ -254,68 +259,37 @@ function ProjectDetails({ id, handleShowDetails }) {
                         </ul>
                     </div>
 
-                    {/* Overview */}
+                    {/* Description */}
                     <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Overview
+                        <h3 className='text-lg lg:text-xl font-semibold underline underline-offset-2 mb-1'>
+                            Description
                         </h3>
-                        <p className='text-lg '>{project.overview}</p>
+                        <p className='text-base lg:text-lg '>{project.description}</p>
                     </div>
 
                     {/* Features */}
                     <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
+                        <h3 className='text-lg lg:text-xl font-semibold underline underline-offset-2 mb-1'>
                             Features
                         </h3>
                         <ul className='text-lg'>
                             {project.features.map((item, idx) => (
-                                <li key={`${project.id}-features-${idx}`} className='list-inside flex space-x-1 items-center'>
+                                <li key={`${project.id}-features-${idx}`} className='text-sm lg:text-base list-inside flex space-x-1 items-center'>
                                     - {item}
                                 </li>
                             ))}
                         </ul>
                     </div>
-
-                    {/* Focus */}
-                    <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Focus
-                        </h3>
-                        <ul className='text-lg'>
-                            {project.focus.map((focus, idx) => (
-                                <li key={`${project.id}-focus-${idx}`} className='list-inside flex space-x-1 items-center'>
-                                    - {focus}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-
-
-                    {/* Reflection */}
-                    <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Reflection
-                        </h3>
-                        <ul className='text-lg'>
-                            {project.reflection.map((item, idx) => (
-                                <li key={`${project.id}-reflection-${idx}`} className='list-inside flex space-x-1 items-center'>
-                                    - {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
 
                     {/* Project Navigators */}
                     <div className='py-12 relative w-full bg-inherit'>
                         {id !== 1 &&
                             <button onClick={() => projectChange(id - 1)} className=' text-white overflow-hidden w-[175px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 left-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out'>
-                                <span className='flex items-center space-x-2 place-self-start text-sm'>
-                                    <FiArrowLeft className=' text-base' />
+                                <span className='flex items-center space-x-2 place-self-start text-xs lg:text-sm'>
+                                    <FiArrowLeft className=' text-sm lg:text-base' />
                                     <span>Prev</span>
                                 </span>
-                                <span className='font-semibold place-self-start '>
+                                <span className='font-semibold place-self-start text-sm lg:text-base'>
                                     {PROJECTS[id - 2].title.length > 14
                                         ? PROJECTS[id - 2].title.substring(0, 13) + '...'
                                         : PROJECTS[id - 2].title
@@ -326,11 +300,11 @@ function ProjectDetails({ id, handleShowDetails }) {
 
                         {id !== PROJECTS.length &&
                             <button onClick={() => projectChange(id + 1)} className=' text-white overflow-hidden  w-[175px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 right-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out '>
-                                <span className='flex items-center space-x-2 place-self-end text-sm'>
+                                <span className='flex items-center space-x-2 place-self-end text-xs lg:text-sm'>
                                     <span>Next</span>
-                                    <FiArrowRight className=' text-base' />
+                                    <FiArrowRight className=' text-sm lg:text-base' />
                                 </span>
-                                <span className='font-semibold place-self-end  '>
+                                <span className='font-semibold place-self-end text-sm lg:text-base'>
                                     {PROJECTS[id].title.length > 14
                                         ? PROJECTS[id].title.substring(0, 13) + '...'
                                         : PROJECTS[id].title
@@ -359,7 +333,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                 className={`${darkMode ? 'bg-dark text-light' : ' bg-lighter text-dark'} block md:hidden z-[90]   overflow-y-scroll  scrollbar-thin scrollbar-thumb-accent-500 scrollbar-thumb-rounded-full  scrollbar-track-inherit drop-shadow-2xl fixed bottom-0 w-screen h-[85vh] rounded-t-3xl`}>
 
                 {/* Header */}
-                <div className='sticky top-0 bg-inherit z-[100] px-10 py-4 text-[1.75rem] md:text-[2.5rem]  flex justify-between items-center'>
+                <div className='sticky top-0 bg-inherit z-[100] px-5 py-4 text-[1.5rem]   flex justify-between items-center'>
                     <h2 className=' font-semibold'>
                         {project.title}
                     </h2>
@@ -369,11 +343,10 @@ function ProjectDetails({ id, handleShowDetails }) {
                 </div>
 
                 {/* Details */}
-                <div className='px-5 pb-5 md:px-10 md:pb-10 flex flex-col space-y-4  bg-inherit '>
+                <div className='px-5 pb-5 flex flex-col space-y-4  bg-inherit '>
 
                     {/* Screenshot Carousel */}
                     <div className='relative overflow-hidden'>
-
                         {!project.complete &&
                             <div className='z-[20] drop-shadow-md -left-[6rem] top-[2rem] w-[300px] justify-center flex items-center space-x-2 bg-accent-500 text-lighter absolute p-3 -rotate-45'>
                                 <FiClock className='text-[1.5rem]' />
@@ -389,6 +362,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                             centeredSlides={true}
                             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
                         >
+
                             {project.screenshots.map((item, index) => {
                                 if (item.includes('mobile')) {
                                     return (
@@ -398,7 +372,8 @@ function ProjectDetails({ id, handleShowDetails }) {
                                                     alt={`${project.title}-screenshot-${index}`}
                                                     src={item}
                                                     layout="fill"
-                                                    objectFit="contain"
+                                                    objectFit="cover"
+                                                    priority
                                                 />
                                             </div>
 
@@ -413,6 +388,7 @@ function ProjectDetails({ id, handleShowDetails }) {
                                                     src={item}
                                                     layout="fill"
                                                     objectFit="contain"
+                                                    priority
                                                 />
                                             </div>
 
@@ -423,37 +399,39 @@ function ProjectDetails({ id, handleShowDetails }) {
 
                         </Swiper>
 
-                        {activeIndex !== 0 &&
-                            <button onClick={handleMobilePrev} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 absolute top-[50%] -translate-y-[50%] left-4 lg:left-8 text-darker'>
-                                <FiArrowLeft className='text-4xl lg:text-5xl' />
-                                <span className='hidden md:inline text-sm'>Prev</span>
-                            </button>
-                        }
+                        {/* Screenshot Navigator */}
+                        <>
+                            {activeIndex !== 0 &&
+                                <button onClick={handleMobilePrev} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 absolute top-[50%] -translate-y-[50%] left-4 lg:left-8 text-darker'>
+                                    <FiArrowLeft className='text-4xl lg:text-5xl' />
+                                    <span className='hidden md:inline text-sm'>Prev</span>
+                                </button>
+                            }
 
-                        {activeIndex !== project.screenshots.length - 1 &&
-                            <button onClick={handleMobileNext} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 top-[50%] -translate-y-[50%] right-4 lg:right-8 absolute text-darker'>
-                                <FiArrowRight className='text-4xl lg:text-5xl' />
-                                <span className='hidden md:inline text-sm'>Next</span>
-                            </button>
-                        }
-
+                            {activeIndex !== project.screenshots.length - 1 &&
+                                <button onClick={handleMobileNext} className='bg-lighter rounded-lg opacity-70 hover:opacity-100 transition-all ease-in-out flex flex-col items-center -space-y-1.5 cursor-pointer z-50 top-[50%] -translate-y-[50%] right-4 lg:right-8 absolute text-darker'>
+                                    <FiArrowRight className='text-4xl lg:text-5xl' />
+                                    <span className='hidden md:inline text-sm'>Next</span>
+                                </button>
+                            }
+                        </>
                     </div>
 
                     {/* Links */}
-                    <div className='flex items-center space-x-4 relative top-1'>
+                    <div className='flex items-center space-x-2 relative top-1'>
                         {project.externalLink &&
-                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-sm  rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Visit Site</span> <FiExternalLink />
                             </a>
                         }
 
                         {project.github &&
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-sm rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Github</span> <FiGithub />
                             </a>
                         }
                         {project.demo &&
-                            <a href={`/demo/${project.title}`} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-[1.2rem] rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <a href={`work/demo/${project.title}`} target="_blank" rel="noopener noreferrer" className='flex space-x-2 items-center text-sm  rounded-lg bg-accent-500 text-lighter px-3 py-1 hover:bg-accent-400 hover:scale-105 active:bg-accent-500 active:scale-95 transition-all ease-in-out'>
                                 <span>Live Demo</span> <FiPlay />
                             </a>
                         }
@@ -462,12 +440,12 @@ function ProjectDetails({ id, handleShowDetails }) {
 
                     {/* Tools */}
                     <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-2'>
+                        <h3 className='font-semibold underline underline-offset-2 mb-2'>
                             Tools
                         </h3>
                         <ul className='grid grid-cols-2 gap-2 '>
                             {project.tools.map((item) => (
-                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} w-full px-3 py-2 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
+                                <li key={item} className={`${darkMode ? 'bg-darker ' : 'bg-light'} text-xs w-full px-3 py-2 rounded-xl capitalize flex flex-row space-x-1 items-center   `}>
                                     <span>{ICONS[item].icon}</span>
                                     <span>{ICONS[item].name}</span>
                                 </li>
@@ -477,18 +455,18 @@ function ProjectDetails({ id, handleShowDetails }) {
 
                     {/* Overview */}
                     <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Overview
+                        <h3 className=' font-semibold underline underline-offset-2 mb-1'>
+                            Description
                         </h3>
-                        <p className='text-lg '>{project.overview}</p>
+                        <p className='text-sm '>{project.description}</p>
                     </div>
 
                     {/* Features */}
                     <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
+                        <h3 className='font-semibold underline underline-offset-2 mb-1'>
                             Features
                         </h3>
-                        <ul className='text-lg'>
+                        <ul className='text-sm'>
                             {project.features.map((item, idx) => (
                                 <li key={`${project.id}-focus-${idx}`} className='list-inside flex space-x-1 items-center'>
                                     - {item}
@@ -497,46 +475,16 @@ function ProjectDetails({ id, handleShowDetails }) {
                         </ul>
                     </div>
 
-                    {/* Focus */}
-                    <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Focus
-                        </h3>
-                        <ul className='text-lg'>
-                            {project.focus.map((focus, idx) => (
-                                <li key={`${project.id}-focus-${idx}`} className='list-inside flex space-x-1 items-center'>
-                                    - {focus}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-
-                    {/* Reflection */}
-                    <div className=''>
-                        <h3 className='text-xl font-semibold underline underline-offset-2 mb-1'>
-                            Reflection
-                        </h3>
-                        <ul className='text-lg'>
-                            {project.reflection.map((item, idx) => (
-                                <li key={`${project.id}-reflection-${idx}`} className='list-inside flex space-x-1 items-center'>
-                                    - {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-
                     {/* Project Navigators */}
                     <div className='py-10 relative w-full bg-inherit'>
                         {id !== 1 &&
                             <button onClick={() => projectChange(id - 1)} className='text-white overflow-hidden w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 left-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out'>
-                                <span className='flex items-center space-x-2 place-self-start text-sm'>
+                                <span className='flex items-center space-x-2 place-self-start text-xs'>
                                     <FiArrowLeft className='text-white text-base' />
                                     <span>Prev</span>
                                 </span>
-                                <span className='font-semibold place-self-start'>
-                                    {PROJECTS[id - 2].title.length > 10
+                                <span className='font-semibold place-self-start text-sm'>
+                                    {PROJECTS[id - 2].title.length > 12
                                         ? PROJECTS[id - 2].title.substring(0, 11) + '...'
                                         : PROJECTS[id - 2].title
                                     }
@@ -546,13 +494,13 @@ function ProjectDetails({ id, handleShowDetails }) {
 
                         {id !== PROJECTS.length &&
                             <button onClick={() => projectChange(id + 1)} className='text-white overflow-hidden  w-[150px] rounded-lg absolute top-[50%] -translate-y-[50%] p-3 right-0 flex flex-col space-y-1 bg-accent-500 drop-shadow-md hover:scale-105 hover:drop-shadow-lg active:scale-95 transition-all ease-in-out '>
-                                <span className='flex items-center space-x-2 place-self-end text-sm'>
+                                <span className='flex items-center space-x-2 place-self-end text-xs'>
                                     <span>Next</span>
                                     <FiArrowRight className='text-white text-base' />
                                 </span>
-                                <span className='font-semibold place-self-end '>
-                                    {PROJECTS[id].title.length > 10
-                                        ? PROJECTS[id].title.substring(0, 9) + '...'
+                                <span className='font-semibold place-self-end text-sm'>
+                                    {PROJECTS[id].title.length > 12
+                                        ? PROJECTS[id].title.substring(0, 11) + '...'
                                         : PROJECTS[id].title
                                     }
                                 </span>
@@ -627,6 +575,7 @@ function Card({ project, handleShowDetails }) {
                 }
                 <div className='drop-shadow-xl relative w-[100%] h-[30vh] ' >
                     <Image
+                        priority
                         layout="fill"
                         objectFit="cover"
                         src={!darkMode ? project['preview-dark'] ? project['preview-dark'] : project.preview : project.preview}
@@ -642,19 +591,19 @@ function Card({ project, handleShowDetails }) {
 
                 <div className=' flex flex-col space-y-4'>
                     {/* Title */}
-                    <p onClick={() => handleShowDetails(project.id)} className='cursor-pointer capitalize font-semibold text-2xl '>
+                    <p onClick={() => handleShowDetails(project.id)} className='cursor-pointer capitalize font-semibold text-xl lg:text-2xl '>
                         {project.title}
                     </p>
 
                     {/* Overview */}
-                    <p className='text-xl'>
+                    <p className='lg:text-xl'>
                         {project.overview}
                     </p>
 
                     {/* Tools */}
                     <ul className='flex  flex-wrap relative right-1'>
                         {project.tools.map((tool) => (
-                            <li key={`${project.title}-tool-${tool}`} className={`${darkMode ? 'bg-darker' : 'bg-light'} select-none cursor-default mb-2 px-3 py-1 rounded-xl text-sm capitalize  mr-2`}>
+                            <li key={`${project.title}-tool-${tool}`} className={`${darkMode ? 'bg-darker' : 'bg-light'} select-none cursor-default mb-2 px-3 py-1 rounded-xl text-xs lg:text-sm capitalize  mr-2`}>
                                 {ICONS[tool].name}
                             </li>
                         ))}
@@ -676,7 +625,7 @@ function Card({ project, handleShowDetails }) {
                             </a>
                         }
                         {project.demo &&
-                            <a href={`/demo/${project.title}`} target="_blank" rel="noopener noreferrer">
+                            <a href={`work/demo/${project.title}`} target="_blank" rel="noopener noreferrer">
                                 <FiPlay className='text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out' />
                             </a>
                         }

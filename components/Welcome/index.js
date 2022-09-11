@@ -22,7 +22,6 @@ function Welcome() {
             setError(false)
         }, [2000])
     }
-
     function validate(e, input) {
         e.preventDefault()
         if (input === secretPassword) {
@@ -117,11 +116,13 @@ function Welcome() {
                     exit="exit"
                     className='overflow-hidden h-screen w-screen flex flex-col items-center justify-center'>
 
+
                     <motion.div
                         variants={container}
-                        className='w-[300px] h-[300px] bg-accent-500  flex justify-center items-center'>
+                        className=' w-[200px] h-[200px] bg-accent-500  flex justify-center items-center'>
 
-                        <div className='w-[150px] h-[190px]  '>
+
+                        <div className='w-[100px] h-[130px]  '>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 97" className='w-full'>
                                 <motion.path

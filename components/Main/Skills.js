@@ -33,16 +33,17 @@ function Card({ header, skills }) {
         <motion.li
             variants={card}
             className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  w-full p-8 space-y-8 drop-shadow-lg flex flex-col overflow-hidden rounded-xl items-center`}>
-            <h3 className='capitalize font-semibold text-2xl '>
+            <h3 className='capitalize font-semibold text-xl lg:text-2xl '>
                 {header}
             </h3>
 
-            <ul className='grid grid-cols-3 gap-7 justify-items-center '>
+            {/* grid grid-cols-3 gap-7 justify-items-center  */}
+            <ul className='w-full grid grid-cols-5 gap-6 md:flex md:gap-0 md:justify-start md:space-x-5 lg:space-x-6 xl:space-x-8'>
                 {skills.map((item) => (
-                    <li key={item.name} className='w-[100px]'>
-                        <a href={item.link} target="_blank" rel="noopener noreferrer" className=' flex flex-col items-center text-[2rem] hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out'>
-                            <span className='text-[3.5rem]'>{item.icon}</span>
-                            <span className='text-lg'>{item.name}</span>
+                    <li key={item.name} className='w-max '>
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className='cursor-default flex flex-col items-center space-y-1  hover:text-accent-500 hover:scale-110 active:text-accent-500 active:scale-95 transition-all ease-in-out'>
+                            <span className='text-[3rem] '>{item.icon}</span>
+                            <span className='hidden lg:inline text-base  w-max'>{item.name}</span>
                         </a>
                     </li>
                 ))}
@@ -100,7 +101,7 @@ function Skills() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.0001 }}
-            id='skills' className='pt-28 pb-40 lg:pb-0 min-h-screen flex flex-col justify-start items-center lg:px-10 xl:px-80  '>
+            id='skills' className='pt-28 pb-40  min-h-screen flex flex-col justify-start items-center lg:px-10 xl:px-80  '>
 
 
             {/* Header */}
@@ -126,13 +127,14 @@ function Skills() {
                 </span>
             </div>
 
+            {/* grid-cols-1 gap-5 px-12 md:px-5  md:grid-cols-2  xl:max-w-[1400px] lg:px-0  lg:grid-cols-4 lg:gap-10 */}
             {/* Skills */}
             <motion.ul
                 variants={gridContainer}
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.0001 }}
-                className='  grid grid-cols-1 gap-5 px-12 md:px-5  md:grid-cols-2  xl:max-w-[1400px] lg:px-0  lg:grid-cols-3 lg:gap-10 '
+                className='px-12 md:px-5 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-5 xl:max-w-[1400px]  '
             >
                 {Object.entries(DATA).map((skill) => (
                     <Card

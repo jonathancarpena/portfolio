@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
 // Context
-import { useDarkMode } from '../../lib/context/ThemeProvider'
+import { useDarkMode } from '../../../lib/context/ThemeProvider'
 
 // Components
-import InteractButtons from '../../components/Layout/InteractButtons'
+import InteractButtons from '../../../components/Layout/InteractButtons'
 
 // Data
-import Projects from '../../lib/projects'
+import Projects from '../../../lib/projects'
 
 // Icons
 import { FiClock } from 'react-icons/fi'
@@ -72,7 +72,7 @@ function Demo({ project, youtubeID }) {
                 <iframe
                     id="player"
                     className='w-[350px] h-[196.875px] md:w-[600px] md:h-[337.5px] lg:w-[900px] lg:h-[506px]'
-                    src={`https://www.youtube.com/embed/${youtubeID}?start=${timeStamp}&autoplay=true&enablejsapi=1`}>
+                    src={`https://www.youtube.com/embed/${youtubeID}?start=${timeStamp}&autoplay=1&enablejsapi=1`}>
                 </iframe>
 
                 <div className=''>
