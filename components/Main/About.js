@@ -266,7 +266,7 @@ function About() {
                     {/* Bio */}
                     <div className='flex flex-col space-y-4 text-base lg:text-lg'>
                         <p >
-                            My name is Jonathan, and I'm a full stack developer specializing in building and designing exceptional digital experiences.
+                            {`My name is Jonathan, and I'm a full stack developer specializing in building and designing exceptional digital experiences.`}
                         </p>
                         <p >
                             {`I'm a self starter with a burning passion in developing strong web applications,

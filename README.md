@@ -5,7 +5,7 @@
 > built with
 > <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>
 > and hosted with
-> <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.
+> <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.c
 
 ## Screenshots
 
