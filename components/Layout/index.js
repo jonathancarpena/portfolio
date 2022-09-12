@@ -21,6 +21,9 @@ function Layout({ children }) {
     const router = useRouter()
     const pathname = router.pathname.split('/')[1]
     const layoutPages = ["main", "contact", "work"]
+
+
+
     return (
         <div className={`${darkMode ? 'bg-darker' : 'bg-light'}   w-full min-h-screen flex justify-center `}>
             <Head>

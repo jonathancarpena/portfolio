@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // Next
 import Image from 'next/image'
@@ -18,7 +18,6 @@ import Logo from '../../../public/logo.png'
 // Components
 import NavItem from './NavItem'
 import MobileMenu from './Mobile'
-import { useEffect } from 'react'
 
 // Icons
 import { FiFileText } from 'react-icons/fi'
@@ -29,14 +28,30 @@ function Navbar() {
     const darkMode = useDarkMode()
     const { pathname } = useRouter()
     const [active, setActive] = useState('')
-    function handleActive(text) {
-        setActive(text)
-    }
+
+    // About - 1080
+    // Work - 2160
+    // Skills - 3856
 
     useEffect(() => {
-        if (active !== '' && scroll === 0) {
-            setActive('')
+        if (pathname.includes('demo')) {
+            setActive('work')
+        } else if (pathname.includes('contact')) {
+            setActive('contact')
+        } else {
+            if (scroll < 1080) {
+                setActive('')
+            } else if (scroll >= 500 && scroll < 2010) {
+                setActive('about')
+            } else if (scroll >= 2010 && scroll < 3706) {
+                setActive('work')
+            } else if (scroll >= 3706 && scroll < 4786) {
+                setActive('skills')
+            } else {
+                setActive('')
+            }
         }
+
     }, [scroll, active])
 
 
@@ -86,10 +101,8 @@ function Navbar() {
                             {NavLinks.map((item) => (
                                 <NavItem
                                     key={item.link}
-                                    handleActive={handleActive}
                                     scroll={scroll}
-                                    darkMode={darkMode}
-                                    active={scroll > 500 && active === item.text || pathname.includes(item.text)}
+                                    active={active}
                                     link={item.link}
                                     text={item.text}
                                 />
