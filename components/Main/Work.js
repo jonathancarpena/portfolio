@@ -533,24 +533,24 @@ function Card({ project, handleShowDetails }) {
     const [hover, setHover] = useState(false)
 
     const darkMode = useDarkMode()
-    const card = {
-        initial: { opacity: 0, y: '70%', },
-        animate: {
-            opacity: 1, y: 0,
-            transition: {
-                type: "spring",
-                bounce: 0.3,
-                easeIn: "easeIn",
-                delayChildren: 0.25,
-                staggerChildren: 0.5,
-            }
-        },
-        exit: {
-            opacity: 0, y: '35%', transition: {
-                easeIn: "easeInOut"
-            }
-        },
-    }
+    // const card = {
+    //     initial: { opacity: 0, y: '70%', },
+    //     animate: {
+    //         opacity: 1, y: 0,
+    //         transition: {
+    //             type: "spring",
+    //             bounce: 0.3,
+    //             easeIn: "easeIn",
+    //             delayChildren: 0.25,
+    //             staggerChildren: 0.5,
+    //         }
+    //     },
+    //     exit: {
+    //         opacity: 0, y: '35%', transition: {
+    //             easeIn: "easeInOut"
+    //         }
+    //     },
+    // }
     const details = {
         initial: { opacity: 0, y: "50%" },
         animate: { opacity: 1, y: 0, transition: { easeIn: "easeInOut", duration: 0.2 } },
@@ -560,10 +560,10 @@ function Card({ project, handleShowDetails }) {
 
 
     return (
-        <motion.li
+        <li
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            variants={card}
+            // variants={card}
             className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  drop-shadow-lg flex flex-col  overflow-hidden rounded-xl  `}>
             {/* ScreenShots */}
             <div onClick={() => handleShowDetails(project.id)} className=' cursor-pointer w-full overflow-hidden relative'>
@@ -669,7 +669,7 @@ function Card({ project, handleShowDetails }) {
                     </motion.button>
                 </div>
             </div>
-        </motion.li >
+        </li >
     )
 }
 
@@ -685,27 +685,38 @@ function Work() {
             transition: {
                 staggerChildren: 1
             }
-        },
-        exit: {
-            transition: {
-                when: "afterChildren",
-            }
         }
     }
 
+    // const gridContainer = {
+    //     initial: { opacity: 0 },
+    //     animate: {
+    //         opacity: 1,
+    //         transition: {
+    //             staggerChildren: 0.3
+    //         }
+    //     },
+    //     exit: {
+    //         transition: {
+    //             staggerChildren: 0.2
+    //         }
+    //     }
+    // }
     const gridContainer = {
-        initial: { opacity: 0 },
+        initial: { opacity: 0, y: '70%' },
         animate: {
-            opacity: 1,
+            opacity: 1, y: 0,
             transition: {
-                staggerChildren: 0.3
+                type: "spring",
+                bounce: 0.3,
+                easeIn: "easeIn",
             }
         },
         exit: {
-            transition: {
-                staggerChildren: 0.2
+            opacity: 0, y: '35%', transition: {
+                easeIn: "easeInOut"
             }
-        }
+        },
     }
 
     const draw = {
@@ -766,10 +777,6 @@ function Work() {
             {/* Projects */}
             <motion.ul
                 variants={gridContainer}
-                initial="initial"
-                exit="exit"
-                whileInView="animate"
-                viewport={{ once: true, amount: 0.0001 }}
                 className='  grid grid-cols-1 gap-5 px-12 md:px-5 lg:px-0  xl:max-w-[1400px] md:grid-cols-2 lg:grid-cols-3 lg:gap-10 '>
                 {PROJECTS.map((project) => (
                     <Card

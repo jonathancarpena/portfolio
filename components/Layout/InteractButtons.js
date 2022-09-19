@@ -79,7 +79,7 @@ function InteractButtons() {
                                 </Popover>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  outline-none flex items-center justify-center cursor-pointer z-[60]   w-[50px] h-[50px] rounded-xl hover:scale-110 active:scale-90 transition-all ease-in-out`}>
+                                <a href="https://www.linkedin.com/in/jonathan-carpena/" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  outline-none flex items-center justify-center cursor-pointer z-[60]   w-[50px] h-[50px] rounded-xl hover:scale-110 active:scale-90 transition-all ease-in-out`}>
                                     <FiLinkedin className='text-[2rem]' />
                                 </a>
                             </li>

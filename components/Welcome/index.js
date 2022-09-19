@@ -36,9 +36,9 @@ function Welcome() {
         }
     }
 
-    //  setTimeout(() => {
-    //       change("main")
-    //   }, [2000])
+    // setTimeout(() => {
+    //     change("main")
+    // }, [2000])
 
 
     // Variants 
@@ -93,9 +93,9 @@ function Welcome() {
 
                                 <motion.div
                                     variants={container}
-                                    className='w-[300px] h-[300px] bg-accent-500  flex justify-center items-center'>
+                                    className='w-[175px] h-[175px] bg-accent-500  flex justify-center items-center'>
 
-                                    <div className='w-[150px] h-[190px]  '>
+                                    <div className='w-[90px] h-[120px]  '>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 97" className='w-full'>
                                             <motion.path
@@ -119,10 +119,10 @@ function Welcome() {
 
                     <motion.div
                         variants={container}
-                        className=' w-[200px] h-[200px] bg-accent-500  flex justify-center items-center'>
+                        className=' w-[175px] h-[175px] bg-accent-500  flex justify-center items-center'>
 
 
-                        <div className='w-[100px] h-[130px]  '>
+                        <div className='w-[90px] h-[120px]  '>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 97" className='w-full'>
                                 <motion.path

@@ -172,7 +172,7 @@ function MobileNav() {
                                 </li>
 
                                 <li>
-                                    <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
+                                    <a href="https://www.linkedin.com/in/jonathan-carpena/" target="_blank" rel="noopener noreferrer" className="active:scale-90 transition-all ease-in-out">
                                         <FiLinkedin />
                                     </a>
                                 </li>

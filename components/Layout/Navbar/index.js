@@ -29,9 +29,6 @@ function Navbar() {
     const { pathname } = useRouter()
     const [active, setActive] = useState('')
 
-    // About - 1080
-    // Work - 2160
-    // Skills - 3856
 
     useEffect(() => {
         if (pathname.includes('demo')) {
@@ -39,13 +36,11 @@ function Navbar() {
         } else if (pathname.includes('contact')) {
             setActive('contact')
         } else {
-            if (scroll < 1080) {
-                setActive('')
-            } else if (scroll >= 500 && scroll < 2010) {
+            if (scroll >= 350 && scroll < 1299) {
                 setActive('about')
-            } else if (scroll >= 2010 && scroll < 3706) {
+            } else if (scroll >= 1300 && scroll < 2999) {
                 setActive('work')
-            } else if (scroll >= 3706 && scroll < 4786) {
+            } else if (scroll >= 3000 && scroll < 4786) {
                 setActive('skills')
             } else {
                 setActive('')
@@ -75,6 +70,7 @@ function Navbar() {
               hidden  z-50   fixed top-0 w-full  justify-center transition-all ease-in-out duration-300 `}
             >
 
+                {/* <span className='absolute top-20 left-20'>{scroll}</span> */}
                 {/* Responsive Container */}
                 <div className='  px-10 w-full flex items-center justify-between max-w-[1980px]  '>
                     {/* Nav Container */}

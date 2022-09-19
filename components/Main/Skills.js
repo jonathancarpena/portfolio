@@ -10,34 +10,33 @@ import DATA from '../../lib/skills'
 
 function Card({ header, skills }) {
     const darkMode = useDarkMode()
-    const card = {
-        initial: { opacity: 0, y: '70%', },
-        animate: {
-            opacity: 1, y: 0,
-            transition: {
-                type: "spring",
-                bounce: 0.3,
-                easeIn: "easeIn",
-                delayChildren: 0.25,
-                staggerChildren: 0.5,
-            }
-        },
-        exit: {
-            opacity: 0, y: '35%', transition: {
-                easeIn: "easeInOut"
-            }
-        },
-    }
+    // const card = {
+    //     initial: { opacity: 0, y: '70%', },
+    //     animate: {
+    //         opacity: 1, y: 0,
+    //         transition: {
+    //             type: "spring",
+    //             bounce: 0.3,
+    //             easeIn: "easeIn",
+    //             delayChildren: 0.25,
+    //             staggerChildren: 0.5,
+    //         }
+    //     },
+    //     exit: {
+    //         opacity: 0, y: '35%', transition: {
+    //             easeIn: "easeInOut"
+    //         }
+    //     },
+    // }
 
     return (
-        <motion.li
-            variants={card}
+        <li
+            // variants={card}
             className={`${darkMode ? 'bg-dark' : 'bg-lighter'}  w-full p-8 space-y-8 drop-shadow-lg flex flex-col overflow-hidden rounded-xl items-center`}>
             <h3 className='capitalize font-semibold text-xl lg:text-2xl '>
                 {header}
             </h3>
 
-            {/* grid grid-cols-3 gap-7 justify-items-center  */}
             <ul className='w-full grid grid-cols-5 gap-6 md:flex md:gap-0 md:justify-start md:space-x-5 lg:space-x-6 xl:space-x-8'>
                 {skills.map((item) => (
                     <li key={item.name} className='w-max '>
@@ -48,7 +47,7 @@ function Card({ header, skills }) {
                     </li>
                 ))}
             </ul>
-        </motion.li>
+        </li>
     )
 }
 function Skills() {
@@ -73,13 +72,20 @@ function Skills() {
     }
 
     const gridContainer = {
-        initial: { opacity: 0 },
+        initial: { opacity: 0, y: '70%' },
         animate: {
-            opacity: 1,
+            opacity: 1, y: 0,
             transition: {
-                staggerChildren: 0.3
+                type: "spring",
+                bounce: 0.3,
+                easeIn: "easeIn",
             }
-        }
+        },
+        exit: {
+            opacity: 0, y: '35%', transition: {
+                easeIn: "easeInOut"
+            }
+        },
     }
 
     const draw = {
@@ -127,13 +133,10 @@ function Skills() {
                 </span>
             </div>
 
-            {/* grid-cols-1 gap-5 px-12 md:px-5  md:grid-cols-2  xl:max-w-[1400px] lg:px-0  lg:grid-cols-4 lg:gap-10 */}
+
             {/* Skills */}
             <motion.ul
                 variants={gridContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true, amount: 0.0001 }}
                 className='px-12 md:px-5 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-5 xl:max-w-[1400px]  '
             >
                 {Object.entries(DATA).map((skill) => (

@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 
 // Framer
 import { motion } from 'framer-motion'
@@ -76,7 +74,7 @@ function Footer() {
                     </li>
 
                     <li>
-                        <a href="https://www.linkedin.com/in/jonathan-carpena-582873196/" target="_blank" rel="noopener noreferrer" className='flex items-end  text-base md:text-xl space-x-3 md:space-x-5'>
+                        <a href="https://www.linkedin.com/in/jonathan-carpena/" target="_blank" rel="noopener noreferrer" className='flex items-end  text-base md:text-xl space-x-3 md:space-x-5'>
                             <FiLinkedin className='w-[30px] h-[30px]  md:w-[40px]  md:h-[45px]' />
                             <p className='text-xs md:text-base flex-1 flex items-center font-semibold bg-lighter text-accent-500 px-2 h-[30px] md:h-[45px] rounded-md'>/jonathan-carpena</p>
                         </a>
