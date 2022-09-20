@@ -1,5 +1,6 @@
 // Hooks
 import { useDarkMode } from '../../lib/context/ThemeProvider'
+import useWindowDimensions from '../../lib/hooks/useWindowDimensions'
 
 // Framer
 import { motion } from 'framer-motion'
@@ -10,6 +11,7 @@ import DATA from '../../lib/skills'
 
 function Card({ header, skills }) {
     const darkMode = useDarkMode()
+
     // const card = {
     //     initial: { opacity: 0, y: '70%', },
     //     animate: {
@@ -51,7 +53,7 @@ function Card({ header, skills }) {
     )
 }
 function Skills() {
-
+    const { width } = useWindowDimensions()
     const container = {
         initial: { opacity: 0 },
         animate: {
@@ -103,7 +105,7 @@ function Skills() {
     }
     return (
         <motion.section
-            variants={container}
+            variants={width > 500 ? container : null}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.0001 }}
@@ -136,7 +138,7 @@ function Skills() {
 
             {/* Skills */}
             <motion.ul
-                variants={gridContainer}
+                variants={width > 500 ? gridContainer : null}
                 className='px-12 md:px-5 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-5 xl:max-w-[1400px]  '
             >
                 {Object.entries(DATA).map((skill) => (

@@ -8,6 +8,7 @@ import { motion, useAnimation } from 'framer-motion'
 
 // Hooks
 import useScroll from '../../lib/hooks/useScroll'
+import useWindowDimensions from '../../lib/hooks/useWindowDimensions'
 import { useDarkMode } from '../../lib/context/ThemeProvider'
 
 
@@ -23,6 +24,8 @@ function About() {
     const darkMode = useDarkMode()
     const controls = useAnimation()
     const [handWave, setHandWave] = useState(false)
+    const { width } = useWindowDimensions()
+
 
 
     useEffect(() => {
@@ -103,8 +106,8 @@ function About() {
 
 
     const hand = {
-        initial: { scale: 0 },
-        expand: { scale: 1.5, transition: { easeIn: "easeIn", type: 'spring' } },
+        initial: { scale: 0, opacity: 0 },
+        expand: { scale: 1.5, opacity: 1, transition: { easeIn: "easeIn", type: 'spring' } },
         normal: { scale: 1, transition: { easeIn: "easeIn", type: 'spring', bounce: 0.4, } },
         wave: {
             rotate: '12deg',
@@ -153,7 +156,7 @@ function About() {
 
     return (
         <motion.section
-            variants={container}
+            variants={width > 500 ? container : null}
             initial="initial"
             exit="exit"
             whileInView="animate"
@@ -167,7 +170,7 @@ function About() {
                 </h3>
                 <span className='w-[65px] h-[65px] ml-3 mb-1 md:w-[70px] md:h-[70px] md:mb-1 lg:w-[100px] lg:h-[100px] lg:mr-0  lg:mb-4'>
                     <motion.svg
-                        variants={svgContainer}
+                        variants={width > 500 ? svgContainer : null}
                         xmlns="http://www.w3.org/2000/svg"
                         width="100%" height="100%" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -183,7 +186,7 @@ function About() {
 
             {/* Card */}
             <motion.div
-                variants={card}
+                variants={width > 500 ? card : null}
                 initial="initial"
                 exit="exit"
                 whileInView="animate"
@@ -228,7 +231,7 @@ function About() {
 
                 {/* Description */}
                 <motion.div
-                    variants={description}
+                    variants={width > 500 ? description : null}
                     className='  flex flex-col lg:space-y-5 relative '>
 
                     {/* Header */}

@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 // Hooks
 import { useDarkMode } from '../../lib/context/ThemeProvider'
+import useWindowDimesions from '../../lib/hooks/useWindowDimensions'
 
 // Framer
 import { motion, AnimatePresence } from 'framer-motion'
@@ -675,6 +676,7 @@ function Card({ project, handleShowDetails }) {
 
 function Work() {
     const [showDetails, setShowDetails] = useState(null)
+    const { width } = useWindowDimesions()
     function handleShowDetails(id) {
         setShowDetails(id)
     }
@@ -687,6 +689,7 @@ function Work() {
             }
         }
     }
+
 
     // const gridContainer = {
     //     initial: { opacity: 0 },
@@ -745,7 +748,7 @@ function Work() {
 
     return (
         <motion.section
-            variants={container}
+            variants={width > 500 ? container : null}
             initial="initial"
             exit="exit"
             whileInView="animate"
@@ -776,7 +779,7 @@ function Work() {
 
             {/* Projects */}
             <motion.ul
-                variants={gridContainer}
+                variants={width > 500 ? container : null}
                 className='  grid grid-cols-1 gap-5 px-12 md:px-5 lg:px-0  xl:max-w-[1400px] md:grid-cols-2 lg:grid-cols-3 lg:gap-10 '>
                 {PROJECTS.map((project) => (
                     <Card
