@@ -47,7 +47,7 @@ function Navbar() {
             }
         }
 
-    }, [scroll, active])
+    }, [scroll, active, pathname])
 
 
     const NavLinks = [

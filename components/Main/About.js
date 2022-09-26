@@ -191,7 +191,7 @@ function About() {
                 exit="exit"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.1 }}
-                className={`${darkMode ? 'bg-dark' : 'bg-lighter'} mx-12 lg:max-w-[1200px]  relative overflow-hidden drop-shadow-xl rounded-xl flex flex-col space-y-6 p-6 items-center lg:space-y-0 lg:space-x-12  lg:p-10 lg:flex-row`}>
+                className={`${darkMode ? 'bg-dark' : 'bg-lighter'} mx-12  lg:max-w-[1300px]  relative overflow-hidden drop-shadow-xl rounded-xl flex flex-col space-y-6 p-6 items-center lg:space-y-0 lg:space-x-12  lg:p-10 lg:flex-row`}>
 
                 {/* Mobile Header */}
                 <div className=' w-full inline-block lg:hidden '>
@@ -251,15 +251,15 @@ function About() {
 
 
                     {/* Details */}
-                    <div className=' mt-5 mb-[1rem]  lg:mb-0 grid lg:grid-cols-2 text-base lg:text-lg '>
+                    <div className=' w-max mt-5 mb-[1rem]  lg:mb-0 grid lg:grid-cols-2 text-base lg:text-lg '>
                         <span className='flex py-2'>
-                            <span className='font-semibold uppercase w-[120px] lg:w-[100px]'>Name:</span>
+                            <span className='font-semibold uppercase w-[120px] lg:w-max lg:mr-3'>Name:</span>
                             <span>Jonathan Carpena</span>
                         </span>
 
                         <span className='flex py-2'>
                             <span className='font-semibold uppercase  w-[120px]  lg:w-[100px]'>Job Title:</span>
-                            <span>Front End Engineer</span>
+                            <span>Full Stack Software Engineer</span>
                         </span>
                     </div>
 
@@ -269,7 +269,7 @@ function About() {
                     {/* Bio */}
                     <div className='flex flex-col space-y-4 text-base lg:text-lg'>
                         <p >
-                            {`My name is Jonathan, and I'm a front-end engineer specializing in building and designing exceptional digital experiences.`}
+                            {`My name is Jonathan, and I'm a full-stack software engineer specializing in building and designing exceptional digital experiences.`}
                         </p>
                         <p >
                             {`I'm a self starter with a burning passion in developing strong web applications,

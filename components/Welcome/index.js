@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 // Components
 import Password from './Password'
 
-const passwordScreen = true
+const passwordScreen = false
 function Welcome() {
     const change = useChangeScreen()
     const [error, setError] = useState(false)
@@ -36,9 +36,9 @@ function Welcome() {
         }
     }
 
-    // setTimeout(() => {
-    //     change("main")
-    // }, [2000])
+    setTimeout(() => {
+        change("main")
+    }, [2000])
 
 
     // Variants 

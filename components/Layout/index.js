@@ -27,8 +27,8 @@ function Layout({ children }) {
     return (
         <div className={`${darkMode ? 'bg-darker' : 'bg-light'}   w-full min-h-screen flex justify-center `}>
             <Head>
-                <title>Jonathan Carpena - Front End Engineer</title>
-                <meta name="description" content="My name is Jonathan, and I'm a Front End Engineer specializing in building and designing exceptional digital experiences." />
+                <title>Jonathan Carpena - Full Stack Software Engineer</title>
+                <meta name="description" content="My name is Jonathan, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences." />
                 <meta name="avatar" content="%PUBLIC_URL%/avatar.png"></meta>
                 <meta name="msapplication-TileColor" content="#5020df"></meta>
                 <meta name="theme-color" content="#5020df"></meta>
