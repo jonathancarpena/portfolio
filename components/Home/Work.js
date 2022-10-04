@@ -114,7 +114,7 @@ function Work() {
 
 
     return (
-        <Section id="featured-work">
+        <Section id="featured-work" >
             <h1 className='text-6xl font-semibold text-center  my-20'>Some Things I've Built</h1>
             <ul className='flex flex-col space-y-36'>
                 <FeaturedProject direction={"left"} project={Projects[0]} />

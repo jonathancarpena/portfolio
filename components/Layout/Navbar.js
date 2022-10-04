@@ -8,8 +8,7 @@ function Navbar() {
     const NavLink = [
         { icon: <FiBriefcase />, link: '/work', text: 'work' },
         { icon: <FiZap />, link: '/skills', text: 'skills' },
-        { icon: <FiMessageSquare />, link: '/contact', text: 'contact' },
-        { icon: <FiBook />, link: '', text: 'resume' },
+        { icon: <FiMessageSquare />, link: '#contact', text: 'contact' },
     ]
 
 
@@ -22,11 +21,11 @@ function Navbar() {
                 {/*  Brand */}
                 <div className='flex items-center space-x-2'>
                     {/* Logo */}
-                    <Link href="/">
+                    <a href="/">
                         <button className='bg-white rounded-md drop-shadow-md w-[50px] h-[50px] flex justify-center items-center hover:scale-110 transition-transform duration-200 ease-in-out'>
                             <Image src="/logo-black.png" width={20} height={30} layout="fixed" />
                         </button>
-                    </Link>
+                    </a>
 
 
 
@@ -45,6 +44,20 @@ function Navbar() {
                             </Link>
                         </li>
                     ))}
+
+                    <li className='cursor-pointer border-b-4 border-b-transparent hover:border-b-accent-500'>
+                        <a href="./Jonathan Carpena Resume.pdf"
+                            // download
+                            title="Resume"
+                            target="_blank"
+                            rel='noopener noreferrer'>
+                            <span className="flex items-center space-x-1">
+                                <FiBook />
+                                <span className='capitalize'>Resume</span>
+                            </span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>

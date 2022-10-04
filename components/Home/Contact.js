@@ -9,11 +9,19 @@ function Contact() {
         email: '',
         message: ''
     })
+
+    function handleChange(e) {
+        setInputs({
+            ...inputs,
+            [e.target.name]: e.target.value
+        })
+    }
     return (
-        <Section>
-            <div className='flex justify-center items-center '>
+        <Section id="contact" height="h-max">
+            <div className='flex flex-col justify-center items-center '>
+                <h1 className='text-6xl font-semibold text-center  mt-48 mb-10'>Get In Touch</h1>
                 <form
-                    className=" bg-white drop-shadow-xl flex flex-col w-1/2  p-5 rounded-md"
+                    className=" border-t-[1px] border-x-[1px] bg-white drop-shadow-xl flex flex-col w-2/3  p-5 rounded-md"
                     method="POST"
                     name="contact-form"
                     action={`contact/?success=true`}
@@ -21,6 +29,7 @@ function Contact() {
                     data-netlify-honeypot="bot-field"
                 // data-netlify-recaptcha="true"
                 >
+
                     <input
                         type="hidden"
                         name="subject"
@@ -42,9 +51,9 @@ function Contact() {
                         id="name"
                         name="name"
                         required
-                        onChange={(e) => setSubmitterName(e.target.value)}
+                        onChange={handleChange}
                         type="text"
-                        className={`bg-gray-100 focus:bg-lighter mb-5 w-full   outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500`}
+                        className={`bg-gray-100  mb-5 w-full   outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500`}
                     />
 
                     <label htmlFor="email" className=" flex items-center space-x-1.5  mb-1 text-lg">
@@ -57,7 +66,8 @@ function Contact() {
                         type="email"
                         name="email"
                         required
-                        className={` mb-5 w-full   outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500`}
+                        onChange={handleChange}
+                        className={` bg-gray-100 mb-5 w-full   outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500`}
                     />
 
                     <label htmlFor="message" className=" flex items-center space-x-1.5 mb-1 text-lg">
@@ -69,10 +79,11 @@ function Contact() {
                         id="message"
                         name="message"
                         required
-                        className='mb-5 w-full min-h-[150px] text-dark bg-light focus:bg-lighter outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
+                        onChange={handleChange}
+                        className=' bg-gray-100 mb-5 w-full min-h-[150px] text-dark bg-light focus:bg-lighter outline-none pl-4 pr-10 py-2  rounded-md focus:ring-2 focus:ring-accent-500'
                     />
                     {/* <div data-netlify-recaptcha="true"></div> */}
-                    <button type="submit" className='w-full bg-accent-700 hover:bg-accent-400 active:bg-accent-700 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>Submit</button>
+                    <button type="submit" className='w-full bg-accent-500 hover:bg-accent-400 active:bg-accent-500 active:scale-95 transition-all ease-in-out py-4 rounded-lg text-white text-xl'>Submit</button>
                 </form>
             </div>
 
