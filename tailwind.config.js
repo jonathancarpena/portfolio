@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Outfit', 'sans-serif']
+        body: ['Outfit', 'sans-serif'],
+        code: ["Consolas"]
       },
       colors: {
         accent: {

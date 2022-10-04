@@ -13,11 +13,11 @@ function Hero() {
                     Currently helping small businesses and creators make the most of their customers and audiences, by providing them with great user experiences.
                 </p>
 
-                <Link href="/#featured-work">
+                <a href="/#featured-work">
                     <button className='bg-black hover:bg-accent-500 text-white p-4 rounded-lg'>
                         View My Work
                     </button>
-                </Link>
+                </a>
             </div>
 
 
