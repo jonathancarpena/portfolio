@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import Section from '../Home/Section'
 
 function Footer() {
     const General = [
         { text: 'Home', link: '/' },
         { text: 'My Work', link: 'work' },
-        { text: 'Resume', link: '#resume' }
     ]
 
     const Other = [
@@ -20,37 +20,55 @@ function Footer() {
     return (
         <footer className='text-lg py-20  w-full flex justify-center items-center bg-accent-600'>
 
-            <div className='max-w-[1980px] flex space-x-10 w-full bg-accent-600 text-white'>
-                <div >
-                    <span className=' font-semibold inline-block mb-1'>General</span>
-                    <ul className='flex flex-col space-y-1'>
-                        {General.map((item) => (
+
+            <div className='max-w-7xl px-10 flex flex-col space-y-10 w-full  text-white'>
+                <div className='flex space-x-10 w-full  '>
+
+                    <div >
+                        <span className=' font-semibold inline-block mb-1'>General</span>
+                        <ul className='flex flex-col space-y-1'>
+                            {General.map((item) => (
+                                <li className=' cursor-pointer hover:underline'>
+                                    <Link href={item.link} >
+                                        <span>
+                                            {item.text}
+                                        </span>
+                                    </Link>
+                                </li>
+                            ))}
                             <li className=' cursor-pointer hover:underline'>
-                                <Link href={item.link} >
-                                    <span>
-                                        {item.text}
-                                    </span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <span className=' font-semibold inline-block mb-1'>Other</span>
-                    <ul className='flex flex-col space-y-1'>
-                        {Other.map((item) => (
-                            <li className='cursor-pointer hover:underline'>
-                                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                    <span>
-                                        {item.text}
-                                    </span>
+                                <a href="./Jonathan Carpena Resume.pdf"
+                                    // download
+                                    title="Resume"
+                                    target="_blank"
+                                    rel='noopener noreferrer'>
+                                    <span >Resume</span>
                                 </a>
                             </li>
-                        ))}
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                    <div>
+                        <span className=' font-semibold inline-block mb-1'>Other</span>
+                        <ul className='flex flex-col space-y-1'>
+                            {Other.map((item) => (
+                                <li className='cursor-pointer hover:underline'>
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                        <span>
+                                            {item.text}
+                                        </span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
+                </div>
+                <span className='w-max inline-block px-3 py-1 rounded-md font-semibold bg-white text-accent-500'>
+                    Built By Jonathan Carpena
+                </span>
             </div>
+
+
 
 
         </footer>

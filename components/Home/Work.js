@@ -4,34 +4,34 @@ import Projects from '../../lib/projects'
 
 import { FiExternalLink, FiGithub } from 'react-icons/fi'
 
-const FeaturedProject = ({ direction = "left", project = null }) => {
+const FeaturedProject = ({ direction = "left", project = null, darkPreview = false }) => {
 
     if (!project) {
         return <p>No Project to Display</p>
     }
     return (
 
-        <>
+        <li className={`h-max relative border-2 overflow-hidden rounded-md  lg:border-none lg:overflow-visible ${darkPreview ? 'text-white lg:text-black' : ''}`}>
+
             {direction === "left" &&
-                <li className={`flex -space-x-14 `} >
+                <div className={` flex lg:-space-x-14    `} >
 
                     {/* Image */}
-
-                    <img src={project.preview} className=" w-3/5 object-cover rounded-md hover:z-50 hover:scale-105 hover:drop-shadow-xl transition-all duration-200" />
+                    <img src={project.preview} className=" blur-md absolute z-0 h-full w-full  object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:w-3/5   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" />
 
 
                     {/* Details */}
-                    <div className={`flex flex-col justify-center space-y-8 items-end`} >
+                    <div className={` p-10 z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-end`} >
 
                         <div>
-                            <p className='text-accent-500 uppercase font-semibold text-end'>
+                            <p className='text-accent-500 uppercase font-semibold lg:text-end'>
                                 Featured Project
                             </p>
                             <p className='text-3xl font-bold'>{project.name}</p>
                         </div>
 
 
-                        <div className='border-t-[1px] bg-white drop-shadow-lg px-7 py-5 rounded-md   '>
+                        <div className='lg:border-t-[1px] lg:bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md   '>
                             <p>
                                 {project.description}
                             </p>
@@ -39,7 +39,7 @@ const FeaturedProject = ({ direction = "left", project = null }) => {
 
                         <ul className='flex'>
                             {project.tools.map((item) => (
-                                <li className='font-code ml-3 text-gray-500'>
+                                <li className='font-code mr-3 lg:ml-3 lg:text-gray-500'>
                                     {item}
                                 </li>
                             ))}
@@ -56,26 +56,25 @@ const FeaturedProject = ({ direction = "left", project = null }) => {
 
                     </div>
 
-                </li>
+                </div>
             }
 
             {direction === "right" &&
-                <li className={`flex -space-x-14 `} >
-
+                <div className={` flex lg:-space-x-14    `} >
 
 
                     {/* Details */}
-                    <div className={`flex flex-col justify-center space-y-8 items-start`} >
+                    <div className={` p-10 z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-start`} >
 
-                        <div >
-                            <p className='text-accent-500 uppercase font-semibold text-start'>
+                        <div>
+                            <p className='text-accent-500 uppercase font-semibold lg:text-start'>
                                 Featured Project
                             </p>
                             <p className='text-3xl font-bold'>{project.name}</p>
                         </div>
 
 
-                        <div className='border-t-[1px] bg-white drop-shadow-lg px-7 py-5 rounded-md   '>
+                        <div className='lg:border-t-[1px] lg:bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md   '>
                             <p>
                                 {project.description}
                             </p>
@@ -83,7 +82,7 @@ const FeaturedProject = ({ direction = "left", project = null }) => {
 
                         <ul className='flex'>
                             {project.tools.map((item) => (
-                                <li className='font-code mr-3 text-gray-500'>
+                                <li className='font-code mr-3  lg:text-gray-500'>
                                     {item}
                                 </li>
                             ))}
@@ -101,12 +100,16 @@ const FeaturedProject = ({ direction = "left", project = null }) => {
                     </div>
 
                     {/* Image */}
-                    <img src={project.preview} className="w-3/5 object-cover rounded-md hover:z-50 hover:scale-105 hover:drop-shadow-xl transition-all duration-200" />
-                </li>
+                    <img src={project.preview} className=" blur-md absolute z-0 h-full w-full  object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:w-3/5   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" />
+
+                </div>
             }
 
 
-        </>
+
+
+
+        </li>
 
     )
 }
@@ -115,11 +118,11 @@ function Work() {
 
     return (
         <Section id="featured-work" >
-            <h1 className='text-6xl font-semibold text-center  my-20'>Some Things I've Built</h1>
-            <ul className='flex flex-col space-y-36'>
+            <h1 className='text-6xl font-semibold text-center  mt-32 mb-10 lg:my-20'>Some Things I've Built</h1>
+            <ul className='flex flex-col space-y-10 lg:space-y-36'>
                 <FeaturedProject direction={"left"} project={Projects[0]} />
                 <FeaturedProject direction={"right"} project={Projects[1]} />
-                <FeaturedProject direction={"left"} project={Projects[2]} />
+                <FeaturedProject direction={"left"} project={Projects[2]} darkPreview={true} />
             </ul>
         </Section>
     )

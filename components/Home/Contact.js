@@ -21,7 +21,7 @@ function Contact() {
             <div className='flex flex-col justify-center items-center '>
                 <h1 className='text-6xl font-semibold text-center  mt-48 mb-10'>Get In Touch</h1>
                 <form
-                    className=" border-t-[1px] border-x-[1px] bg-white drop-shadow-xl flex flex-col w-2/3  p-5 rounded-md"
+                    className=" border-t-[1px] border-x-[1px] bg-white drop-shadow-xl flex flex-col w-full md:w-2/3  p-5 rounded-md"
                     method="POST"
                     name="contact-form"
                     action={`contact/?success=true`}

@@ -9,11 +9,11 @@ function About() {
     return (
         <Section className=' h-screen flex justify-center items-center'>
 
-            <div className='border-t-[1px]  flex drop-shadow-xl rounded-lg overflow-hidden bg-white '>
-                <div className='w-1/2 h-[600px] flex justify-center items-center bg-neutral-200'>
+            <div className='border-t-[1px] flex flex-col lg:flex-row drop-shadow-xl rounded-lg overflow-hidden bg-white '>
+                <div className='w-full lg:w-1/2 h-[600px] flex justify-center items-center bg-neutral-200'>
                     <span>IMG</span>
                 </div>
-                <div className='w-1/2 flex flex-col justify-center space-y-5 p-5 '>
+                <div className='w-full lg:w-1/2 flex flex-col justify-center space-y-5 p-5 '>
                     <p className='text-4xl font-semibold'>
                         A little about me
                     </p>
