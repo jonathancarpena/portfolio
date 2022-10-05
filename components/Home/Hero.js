@@ -26,7 +26,12 @@ function Hero() {
                     </button>
                 </a>
 
-                <FiArrowDownCircle className='relative top-4 block animate-bounce text-3xl' />
+                <a href="/#featured-work" className='relative top-4 block animate-bounce text-3xl'>
+                    <button>
+                        <FiArrowDownCircle />
+                    </button>
+                </a>
+
 
 
             </div>
