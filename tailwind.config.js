@@ -10,6 +10,7 @@ module.exports = {
         body: ['Outfit', 'sans-serif'],
         code: ["Consolas"]
       },
+
       colors: {
         accent: {
           100: '#dcd2f9',

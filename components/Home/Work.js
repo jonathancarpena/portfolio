@@ -4,7 +4,7 @@ import Projects from '../../lib/projects'
 
 import { FiExternalLink, FiGithub } from 'react-icons/fi'
 
-const FeaturedProject = ({ direction = "left", project = null, darkPreview = false }) => {
+export const Project = ({ direction = "left", project = null, darkPreview = false, featured = false }) => {
 
     if (!project) {
         return <p>No Project to Display</p>
@@ -25,7 +25,7 @@ const FeaturedProject = ({ direction = "left", project = null, darkPreview = fal
 
                         <div>
                             <p className='text-accent-500 uppercase font-semibold lg:text-end'>
-                                Featured Project
+                                {featured ? 'Featured Project' : 'Project'}
                             </p>
                             <p className='text-3xl font-bold'>{project.name}</p>
                         </div>
@@ -120,9 +120,9 @@ function Work() {
         <Section id="featured-work" >
             <h1 className='text-6xl font-semibold text-center  mt-32 mb-10 lg:my-20'>Some Things I've Built</h1>
             <ul className='flex flex-col space-y-10 lg:space-y-36'>
-                <FeaturedProject direction={"left"} project={Projects[0]} />
-                <FeaturedProject direction={"right"} project={Projects[1]} />
-                <FeaturedProject direction={"left"} project={Projects[2]} darkPreview={true} />
+                <Project direction={"left"} project={Projects[0]} featured={true} />
+                <Project direction={"right"} project={Projects[1]} featured={true} />
+                <Project direction={"left"} project={Projects[2]} darkPreview={true} featured={true} />
             </ul>
         </Section>
     )

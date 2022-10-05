@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 function Hero() {
     return (
@@ -9,12 +8,12 @@ function Hero() {
                 <h1 className='  text-center text-5xl font-bold md:text-8xl'>
                     I'm a full-stack developer and thingy-builder
                 </h1>
-                <p className=' max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
+                <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
                     Currently helping small businesses and creators make the most of their customers and audiences, by providing them with great user experiences.
                 </p>
 
                 <a href="/#featured-work">
-                    <button className='bg-black hover:bg-accent-500 text-white p-4 rounded-lg'>
+                    <button className='bg-black hover:bg-accent-500 active:bg-accent-600 active:scale-95 transition-all ease-in-out  duration text-white p-4 rounded-lg'>
                         View My Work
                     </button>
                 </a>
