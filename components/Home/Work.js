@@ -39,7 +39,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
 
                         <ul className='flex'>
                             {project.tools.map((item) => (
-                                <li className='font-code mr-3 lg:ml-3 lg:text-gray-500'>
+                                <li key={`${project.id}-tool-${item}`} className='font-code mr-3 lg:ml-3 lg:text-gray-500'>
                                     {item}
                                 </li>
                             ))}
@@ -82,7 +82,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
 
                         <ul className='flex'>
                             {project.tools.map((item) => (
-                                <li className='font-code mr-3  lg:text-gray-500'>
+                                <li key={`${project.id}-tool-${item}`} className='font-code mr-3  lg:text-gray-500'>
                                     {item}
                                 </li>
                             ))}

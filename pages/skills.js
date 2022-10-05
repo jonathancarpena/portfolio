@@ -15,7 +15,7 @@ const SkillList = ({ heading, skillset = [] }) => {
             <h3 className='text-3xl mb-4 font-semibold'>{heading}</h3>
             <ul className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4'>
                 {skillset.map((item) => (
-                    <SkillCard text={item} />
+                    <SkillCard key={item} text={item} />
                 ))}
             </ul>
         </div>

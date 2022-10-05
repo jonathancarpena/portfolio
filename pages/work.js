@@ -5,6 +5,7 @@ import Projects from '../lib/projects'
 import { FiGithub, FiExternalLink, FiPlay } from 'react-icons/fi'
 
 
+
 const ProjectSquare = ({ project, featured, darkPreview }) => {
 
     const [open, setOpen] = useState(false)
@@ -43,7 +44,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
                 <ul className='hidden md:flex flex-wrap'>
                     {project.tools.map((item) => (
-                        <li className='font-code mr-3  '>
+                        <li key={`${project.name}-tool-${item}`} className='font-code mr-3  '>
                             {item}
                         </li>
                     ))}
@@ -87,7 +88,10 @@ function Work() {
 
                 <ul className='grid grid-cols-2 lg:grid-cols-3  '>
                     {Projects.map((item) => (
-                        <ProjectSquare key={item.id} project={item} featured={item.featured} />
+
+                        <ProjectSquare key={`project-${item.id}`} project={item} featured={item.featured} />
+
+
                     ))}
 
                 </ul>

@@ -35,10 +35,10 @@ function About() {
                     {/* Tech Stack */}
                     <div>
                         <p>Here are a few technologies I’ve been working with recently:</p>
-                        <ul className='grid grid-cols-2 w-3/4'>
+                        <ul className='grid grid-cols-2 w-3/4 mt-2'>
                             {Technologies.map((item) => (
-                                <li className='flex space-x-2 items-center'>
-                                    <FiChevronRight />
+                                <li key={`technologies-${item}`} className='flex space-x-2 items-center'>
+                                    <FiChevronRight className='text-accent-500' />
                                     <span>{item}</span>
                                 </li>
                             ))}

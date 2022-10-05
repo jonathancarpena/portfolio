@@ -23,7 +23,17 @@ module.exports = {
           800: '#200d59',
           900: '#10062d'
         },
-      }
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+
+      },
+      animation: {
+        'wiggle': 'wiggle 400ms ease-in-out ',
+      },
     },
   },
   plugins: [],

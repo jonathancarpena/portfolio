@@ -30,7 +30,7 @@ function Footer() {
                         <span className=' font-semibold inline-block mb-1'>General</span>
                         <ul className='flex flex-col space-y-1'>
                             {General.map((item) => (
-                                <li className=' cursor-pointer hover:underline'>
+                                <li key={`${item.text}`} className=' cursor-pointer hover:underline'>
                                     <Link href={item.link} >
                                         <span>
                                             {item.text}
@@ -53,7 +53,7 @@ function Footer() {
                         <span className=' font-semibold inline-block mb-1'>Other</span>
                         <ul className='flex flex-col space-y-1'>
                             {Other.map((item) => (
-                                <li className='cursor-pointer hover:underline'>
+                                <li key={`${item.text}`} className='cursor-pointer hover:underline'>
                                     <a href={item.link} target="_blank" rel="noopener noreferrer">
                                         <span>
                                             {item.text}
