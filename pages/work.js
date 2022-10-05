@@ -19,38 +19,40 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
 
             {/* Details */}
-            <div className={` p-4 md:p-10 z-20 bg-white flex flex-col justify-center space-y-5 `} >
+            <div className='min-h-[238px] md:min-h-[378px] flex flex-col justify-between '>
+                <div className={`  pt-4 px-4 md:pt-10 md:px-10 z-20 justify-start bg-white flex flex-col  space-y-5 `} >
 
-                <div>
-                    <p className='text-accent-500 uppercase font-semibold '>
-                        {featured ? 'Featured Project' : 'Project'}
+                    <div>
+                        <p className='text-accent-500 uppercase font-semibold text-xs md:text-base'>
+                            {featured ? 'Featured Project' : 'Project'}
+                        </p>
+                        <p className='text-xl md:text-3xl font-bold   '>
+                            {project.name}
+                        </p>
+                    </div>
+
+                    <p onClick={() => setOpen(!open)} className={`cursor-pointer select-none overflow-hidden ${open ? 'h-max' : 'h-[70px]'} `}>
+                        {project.description.length > 100
+                            ? `${open
+                                ? project.description
+                                : `${project.description.substring(0, 100)}...`
+                            } `
+                            : project.description
+                        }
+
                     </p>
-                    <p className='text-2xl md:text-3xl font-bold  h-[65px] md:h-[78px] '>
-                        {project.name}
-                    </p>
+
+
+                    <ul className='hidden md:flex flex-wrap'>
+                        {project.tools.map((item) => (
+                            <li key={`${project.name}-tool-${item}`} className='font-code mr-3  '>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
-                <p onClick={() => setOpen(!open)} className={`cursor-pointer select-none overflow-hidden ${open ? 'h-max' : 'h-[70px]'} `}>
-                    {project.description.length > 100
-                        ? `${open
-                            ? project.description
-                            : `${project.description.substring(0, 100)}...`
-                        } `
-                        : project.description
-                    }
-
-                </p>
-
-
-                <ul className='hidden md:flex flex-wrap'>
-                    {project.tools.map((item) => (
-                        <li key={`${project.name}-tool-${item}`} className='font-code mr-3  '>
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-
-                <div className='flex space-x-3 text-2xl'>
+                <div className={` flex space-x-3 text-2xl  ${open ? 'pt-5' : ''} px-4 pb-4 md:px-10 md:pb-10`}>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
                     </a>
@@ -64,8 +66,8 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                     }
 
                 </div>
-
             </div>
+
 
         </div>
     )
@@ -73,7 +75,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 function Work() {
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className=' mb-20 relative top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+            <div className=' mb-40 lg:mb-28 relative top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 
                 {/* Header */}
                 <div>
@@ -86,7 +88,7 @@ function Work() {
                 </div>
 
 
-                <ul className='grid grid-cols-2 lg:grid-cols-3  '>
+                <ul className='grid grid-cols-2 auto-rows-[minmax(0,_2fr)] lg:grid-cols-3  '>
                     {Projects.map((item) => (
 
                         <ProjectSquare key={`project-${item.id}`} project={item} featured={item.featured} />

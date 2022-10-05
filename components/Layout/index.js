@@ -24,7 +24,7 @@ function Layout({ children }) {
             <div className='font-body flex justify-center items-center flex-col'>
                 <div className='relative w-full max-w-screen-xl '>
                     <Navbar />
-                    <main className='relative bottom-[15rem]'>
+                    <main className='relative lg:bottom-[15rem]'>
                         {children}
                     </main>
                     <SocialButtons />

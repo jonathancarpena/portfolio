@@ -21,7 +21,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
 
 
                     {/* Details */}
-                    <div className={` p-10 z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-end`} >
+                    <div className={` p-5 w-full z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-end`} >
 
                         <div>
                             <p className='text-accent-500 uppercase font-semibold lg:text-end'>
@@ -31,13 +31,13 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                         </div>
 
 
-                        <div className='lg:border-t-[1px] lg:bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md   '>
-                            <p>
+                        <div className='lg:border-t-[1px] lg:bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md    '>
+                            <p className=''>
                                 {project.description}
                             </p>
                         </div>
 
-                        <ul className='flex'>
+                        <ul className='flex flex-wrap'>
                             {project.tools.map((item) => (
                                 <li key={`${project.id}-tool-${item}`} className='font-code mr-3 lg:ml-3 lg:text-gray-500'>
                                     {item}
@@ -64,7 +64,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
 
 
                     {/* Details */}
-                    <div className={` p-10 z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-start`} >
+                    <div className={` p-5 w-full z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-start`} >
 
                         <div>
                             <p className='text-accent-500 uppercase font-semibold lg:text-start'>
@@ -80,7 +80,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                             </p>
                         </div>
 
-                        <ul className='flex'>
+                        <ul className='flex flex-wrap'>
                             {project.tools.map((item) => (
                                 <li key={`${project.id}-tool-${item}`} className='font-code mr-3  lg:text-gray-500'>
                                     {item}
@@ -119,7 +119,7 @@ function Work() {
     return (
         <Section id="featured-work" >
             <h1 className='text-6xl font-semibold text-center  mt-32 mb-10 lg:my-20'>Some Things I've Built</h1>
-            <ul className='flex flex-col space-y-10 lg:space-y-36'>
+            <ul className=' flex flex-col space-y-10 lg:space-y-36'>
                 <Project direction={"left"} project={Projects[0]} featured={true} />
                 <Project direction={"right"} project={Projects[1]} featured={true} />
                 <Project direction={"left"} project={Projects[2]} darkPreview={true} featured={true} />
