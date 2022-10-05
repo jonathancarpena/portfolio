@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import SocialButtons from './SocialButtons'
+import HomeButton from './HomeButton'
 
 function Layout({ children }) {
 
@@ -27,6 +28,7 @@ function Layout({ children }) {
                         {children}
                     </main>
                     <SocialButtons />
+                    <HomeButton />
                 </div>
                 <Footer />
             </div>
