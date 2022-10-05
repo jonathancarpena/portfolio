@@ -72,24 +72,24 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 function Work() {
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className=' mb-20 relative top-28 flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+            <div className=' mb-20 relative top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 
                 {/* Header */}
                 <div>
                     <h1 className='text-center mb-4 text-5xl font-bold md:text-8xl'>
                         All of the Things I Built
                     </h1>
-                    <h2 className='text-center text-stone-600 text-3xl '>View all my work</h2>
+                    <h2 className='text-center text-stone-600 text-3xl '>
+                        My Blood, Sweat, and Tears
+                    </h2>
                 </div>
 
 
                 <ul className='grid grid-cols-2 lg:grid-cols-3  '>
-                    <ProjectSquare project={Projects[0]} featured={true} />
-                    <ProjectSquare project={Projects[1]} featured={true} />
-                    <ProjectSquare project={Projects[2]} darkPreview={true} featured={true} />
-                    <ProjectSquare project={Projects[0]} featured={false} />
-                    <ProjectSquare project={Projects[1]} featured={true} />
-                    <ProjectSquare project={Projects[2]} darkPreview={true} featured={true} />
+                    {Projects.map((item) => (
+                        <ProjectSquare key={item.id} project={item} featured={item.featured} />
+                    ))}
+
                 </ul>
             </div>
 

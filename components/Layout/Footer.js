@@ -6,6 +6,8 @@ function Footer() {
     const General = [
         { text: 'Home', link: '/' },
         { text: 'My Work', link: 'work' },
+        { text: 'Skills', link: 'skills' },
+        { text: 'Links', link: 'links' },
     ]
 
     const Other = [
