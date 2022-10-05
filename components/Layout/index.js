@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import SocialButtons from './SocialButtons'
 
 function Layout({ children }) {
 
@@ -25,7 +26,7 @@ function Layout({ children }) {
                     <main className='relative bottom-[15rem]'>
                         {children}
                     </main>
-
+                    <SocialButtons />
                 </div>
                 <Footer />
             </div>

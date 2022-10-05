@@ -95,9 +95,11 @@ function Navbar() {
                 <div className='flex items-center space-x-2'>
                     {/* Logo */}
                     <Link href="/">
-                        <button className='bg-white rounded-md drop-shadow-md w-[50px] h-[50px] flex justify-center items-center hover:scale-110 transition-transform duration-200 ease-in-out border-t-[1px]'>
-                            <Image alt="logo-black" src="/logo-black.png" width={20} height={30} layout="fixed" />
-                        </button>
+                        <>
+                            <button className='bg-white rounded-md drop-shadow-md w-[50px] h-[50px] flex justify-center items-center hover:scale-110 transition-transform duration-200 ease-in-out border-t-[1px]'>
+                                <Image alt="logo-black" src="/logo-black.png" width={20} height={30} layout="fixed" />
+                            </button>
+                        </>
                     </Link>
                 </div>
 

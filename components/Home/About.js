@@ -15,22 +15,28 @@ function About() {
                 </div>
                 <div className='w-full lg:w-1/2 flex flex-col justify-center space-y-5 p-5 '>
                     <p className='text-4xl font-semibold'>
-                        A little about me
+                        A little bit about me
                     </p>
 
-                    {/* Background */}
+                    {/* Coding Background */}
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus hic iusto accusantium
-                        aperiam quaerat tenetur odio ratione beatae, culpa error minima explicabo quisquam? Consequuntur
-                        a asperiores debitis voluptatibus amet?
+                        I'm a full-stack software engineer specializing in building and designing exceptional digital experiences.
+                        I began tinkering with coding and programming since I was 10, but not until college did I began taking it
+                        more seriously. Since then, I have upgraded my technology toolkit and am capable of building responsive web
+                        applications.
                     </p>
 
                     {/* Current Occupation */}
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus hic iusto accusantium
-                        aperiam quaerat tenetur odio ratione beatae, culpa error minima explicabo quisquam? Consequuntur
-
+                        Most recently, I've been helping local businesses make the most of their customers and audiences,
+                        by providing them with great user experiences
                     </p>
+
+                    {/* Outside of Work */}
+                    <p> Outside the professional environment, I enjoy creating lifestyle videos, debating what food actually deserves
+                        a 10/10 in taste, and walking my dog!</p>
+
+
 
                     {/* Tech Stack */}
                     <div>

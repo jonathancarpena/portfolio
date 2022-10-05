@@ -43,7 +43,7 @@ function Skills() {
                         My Skillset
                     </h1>
                     <h2 className='text-center text-stone-600 text-3xl '>
-                        Everything My Brain Can Handle
+                        Everything My Brain Knows So Far
                     </h2>
                 </div>
 
