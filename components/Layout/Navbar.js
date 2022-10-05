@@ -86,7 +86,7 @@ function MobileNavItem({ text, link, icon, anchor = false, blank = false }) {
 
     useEffect(() => {
 
-        if (pathname === link) {
+        if (pathname.includes(link)) {
             setActive(true)
         } else if (pathname === "/" && text === "contact") {
             if (scroll >= 3548 && scroll <= 3856) {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Projects from '../lib/projects'
+import Projects from '../../lib/projects'
 
 import { FiGithub, FiExternalLink, FiPlay } from 'react-icons/fi'
 
@@ -15,11 +15,11 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
         <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-fit relative flex flex-col border-[1px] overflow-hidden    ${darkPreview ? 'text-black ' : ''}`} >
 
             {/* Image */}
-            <img src={project.preview} className={`${hover ? "scale-110" : ''}  z-0 h-full w-full  object-cover transition-all duration-200   `} />
+            <img src={project.preview} className={`${hover ? "scale-110" : ''}  md:min-h-[197px] z-0 h-full w-full  object-cover transition-all duration-200   `} />
 
 
             {/* Details */}
-            <div className='min-h-[238px] md:min-h-[378px] flex flex-col justify-between '>
+            <div className='min-h-[258px] md:min-h-[378px] flex flex-col justify-between '>
                 <div className={`  pt-4 px-4 md:pt-10 md:px-10 z-20 justify-start bg-white flex flex-col  space-y-5 `} >
 
                     <div>
@@ -31,11 +31,14 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                         </p>
                     </div>
 
-                    <p onClick={() => setOpen(!open)} className={`cursor-pointer select-none overflow-hidden ${open ? 'h-max' : 'h-[70px]'} `}>
+                    <p onClick={() => setOpen(!open)} className={`hidden md:block cursor-pointer select-none break-words   ${open ? 'h-max' : 'h-[90px]'} `}>
+
                         {project.description.length > 100
                             ? `${open
                                 ? project.description
-                                : `${project.description.substring(0, 100)}...`
+                                : `${project.name.length <= 15
+                                    ? `${project.description.substring(0, 140)}...`
+                                    : `${project.description.substring(0, 99)}...`} `
                             } `
                             : project.description
                         }
@@ -43,29 +46,51 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                     </p>
 
 
+                    <p onClick={() => setOpen(!open)} className={`md:hidden cursor-pointer select-none break-words   ${open ? 'h-max' : 'h-[90px]'} `}>
+
+                        {project.description.length > 100
+                            ? `${open
+                                ? project.description
+                                : `${project.name.length <= 15
+                                    ? `${project.description.substring(0, 100)}...`
+                                    : `${project.description.substring(0, 80)}...`} `
+                            } `
+                            : project.description
+                        }
+
+                    </p>
+
+
+                </div>
+
+                <div className={`${open ? 'pt-5' : ''} px-4 pb-4 md:px-10 md:pb-10`}>
                     <ul className='hidden md:flex flex-wrap'>
                         {project.tools.map((item) => (
-                            <li key={`${project.name}-tool-${item}`} className='font-code mr-3  '>
+                            <li key={`${project.name}-tool-${item}`} className='capitalize font-code mr-3  '>
                                 {item}
                             </li>
                         ))}
                     </ul>
-                </div>
 
-                <div className={` flex space-x-3 text-2xl  ${open ? 'pt-5' : ''} px-4 pb-4 md:px-10 md:pb-10`}>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
-                    </a>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
-                    </a>
-                    {project.demo &&
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                            <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                    <div className={`pt-5 flex space-x-3 text-2xl  `}>
+
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
                         </a>
-                    }
+                        {project.link &&
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                            </a>
+                        }
+                        {project.demo &&
+                            <a href={`work/demo/${project.name}`} target="_blank" rel="noopener noreferrer">
+                                <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                            </a>
+                        }
 
+                    </div>
                 </div>
+
             </div>
 
 

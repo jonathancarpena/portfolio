@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import Section from '../Home/Section'
+import Socials from '../../lib/socials'
 
 function Footer() {
     const General = [
@@ -24,11 +24,11 @@ function Footer() {
 
 
             <div className='max-w-7xl px-10 flex flex-col space-y-10 w-full  text-white'>
-                <div className='flex space-x-10 w-full  '>
+                <div className='flex space-x-20 w-full  '>
 
                     <div >
                         <span className=' font-semibold inline-block mb-1'>General</span>
-                        <ul className='flex flex-col space-y-1'>
+                        <ul className='flex flex-col space-y-2'>
                             {General.map((item) => (
                                 <li key={`${item.text}`} className=' cursor-pointer hover:underline'>
                                     <Link href={item.link} >
@@ -51,12 +51,12 @@ function Footer() {
                     </div>
                     <div>
                         <span className=' font-semibold inline-block mb-1'>Other</span>
-                        <ul className='flex flex-col space-y-1'>
-                            {Other.map((item) => (
+                        <ul className='flex flex-col space-y-2'>
+                            {Object.keys(Socials).map((item) => (
                                 <li key={`${item.text}`} className='cursor-pointer hover:underline'>
-                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                        <span>
-                                            {item.text}
+                                    <a href={Socials[item]['link']} target="_blank" rel="noopener noreferrer">
+                                        <span className='capitalize'>
+                                            {item}
                                         </span>
                                     </a>
                                 </li>

@@ -2,7 +2,7 @@ import React from 'react'
 import Section from './Section'
 import Projects from '../../lib/projects'
 
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiExternalLink, FiGithub, FiPlay } from 'react-icons/fi'
 
 export const Project = ({ direction = "left", project = null, darkPreview = false, featured = false }) => {
 
@@ -37,9 +37,9 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                             </p>
                         </div>
 
-                        <ul className='flex flex-wrap'>
+                        <ul className='flex flex-wrap lg:justify-end max-w-[400px] '>
                             {project.tools.map((item) => (
-                                <li key={`${project.id}-tool-${item}`} className='font-code mr-3 lg:ml-3 lg:text-gray-500'>
+                                <li key={`${project.id}-tool-${item}`} className='capitalize font-code mr-4 lg:ml-4 lg:mr-0   lg:text-gray-500'>
                                     {item}
                                 </li>
                             ))}
@@ -52,6 +52,11 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                             <a href={project.link} target="_blank" rel="noopener noreferrer">
                                 <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
                             </a>
+                            {project.demo &&
+                                <a href={`work/demo/${project.name}`} target="_blank" rel="noopener noreferrer">
+                                    <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                                </a>
+                            }
                         </div>
 
                     </div>
@@ -80,9 +85,9 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                             </p>
                         </div>
 
-                        <ul className='flex flex-wrap'>
+                        <ul className='flex flex-wrap justify-start  max-w-[400px]'>
                             {project.tools.map((item) => (
-                                <li key={`${project.id}-tool-${item}`} className='font-code mr-3  lg:text-gray-500'>
+                                <li key={`${project.id}-tool-${item}`} className='font-code mr-3  lg:text-gray-500 capitalize'>
                                     {item}
                                 </li>
                             ))}
@@ -95,6 +100,11 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                             <a href={project.link} target="_blank" rel="noopener noreferrer">
                                 <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
                             </a>
+                            {project.demo &&
+                                <a href={`work/demo/${project.name}`} target="_blank" rel="noopener noreferrer">
+                                    <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                                </a>
+                            }
                         </div>
 
                     </div>
