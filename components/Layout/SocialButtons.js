@@ -25,6 +25,7 @@ function SocialButtons() {
             <ul className={`${open ? 'scale-100' : 'scale-0 translate-y-36 lg:-translate-x-[60px] lg:translate-y-0 opacity-0'}  bottom-2 lg:bottom-0 transition-all duration-200 relative flex flex-col  bg-white drop-shadow-md rounded-full overflow-hidden `}>
                 {Object.keys(Socials).map((item) => (
                     <a
+                        key={`social-btn-${item}`}
                         href={Socials[item].link}
                         target="_blank"
                         rel="noopener noreferrer"

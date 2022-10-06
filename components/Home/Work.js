@@ -1,6 +1,7 @@
 import React from 'react'
 import Section from './Section'
 import Projects from '../../lib/projects'
+import Image from 'next/image'
 
 import { FiExternalLink, FiGithub, FiPlay } from 'react-icons/fi'
 
@@ -17,7 +18,18 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                 <div className={` flex lg:-space-x-14    `} >
 
                     {/* Image */}
-                    <img src={project.preview} className=" blur-md absolute z-0 h-full w-full  object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:w-3/5   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" />
+                    <div className=" blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
+                        <Image
+                            alt={`${project.name}-preview`}
+                            src={project.preview}
+                            width={615}
+                            height={350}
+                            objectFit="cover"
+                            layout="fill"
+                            priority
+                        />
+                    </div>
+
 
 
                     {/* Details */}
@@ -110,7 +122,17 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                     </div>
 
                     {/* Image */}
-                    <img src={project.preview} className=" blur-md absolute z-0 h-full w-full  object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:w-3/5   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" />
+                    <div className=" blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
+                        <Image
+                            alt={`${project.name}-preview`}
+                            src={project.preview}
+                            width={615}
+                            height={350}
+                            objectFit="cover"
+                            layout="fill"
+                            priority
+                        />
+                    </div>
 
                 </div>
             }
@@ -128,11 +150,11 @@ function Work() {
 
     return (
         <Section id="featured-work" >
-            <h1 className='text-6xl font-semibold text-center  mt-32 mb-10 lg:my-20'>Some Things I've Built</h1>
+            <h1 className='text-6xl font-semibold text-center  mt-32 mb-10 lg:my-20'>{`Some Things I've Built`}</h1>
             <ul className=' flex flex-col space-y-10 lg:space-y-36'>
                 <Project direction={"left"} project={Projects[0]} featured={true} />
                 <Project direction={"right"} project={Projects[1]} featured={true} />
-                <Project direction={"left"} project={Projects[2]} darkPreview={true} featured={true} />
+                <Project direction={"left"} project={Projects[2]} featured={true} />
             </ul>
         </Section>
     )

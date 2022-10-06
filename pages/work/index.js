@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Image from 'next/image'
 import Projects from '../../lib/projects'
 
 import { FiGithub, FiExternalLink, FiPlay } from 'react-icons/fi'
@@ -15,7 +15,17 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
         <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-fit relative flex flex-col border-[1px] overflow-hidden    ${darkPreview ? 'text-black ' : ''}`} >
 
             {/* Image */}
-            <img src={project.preview} className={`${hover ? "scale-110" : ''}  md:min-h-[197px] z-0 h-full w-full  object-cover transition-all duration-200   `} />
+            <div className={`${hover ? "scale-110" : ''} md:min-h-[197px] z-0   object-cover transition-all duration-200   `}>
+                <Image
+                    alt={`${project.name}-preview`}
+                    src={project.preview}
+                    width={400}
+                    height={225}
+                    layout="responsive"
+                    priority
+                />
+            </div>
+
 
 
             {/* Details */}

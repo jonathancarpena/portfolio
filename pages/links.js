@@ -38,9 +38,9 @@ function Links() {
                 </div>
 
                 <ul className='flex justify-around items-center w-full max-w-sm'>
-                    {Object.keys(Socials).map((item) => (
+                    {Object.keys(Socials).map((item, idx) => (
 
-                        <a href={Socials[item]['link']} target="_blank" rel="noopener noreferrer" className='text-2xl'>
+                        <a key={`Social-${idx}`} href={Socials[item]['link']} target="_blank" rel="noopener noreferrer" className='text-2xl'>
                             {Socials[item]['icon']}
                         </a>
                     ))}

@@ -1,14 +1,14 @@
 import React from 'react'
-
+import Link from 'next/link'
 import { FiArrowDownCircle } from 'react-icons/fi'
 
 function Hero() {
     return (
         <div className='h-[93vh] flex flex-col justify-center  items-center'>
             <div className='max-w-screen-xl flex flex-col justify-center space-y-4 items-center'>
-                <p className='text-2xl font-medium text-stone-600 md:text-4xl'>Hello I'm Jonathan,</p>
+                <p className='text-2xl font-medium text-stone-600 md:text-4xl'>{`Hello I'm Jonathan,`}</p>
                 <h1 className='  text-center text-5xl font-bold md:text-8xl'>
-                    I'm a full<span className='text-accent-500'>-</span>stack developer and thingy<span className='text-accent-500'>-</span>builder
+                    {`I'm a full`}<span className='text-accent-500'>-</span>stack developer and thingy<span className='text-accent-500'>-</span>builder
                 </h1>
 
                 <div>
@@ -20,17 +20,23 @@ function Hero() {
                     </p>
                 </div>
 
-                <a href="/#featured-work">
+                <Link href="/#featured-work" scroll={false}>
+
                     <button className=' bg-black hover:bg-accent-500 active:bg-accent-600 active:scale-95 transition-all ease-in-out  duration text-white p-4 rounded-lg'>
                         View My Work
                     </button>
-                </a>
 
-                <a href="/#featured-work" className='relative top-4 block animate-bounce text-3xl'>
-                    <button>
+
+                </Link>
+
+                <Link href="/#featured-work" scroll={false}>
+
+                    <button className='relative top-4 block animate-bounce text-3xl'>
                         <FiArrowDownCircle />
                     </button>
-                </a>
+
+                </Link>
+
 
 
 

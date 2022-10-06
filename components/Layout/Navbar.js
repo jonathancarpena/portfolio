@@ -30,7 +30,7 @@ function NavItem({ text, link, icon, anchor = false, blank = false }) {
         } else {
             setActive(false)
         }
-    }, [pathname, scroll])
+    }, [pathname, scroll, link, text])
     function handleClick() {
         if (active) {
             setWiggle(true)
@@ -46,35 +46,21 @@ function NavItem({ text, link, icon, anchor = false, blank = false }) {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             className={`${baseStyles} ${active ? activeStyles : ''} ${wiggle ? 'animate-wiggle' : ''} ${(hover && !active) ? "scale-125" : "hover:bg-accent-600"} `}>
-            {!anchor
-                ? <Link href={link} >
-                    <button className=" flex items-center space-x-1 outline-none">
-                        <span className={`${(hover && !active) ? 'text-accent-500' : ''}`}>
-                            {icon}
-                        </span>
-                        <span className='capitalize'>{text}</span>
-                    </button>
 
-                </Link>
-                : <a href={link}
-                    title={blank ? text : ''}
-                    target={blank ? "_blank" : ""}
-                    rel={blank ? 'noopener noreferrer' : ''}
-                >
-                    <button className="flex items-center space-x-1 outline-none">
-                        <span className={`${(hover && !active) ? 'text-accent-500' : ''}`}>
-                            {icon}
-                        </span>
+            <Link href={link} scroll={false} >
+                <button className=" flex items-center space-x-1 outline-none">
+                    <span className={`${(hover && !active) ? 'text-accent-500' : ''}`}>
+                        {icon}
+                    </span>
+                    <span className='capitalize'>{text}</span>
+                </button>
 
-                        <span className='capitalize'>{text}</span>
-                    </button>
-                </a>
-            }
+            </Link>
         </li>
     )
 }
 
-function MobileNavItem({ text, link, icon, anchor = false, blank = false }) {
+function MobileNavItem({ text, link, icon }) {
 
     const [active, setActive] = useState(false)
     const [wiggle, setWiggle] = useState(false)
@@ -97,7 +83,7 @@ function MobileNavItem({ text, link, icon, anchor = false, blank = false }) {
         } else {
             setActive(false)
         }
-    }, [pathname, scroll])
+    }, [pathname, scroll, link, text])
     function handleClick() {
         if (active) {
             setWiggle(true)
@@ -111,30 +97,15 @@ function MobileNavItem({ text, link, icon, anchor = false, blank = false }) {
         <li
             onClick={handleClick}
             className={`${baseStyles} ${active ? 'border-b-accent-500' : 'border-b-white'} ${wiggle ? 'animate-wiggle' : ''}  `}>
-            {!anchor
-                ? <Link href={link} >
-                    <button className=" flex flex-col justify-center items-center space-x-1 outline-none">
-                        <span className={`${active ? 'text-accent-500' : ''}`}>
-                            {icon}
-                        </span>
-                        <span className='capitalize'>{text}</span>
-                    </button>
+            <Link href={link} scroll={false}>
+                <button className=" flex flex-col justify-center items-center space-x-1 outline-none">
+                    <span className={`${active ? 'text-accent-500' : ''}`}>
+                        {icon}
+                    </span>
+                    <span className='capitalize'>{text}</span>
+                </button>
+            </Link>
 
-                </Link>
-                : <a href={link}
-                    title={blank ? text : ''}
-                    target={blank ? "_blank" : ""}
-                    rel={blank ? 'noopener noreferrer' : ''}
-                >
-                    <button className="flex flex-col justify-center items-center space-x-1 outline-none">
-                        <span className={`${active ? 'text-accent-500' : ''}`}>
-                            {icon}
-                        </span>
-
-                        <span className='capitalize'>{text}</span>
-                    </button>
-                </a>
-            }
         </li>
     )
 }
@@ -145,8 +116,8 @@ function Navbar() {
     const NavLink = [
         { icon: <FiBriefcase />, link: '/work', text: 'work' },
         { icon: <FiZap />, link: '/skills', text: 'skills' },
-        { icon: <FiMessageSquare />, link: '/#contact', text: "contact", anchor: true },
-        { icon: <FiBook />, link: './Jonathan Carpena Resume.pdf', text: "Resume", anchor: true, blank: true },
+        { icon: <FiMessageSquare />, link: '/#contact', text: "contact" },
+        { icon: <FiBook />, link: './Jonathan Carpena Resume.pdf', text: "Resume" },
     ]
 
 
@@ -177,8 +148,6 @@ function Navbar() {
                                 text={item.text}
                                 link={item.link}
                                 icon={item.icon}
-                                anchor={item.anchor || false}
-                                blank={item.blank || false}
                             />
                         ))}
                     </ul>
