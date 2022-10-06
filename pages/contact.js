@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 function Contact() {
     return (
-        <div className=' relative top-12 h-[70vh] flex-col flex justify-center items-center'>
+        <div className=' relative lg:top-20  h-[94vh] lg:mb-0  lg:h-[70vh] flex-col flex justify-center items-center'>
             <h1 className='text-center mb-5 text-5xl font-bold md:text-8xl'>
                 Message sent!
             </h1>
-            <h2 className='text-4xl mb-10 '>
+            <h2 className='text-center text-2xl md:text-4xl mb-10 '>
                 {`I'll get back to you in 24-48 hours.`}
             </h2>
 

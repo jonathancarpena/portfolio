@@ -18,7 +18,7 @@ function Contact() {
     }
     return (
         <Section id="contact" height="h-max">
-            <div className='mb-48 lg:mb-0 flex flex-col justify-center items-center '>
+            <div className='mb-48 lg:mb-4 flex flex-col justify-center items-center '>
                 <h1 className='text-6xl font-semibold text-center  mt-48 mb-10'>Get In Touch</h1>
                 <form
                     className=" border-t-[1px] border-x-[1px] bg-white drop-shadow-xl flex flex-col w-full md:w-2/3  p-5 rounded-md"
