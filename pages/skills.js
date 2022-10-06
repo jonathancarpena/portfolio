@@ -3,7 +3,7 @@ import React from 'react'
 
 const SkillCard = ({ text }) => {
     return (
-        <li className='bg-white py-3 drop-shadow-md w-full px-5 capitalize border-[1px]'>
+        <li className='bg-white text-sm md:text-base py-3 px-2 md:py-3 drop-shadow-md w-full md:px-5 capitalize border-[1px]'>
             {text}
         </li>
     )
@@ -12,8 +12,8 @@ const SkillCard = ({ text }) => {
 const SkillList = ({ heading, skillset = [] }) => {
     return (
         <div>
-            <h3 className='text-3xl mb-4 font-semibold'>{heading}</h3>
-            <ul className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4'>
+            <h3 className='text-xl mb-1 md:text-2xl md:mb-4 font-semibold'>{heading}</h3>
+            <ul className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4'>
                 {skillset.map((item) => (
                     <SkillCard key={item} text={item} />
                 ))}
@@ -39,10 +39,10 @@ function Skills() {
 
                 {/* Header */}
                 <div>
-                    <h1 className='text-center mb-4 text-5xl font-bold md:text-8xl'>
+                    <h1 className='text-center mb-2 md:mb-4 text-6xl font-bold md:text-8xl'>
                         My Skillset
                     </h1>
-                    <h2 className='text-center text-stone-600 text-3xl '>
+                    <h2 className='text-center text-stone-600 text-2xl md:text-3xl '>
                         Everything My Brain Knows So Far
                     </h2>
                 </div>

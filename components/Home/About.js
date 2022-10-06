@@ -10,7 +10,7 @@ function About() {
     return (
         <Section className=' h-screen flex justify-center items-center'>
 
-            <div className='border-t-[1px] flex flex-col lg:flex-row drop-shadow-xl rounded-lg overflow-hidden bg-white '>
+            <div className='border-[1px]  flex flex-col lg:flex-row drop-shadow-lg md:drop-shadow-xl rounded-lg overflow-hidden bg-white '>
                 <div className='w-full lg:w-1/2 h-[600px] relative flex justify-center items-center bg-neutral-200'>
 
                     <Image
@@ -38,7 +38,7 @@ function About() {
                     {/* Current Occupation */}
                     <p>
                         {`Most recently, I've been helping local businesses make the most of their customers and audiences,
-                        by providing them with great user experiences`}
+                        by providing them with great user experiences.`}
                     </p>
 
                     {/* Outside of Work */}

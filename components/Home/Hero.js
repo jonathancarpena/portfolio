@@ -13,11 +13,9 @@ function Hero() {
 
                 <div>
                     <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
-                        Currently helping local businesses make the most of their customers and audiences, by providing them with great user experiences
+                        Currently helping local businesses make the most of their customers and audiences, by providing them with great user experiences.
                     </p>
-                    <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
-                        More importantly, I am searching for the next best place to eat some good food.
-                    </p>
+
                 </div>
 
                 <Link href="/#featured-work" scroll={false}>

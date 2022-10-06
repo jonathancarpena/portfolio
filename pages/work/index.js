@@ -7,12 +7,11 @@ import { FiGithub, FiExternalLink, FiPlay } from 'react-icons/fi'
 
 
 const ProjectSquare = ({ project, featured, darkPreview }) => {
-
-    const [open, setOpen] = useState(false)
     const [hover, setHover] = useState(false)
+
     return (
 
-        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-fit relative flex flex-col border-[1px] overflow-hidden    ${darkPreview ? 'text-black ' : ''}`} >
+        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-full relative flex flex-col border-[1px] overflow-hidden    ${darkPreview ? 'text-black ' : ''}`} >
 
             {/* Image */}
             <div className={`${hover ? "scale-110" : ''} md:min-h-[197px] z-0   object-cover transition-all duration-200   `}>
@@ -26,55 +25,27 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                 />
             </div>
 
-
+            {/* min-h-[258px] md:min-h-[378px] */}
 
             {/* Details */}
-            <div className='min-h-[258px] md:min-h-[378px] flex flex-col justify-between '>
-                <div className={`  pt-4 px-4 md:pt-10 md:px-10 z-20 justify-start bg-white flex flex-col  space-y-5 `} >
+            <div className=' flex flex-col  '>
+                <div className={` p-4 md:p-10 z-20 justify-start bg-white flex flex-col space-y-3 md:space-y-5 `} >
 
                     <div>
-                        <p className='text-accent-500 uppercase font-semibold text-xs md:text-base'>
+                        <p className='text-accent-500 uppercase font-semibold text-base select-none'>
                             {featured ? 'Featured Project' : 'Project'}
                         </p>
-                        <p className='text-xl md:text-3xl font-bold   '>
+                        <p className='text-3xl font-bold select-none  '>
                             {project.name}
                         </p>
                     </div>
 
-                    <p onClick={() => setOpen(!open)} className={`hidden md:block cursor-pointer select-none break-words   ${open ? 'h-max' : 'h-[90px]'} `}>
-
-                        {project.description.length > 100
-                            ? `${open
-                                ? project.description
-                                : `${project.name.length <= 15
-                                    ? `${project.description.substring(0, 140)}...`
-                                    : `${project.description.substring(0, 99)}...`} `
-                            } `
-                            : project.description
-                        }
-
+                    <p className={` cursor-pointer select-none break-words    `}>
+                        {project.brief ? project.brief : `${project.name} description.`}
                     </p>
 
 
-                    <p onClick={() => setOpen(!open)} className={`md:hidden cursor-pointer select-none text-xs break-words   ${open ? 'h-max' : 'h-[90px]'} `}>
-
-                        {project.description.length > 100
-                            ? `${open
-                                ? project.description
-                                : `${project.name.length <= 15
-                                    ? `${project.description.substring(0, 120)}...`
-                                    : `${project.description.substring(0, 100)}...`} `
-                            } `
-                            : project.description
-                        }
-
-                    </p>
-
-
-                </div>
-
-                <div className={`${open ? 'pt-5' : ''} px-4 pb-4 md:px-10 md:pb-10`}>
-                    <ul className='hidden md:flex flex-wrap'>
+                    <ul className='flex flex-wrap select-none'>
                         {project.tools.map((item) => (
                             <li key={`${project.name}-tool-${item}`} className='capitalize font-code mr-3  '>
                                 {item}
@@ -82,7 +53,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                         ))}
                     </ul>
 
-                    <div className={`pt-5 flex space-x-3 text-2xl  `}>
+                    <div className={` flex space-x-3 text-xl md:text-2xl  `}>
 
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                             <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
@@ -99,8 +70,9 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                         }
 
                     </div>
-                </div>
 
+
+                </div>
             </div>
 
 
@@ -114,16 +86,16 @@ function Work() {
 
                 {/* Header */}
                 <div>
-                    <h1 className='text-center mb-4 text-5xl font-bold md:text-8xl'>
+                    <h1 className='text-center mb-2 md:mb-4 text-6xl font-bold md:text-8xl'>
                         All of the Things I Built
                     </h1>
-                    <h2 className='text-center text-stone-600 text-3xl '>
+                    <h2 className='text-center text-stone-600 text-2xl md:text-3xl'>
                         My Blood, Sweat, and Tears
                     </h2>
                 </div>
 
 
-                <ul className='grid grid-cols-2 auto-rows-[minmax(0,_2fr)] lg:grid-cols-3  '>
+                <ul className='grid gap-4 md:gap-0 grid-cols-1 md:grid-cols-2  lg:grid-cols-3  '>
                     {Projects.map((item) => (
 
                         <ProjectSquare key={`project-${item.id}`} project={item} featured={item.featured} />

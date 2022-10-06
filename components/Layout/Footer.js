@@ -5,25 +5,18 @@ import Socials from '../../lib/socials'
 function Footer() {
     const General = [
         { text: 'Home', link: '/' },
-        { text: 'My Work', link: 'work' },
-        { text: 'Skills', link: 'skills' },
-        { text: 'Links', link: 'links' },
+        { text: 'My Work', link: '/work' },
+        { text: 'Contact Me', link: '/#contact' },
     ]
 
-    const Other = [
-        { text: 'LinkedIn', link: 'https://www.linkedin.com/in/jonathan-carpena/' },
-        { text: 'Github', link: 'https://www.github.com/jonathancarpena' },
-        { text: 'Youtube', link: 'https://www.youtube.com' },
-        { text: 'Tiktok', link: 'https://www.tiktok.com' },
-        { text: 'Instagram', link: 'https://www.instagram.com' }
-    ]
+
 
 
     return (
         <footer className='text-lg py-20  w-full flex justify-center items-center bg-accent-600'>
 
 
-            <div className='max-w-7xl px-10 flex flex-col space-y-10 w-full  text-white'>
+            <div className='max-w-7xl px-10 flex flex-col space-y-20 w-full  text-white'>
                 <div className='flex space-x-20 w-full  '>
 
                     <div >
@@ -65,7 +58,7 @@ function Footer() {
                     </div>
 
                 </div>
-                <span className='w-max inline-block px-3 py-1 rounded-md font-semibold bg-white text-accent-500'>
+                <span className='w-max inline-block rounded-md  '>
                     Built By Jonathan Carpena
                 </span>
             </div>

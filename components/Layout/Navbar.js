@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { FiBriefcase, FiZap, FiMessageSquare, FiBook } from 'react-icons/fi'
+import { FiBriefcase, FiZap, FiMessageSquare, FiFile } from 'react-icons/fi'
 import useScroll from '../../lib/hooks/useScroll'
 
 
@@ -117,7 +117,7 @@ function Navbar() {
         { icon: <FiBriefcase />, link: '/work', text: 'work' },
         { icon: <FiZap />, link: '/skills', text: 'skills' },
         { icon: <FiMessageSquare />, link: '/#contact', text: "contact" },
-        { icon: <FiBook />, link: './Jonathan Carpena Resume.pdf', text: "Resume" },
+        { icon: <FiFile />, link: './Jonathan Carpena Resume.pdf', text: "Resume" },
     ]
 
 
