@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         body: ['Outfit', 'sans-serif'],
-        code: ["Consolas"]
+        code: ["Inconsolata", "monospace"]
       },
 
       colors: {
