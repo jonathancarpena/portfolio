@@ -1,6 +1,7 @@
 import React from 'react'
 import { FiChevronRight } from 'react-icons/fi'
 import Section from './Section'
+import Image from 'next/image'
 
 function About() {
 
@@ -10,8 +11,16 @@ function About() {
         <Section className=' h-screen flex justify-center items-center'>
 
             <div className='border-t-[1px] flex flex-col lg:flex-row drop-shadow-xl rounded-lg overflow-hidden bg-white '>
-                <div className='w-full lg:w-1/2 h-[600px] flex justify-center items-center bg-neutral-200'>
-                    <span>IMG</span>
+                <div className='w-full lg:w-1/2 h-[600px] relative flex justify-center items-center bg-neutral-200'>
+
+                    <Image
+                        src='/avatar.PNG'
+                        alt="avatar"
+                        layout="fill"
+                        objectFit='cover'
+                    />
+
+
                 </div>
                 <div className='w-full lg:w-1/2 flex flex-col justify-center space-y-5 p-5 '>
                     <p className='text-4xl font-semibold'>
