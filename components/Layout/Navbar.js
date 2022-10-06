@@ -6,7 +6,7 @@ import { FiBriefcase, FiZap, FiMessageSquare, FiFile } from 'react-icons/fi'
 import useScroll from '../../lib/hooks/useScroll'
 
 
-function NavItem({ text, link, icon, anchor = false, blank = false }) {
+function NavItem({ text, link, icon }) {
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
     const [wiggle, setWiggle] = useState(false)
@@ -48,8 +48,8 @@ function NavItem({ text, link, icon, anchor = false, blank = false }) {
             className={`${baseStyles} ${active ? activeStyles : ''} ${wiggle ? 'animate-wiggle' : ''} ${(hover && !active) ? "scale-125" : "hover:bg-accent-600"} `}>
 
             <Link href={link} scroll={false} >
-                <button className=" flex items-center space-x-1 outline-none">
-                    <span className={`${(hover && !active) ? 'text-accent-500' : ''}`}>
+                <button className={` flex items-center space-x-1 outline-none `}>
+                    <span className={`${(hover && !active) ? 'text-accent-500' : ''} `}>
                         {icon}
                     </span>
                     <span className='capitalize'>{text}</span>
@@ -96,9 +96,9 @@ function MobileNavItem({ text, link, icon }) {
     return (
         <li
             onClick={handleClick}
-            className={`${baseStyles} ${active ? 'border-b-accent-500' : 'border-b-white'} ${wiggle ? 'animate-wiggle' : ''}  `}>
+            className={`${baseStyles} ${active ? 'border-b-accent-500' : 'border-b-white'}   `}>
             <Link href={link} scroll={false}>
-                <button className=" flex flex-col justify-center items-center space-x-1 outline-none">
+                <button className={`flex flex-col justify-center items-center space-x-1 outline-none ${wiggle ? 'animate-wiggle' : ''}`}>
                     <span className={`${active ? 'text-accent-500' : ''}`}>
                         {icon}
                     </span>

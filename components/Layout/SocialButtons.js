@@ -28,14 +28,14 @@ function SocialButtons() {
     return (
         <div className='z-[100] max-w-screen-2xl flex flex-col-reverse   fixed bottom-5 items-center lg:space-y-0 lg:space-x-2 lg:flex-row  lg:bottom-[50%] lg:translate-y-[50%] left-5'>
 
-            <button onClick={handleClick} className={`border-[1px] text-black hover:scale-110 active:scale-90 transition-all duration-200 ease-in-out text-5xl bg-white h-[50px] w-[50px] max-w-[50px] flex justify-center items-center rounded-full drop-shadow-md md:drop-shadow-lg`}>
+            <button onClick={handleClick} className={`outline-none border-[1px] text-black hover:scale-110 active:scale-90 transition-all duration-200 ease-in-out text-5xl active:bg-gray-100 bg-white h-[60px] max-h-[60px] w-[60px] max-w-[60px] flex justify-center items-center rounded-full drop-shadow-md md:drop-shadow-lg`}>
                 {open
                     ? <FiBookOpen className='text-3xl' />
                     : <FiBook className='text-3xl' />
                 }
             </button>
 
-            <ul className={`${open ? 'scale-100' : 'scale-0 translate-y-40 lg:-translate-x-[60px] lg:translate-y-0 opacity-0'} ${hidden ? 'hidden' : ''}  bottom-2 lg:bottom-0 transition-all duration-200 relative flex flex-col  bg-white border-[1px] drop-shadow-md md:drop-shadow-lg rounded-full overflow-hidden `}>
+            <ul className={`${open ? 'scale-100' : 'scale-0 translate-y-40 lg:-translate-x-[60px] lg:translate-y-0 opacity-0'} ${hidden ? 'hidden' : ''}  bottom-5 lg:bottom-0 transition-all duration-200 relative flex flex-col  bg-white border-[1px] drop-shadow-md md:drop-shadow-lg rounded-full overflow-hidden `}>
                 {Object.keys(Socials).map((item) => (
                     <a
                         key={`social-btn-${item}`}

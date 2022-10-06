@@ -5,9 +5,9 @@ import { FiArrowDownCircle } from 'react-icons/fi'
 function Hero() {
     return (
         <div className='h-[93vh] flex flex-col justify-center  items-center'>
-            <div className='max-w-screen-xl flex flex-col justify-center space-y-4 items-center'>
+            <div className='max-w-screen-2xl  flex flex-col justify-center space-y-4 items-center '>
                 <p className='text-2xl font-medium text-stone-600 md:text-4xl'>{`Hello I'm Jonathan,`}</p>
-                <h1 className='  text-center text-5xl font-bold md:text-8xl'>
+                <h1 className=' text-center text-5xl font-bold md:text-8xl'>
                     {`I'm a full`}<span className='text-accent-500'>-</span>stack developer and thingy<span className='text-accent-500'>-</span>builder
                 </h1>
 

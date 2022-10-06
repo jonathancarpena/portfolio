@@ -25,7 +25,7 @@ function Layout({ children }) {
             </Head>
 
             <div className='font-body flex justify-center items-center flex-col'>
-                <div className='relative w-full max-w-screen-xl '>
+                <div className='relative w-full max-w-screen-2xl '>
 
                     {pathname !== '/links' && <Navbar />}
 

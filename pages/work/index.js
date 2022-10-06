@@ -25,7 +25,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                 />
             </div>
 
-            {/* min-h-[258px] md:min-h-[378px] */}
+
 
             {/* Details */}
             <div className=' flex flex-col  '>
@@ -56,16 +56,16 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                     <div className={` flex space-x-3 text-xl md:text-2xl  `}>
 
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                            <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
                         </a>
                         {project.link &&
                             <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                                <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
                             </a>
                         }
                         {project.demo &&
                             <a href={`work/demo/${project.name}`} target="_blank" rel="noopener noreferrer">
-                                <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
+                                <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
                             </a>
                         }
 

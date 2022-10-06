@@ -26,8 +26,8 @@ module.exports = {
       },
       keyframes: {
         wiggle: {
-          '0%, 100%': { transform: 'rotate(-4deg)' },
-          '50%': { transform: 'rotate(4deg)' },
+          '0%, 100%': { transform: 'rotate(-5deg)' },
+          '50%': { transform: 'rotate(5deg)' },
         },
 
       },
