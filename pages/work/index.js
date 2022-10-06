@@ -56,14 +56,14 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                     </p>
 
 
-                    <p onClick={() => setOpen(!open)} className={`md:hidden cursor-pointer select-none break-words   ${open ? 'h-max' : 'h-[90px]'} `}>
+                    <p onClick={() => setOpen(!open)} className={`md:hidden cursor-pointer select-none text-xs break-words   ${open ? 'h-max' : 'h-[90px]'} `}>
 
                         {project.description.length > 100
                             ? `${open
                                 ? project.description
                                 : `${project.name.length <= 15
-                                    ? `${project.description.substring(0, 100)}...`
-                                    : `${project.description.substring(0, 80)}...`} `
+                                    ? `${project.description.substring(0, 120)}...`
+                                    : `${project.description.substring(0, 100)}...`} `
                             } `
                             : project.description
                         }

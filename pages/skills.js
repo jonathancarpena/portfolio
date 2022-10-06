@@ -35,7 +35,7 @@ function Skills() {
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className=' relative top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+            <div className=' mb-40 lg:mb-28 relative top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 
                 {/* Header */}
                 <div>
