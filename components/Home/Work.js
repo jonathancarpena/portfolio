@@ -33,7 +33,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
 
 
                     {/* Details */}
-                    <div className={` p-5 w-full z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-end`} >
+                    <div className={` p-5 w-full z-10 flex flex-col justify-center space-y-5 lg:space-y-8 lg:p-0 lg:items-end`} >
 
                         <div>
                             <p className='text-accent-500 uppercase font-semibold lg:text-end'>
@@ -43,21 +43,22 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                         </div>
 
 
-                        <div className='lg:border-t-[1px] lg:bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md    '>
+                        <div className='lg:border-t-[1px] bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md font-medium lg:font-normal  bg-opacity-70 lg:bg-opacity-100 p-3'>
                             <p className=''>
                                 {project.description}
                             </p>
                         </div>
 
-                        <ul className='flex flex-wrap lg:justify-end max-w-[400px] '>
+                        <ul className='flex flex-wrap lg:justify-end lg:max-w-[400px] w-fit lg:rounded-none lg:bg-transparent lg:p-0 rounded-md bg-white bg-opacity-70 p-3'>
+                            <li className='lg:hidden capitalize font-code mr-2 font-semibold   '>Tools: </li>
                             {project.tools.map((item) => (
-                                <li key={`${project.id}-tool-${item}`} className='capitalize font-code mr-4 lg:ml-4 lg:mr-0   lg:text-gray-500'>
+                                <li key={`${project.id}-tool-${item}`} className='capitalize font-code mr-4 lg:ml-4 lg:mr-0  font-medium lg:font-normal lg:text-gray-500 '>
                                     {item}
                                 </li>
                             ))}
                         </ul>
 
-                        <div className='flex space-x-3 text-2xl'>
+                        <div className='flex space-x-3 text-2xl px-1 lg:px-0'>
                             <a href={project.github} target="_blank" rel="noopener noreferrer">
                                 <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
                             </a>
@@ -81,7 +82,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
 
 
                     {/* Details */}
-                    <div className={` p-5 w-full z-10 flex flex-col justify-center space-y-8 lg:p-0 lg:items-start`} >
+                    <div className={` p-5 w-full z-10 flex flex-col justify-center space-y-5 lg:space-y-8 lg:p-0 lg:items-start`} >
 
                         <div>
                             <p className='text-accent-500 uppercase font-semibold lg:text-start'>
@@ -91,21 +92,22 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                         </div>
 
 
-                        <div className='lg:border-t-[1px] lg:bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md   '>
+                        <div className='lg:border-t-[1px] bg-white lg:drop-shadow-lg lg:px-7 lg:py-5 rounded-md font-medium lg:font-normal  bg-opacity-70 lg:bg-opacity-100 p-3  '>
                             <p>
                                 {project.description}
                             </p>
                         </div>
 
-                        <ul className='flex flex-wrap justify-start  max-w-[400px]'>
+                        <ul className='flex flex-wrap justify-start  lg:max-w-[400px] w-fit lg:rounded-none lg:bg-transparent lg:p-0 rounded-md bg-white bg-opacity-70 p-3'>
+                            <li className='lg:hidden capitalize font-code mr-2 font-semibold   '>Tools: </li>
                             {project.tools.map((item) => (
-                                <li key={`${project.id}-tool-${item}`} className='font-code mr-3  lg:text-gray-500 capitalize'>
+                                <li key={`${project.id}-tool-${item}`} className='font-code mr-4  lg:text-gray-500  font-medium lg:font-normal capitalize'>
                                     {item}
                                 </li>
                             ))}
                         </ul>
 
-                        <div className='flex space-x-3 text-2xl'>
+                        <div className='flex space-x-3 text-2xl px-1 lg:px-0'>
                             <a href={project.github} target="_blank" rel="noopener noreferrer">
                                 <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150' />
                             </a>
