@@ -22,7 +22,7 @@ function NavItem({ text, link, icon }) {
         if (pathname === link) {
             setActive(true)
         } else if (pathname === "/" && text === "contact") {
-            if (scroll >= 3548 && scroll <= 3856) {
+            if (scroll >= 3800 && scroll <= 4700) {
                 setActive(true)
             } else {
                 setActive(false)
@@ -97,6 +97,8 @@ function MobileNavItem({ text, link, icon }) {
         <li
             onClick={handleClick}
             className={`${baseStyles} ${active ? 'border-b-accent-500' : 'border-b-white'}   `}>
+
+
             <Link href={link} scroll={false}>
                 <button className={`flex flex-col justify-center items-center space-x-1 outline-none ${wiggle ? 'animate-wiggle' : ''}`}>
                     <span className={`${active ? 'text-accent-500' : ''}`}>
