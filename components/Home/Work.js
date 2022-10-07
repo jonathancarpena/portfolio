@@ -127,8 +127,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                         <Image
                             alt={`${project.name}-preview`}
                             src={project.preview}
-                            width={615}
-                            height={350}
+
                             objectFit="cover"
                             layout="fill"
                             priority

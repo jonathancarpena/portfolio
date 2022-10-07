@@ -26,7 +26,7 @@ function SocialButtons() {
 
     }
     return (
-        <div className='z-[100] max-w-screen-2xl flex flex-col-reverse   fixed bottom-5 items-center lg:space-y-0 lg:space-x-2 lg:flex-row  lg:bottom-[50%] lg:translate-y-[50%] left-5'>
+        <div className='z-[100] max-w-screen-2xl flex flex-col-reverse   fixed bottom-5 items-center lg:space-y-0 lg:space-x-5 lg:flex-row  lg:bottom-[50%] lg:translate-y-[50%] left-5'>
 
             <button onClick={handleClick} className={`outline-none border-[1px] text-black hover:scale-110 active:scale-90 transition-all duration-200 ease-in-out text-5xl active:bg-gray-100 bg-white h-[60px] max-h-[60px] w-[60px] max-w-[60px] flex justify-center items-center rounded-full drop-shadow-md md:drop-shadow-lg`}>
                 {open
@@ -35,8 +35,8 @@ function SocialButtons() {
                 }
             </button>
 
-            <div className={`${open ? 'scale-100' : 'scale-0 translate-y-40 lg:-translate-x-[60px] lg:translate-y-0 opacity-0'} transition-all duration-200 drop-shadow-md md:drop-shadow-lg rounded-full border-[1px] bg-white`}>
-                <ul className={` ${hidden ? 'hidden' : ''}  bottom-5 lg:bottom-0 transition-all duration-200 relative flex flex-col    rounded-full  overflow-hidden `}>
+            <div className={`${open ? 'scale-100' : 'scale-0 translate-y-40 lg:-translate-x-[80px] lg:translate-y-0 opacity-0 '} relative bottom-5 lg:bottom-0 transition-all duration-200 drop-shadow-md md:drop-shadow-lg rounded-full border-[1px] bg-white`}>
+                <ul className={` ${hidden ? 'hidden' : ''}   transition-all duration-200  flex flex-col    rounded-full  overflow-hidden `}>
                     {Object.keys(Socials).map((item) => (
                         <a
                             key={`social-btn-${item}`}

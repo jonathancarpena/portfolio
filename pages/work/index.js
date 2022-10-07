@@ -11,19 +11,22 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
     return (
 
-        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-full relative flex flex-col border-[1px] overflow-hidden    ${darkPreview ? 'text-black ' : ''}`} >
+        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-full relative flex flex-col border-[1px]     ${darkPreview ? 'text-black ' : ''}`} >
 
             {/* Image */}
-            <div className={`${hover ? "scale-110" : ''} md:min-h-[197px] z-0   object-cover transition-all duration-200   `}>
-                <Image
-                    alt={`${project.name}-preview`}
-                    src={project.preview}
-                    width={400}
-                    height={225}
-                    layout="responsive"
-                    priority
-                />
+            <div className='overflow-hidden'>
+                <div className={`${hover ? "scale-110" : ''} min-h-[225px] relative transition-all duration-200   `}>
+                    <Image
+                        alt={`${project.name}-preview`}
+                        src={project.preview}
+                        width={400}
+                        height={225}
+                        layout="responsive"
+                        priority
+                    />
+                </div>
             </div>
+
 
 
 
