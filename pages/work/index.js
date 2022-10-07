@@ -28,55 +28,55 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
 
             {/* Details */}
-            <div className=' flex flex-col  '>
-                <div className={` p-4 md:p-10 z-20 justify-start bg-white flex flex-col space-y-3 md:space-y-5 `} >
 
-                    <div>
-                        <p className='text-accent-500 uppercase font-semibold text-base select-none'>
-                            {featured ? 'Featured Project' : 'Project'}
-                        </p>
-                        <p className='text-3xl font-bold select-none  '>
-                            {project.name}
-                        </p>
-                    </div>
+            <div className={`h-max p-4 md:p-10 z-20 justify-start bg-white flex flex-col space-y-3 md:space-y-5 `} >
 
-                    <p className={` cursor-pointer select-none break-words    `}>
-                        {project.brief ? project.brief : `${project.name} description.`}
+                <div>
+                    <p className='text-accent-500 uppercase font-semibold text-base select-none'>
+                        {featured ? 'Featured Project' : 'Project'}
                     </p>
+                    <p className='text-3xl font-bold select-none  '>
+                        {project.name}
+                    </p>
+                </div>
+
+                <p className={` cursor-pointer select-none break-words    `}>
+                    {project.brief ? project.brief : `${project.name} description.`}
+                </p>
 
 
-                    <ul className='flex flex-wrap select-none'>
-                        {project.tools.map((item) => (
-                            <li key={`${project.name}-tool-${item}`} className='capitalize font-code mr-3  '>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
+                <ul className='flex flex-wrap select-none'>
+                    {project.tools.map((item) => (
+                        <li key={`${project.name}-tool-${item}`} className='capitalize font-code mr-3  '>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
 
-                    <div className={` flex space-x-3 text-xl md:text-2xl  `}>
+                <div className={` flex space-x-3 text-xl md:text-2xl  `}>
 
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <FiGithub className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
+                    </a>
+                    {project.link &&
+                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
                         </a>
-                        {project.link &&
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                <FiExternalLink className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
-                            </a>
-                        }
-                        {project.demo &&
-                            <a href={`work/demo/${project.name}`} target="_blank" rel="noopener noreferrer">
-                                <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
-                            </a>
-                        }
-
-                    </div>
-
+                    }
+                    {project.demo &&
+                        <a href={`work/demo/${project.name}`} target="_blank" rel="noopener noreferrer">
+                            <FiPlay className='hover:text-accent-500 hover:scale-110 transition-all duration-150 active:scale-90' />
+                        </a>
+                    }
 
                 </div>
+
+
             </div>
-
-
         </div>
+
+
+
     )
 }
 function Work() {

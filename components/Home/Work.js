@@ -18,7 +18,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                 <div className={` flex lg:-space-x-14    `} >
 
                     {/* Image */}
-                    <div className=" blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
+                    <div className="border-[1px] overflow-hidden blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
                         <Image
                             alt={`${project.name}-preview`}
                             src={project.preview}
@@ -123,7 +123,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                     </div>
 
                     {/* Image */}
-                    <div className=" blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
+                    <div className=" border-[1px] overflow-hidden blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
                         <Image
                             alt={`${project.name}-preview`}
                             src={project.preview}

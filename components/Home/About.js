@@ -10,10 +10,10 @@ function About() {
     return (
         <Section className=' h-screen flex justify-center items-center'>
 
-            <div className='border-[1px]   drop-shadow-lg md:drop-shadow-xl rounded-lg  bg-white '>
+            <div className='border-[1px]   drop-shadow-lg md:drop-shadow-xl  rounded-lg  bg-white '>
 
-                <div className='flex flex-col lg:flex-row overflow-hidden'>
-                    <div className='overflow-hidden rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none w-full lg:w-1/2 min-h-[600px] relative flex justify-center items-center bg-neutral-200'>
+                <div className='flex flex-col lg:flex-row rounded-t-lg'>
+                    <div className='overflow-hidden rounded-t-lg  lg:rounded-l-lg lg:rounded-tr-none w-full lg:w-1/2 min-h-[600px] relative flex justify-center items-center bg-neutral-200'>
                         <Image
                             src='/avatar.PNG'
                             alt="avatar"

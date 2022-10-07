@@ -35,18 +35,21 @@ function SocialButtons() {
                 }
             </button>
 
-            <ul className={`${open ? 'scale-100' : 'scale-0 translate-y-40 lg:-translate-x-[60px] lg:translate-y-0 opacity-0'} ${hidden ? 'hidden' : ''}  bottom-5 lg:bottom-0 transition-all duration-200 relative flex flex-col  bg-white border-[1px] drop-shadow-md md:drop-shadow-lg rounded-full overflow-hidden `}>
-                {Object.keys(Socials).map((item) => (
-                    <a
-                        key={`social-btn-${item}`}
-                        href={Socials[item].link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className='text-xl  py-6 px-4 hover:bg-accent-500 bg-white hover:text-white transition-all duration-200 ease-in-out active:bg-accent-600 active:scale-125 '>
-                        {Socials[item].icon}
-                    </a>
-                ))}
-            </ul>
+            <div className={`${open ? 'scale-100' : 'scale-0 translate-y-40 lg:-translate-x-[60px] lg:translate-y-0 opacity-0'} transition-all duration-200 drop-shadow-md md:drop-shadow-lg rounded-full border-[1px] bg-white`}>
+                <ul className={` ${hidden ? 'hidden' : ''}  bottom-5 lg:bottom-0 transition-all duration-200 relative flex flex-col    rounded-full  overflow-hidden `}>
+                    {Object.keys(Socials).map((item) => (
+                        <a
+                            key={`social-btn-${item}`}
+                            href={Socials[item].link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className='text-xl  py-6 px-4 hover:bg-accent-500 bg-white hover:text-white transition-all duration-200 ease-in-out active:bg-accent-600 active:scale-125 '>
+                            {Socials[item].icon}
+                        </a>
+                    ))}
+                </ul>
+            </div>
+
 
 
 
