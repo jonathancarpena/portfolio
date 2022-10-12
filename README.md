@@ -1,9 +1,8 @@
-# My current portfolio
-
+# My Portfolio
 
 > Built with
 > <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>
-> and hosted with
+> and hosted on
 > <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.
 
 ## 📸 Screenshots
