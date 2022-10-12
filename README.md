@@ -1,8 +1,7 @@
-# jonathancarpena.me - v2
+# My current portfolio
 
-> The second iteration of
-> <a href="https://jonathancarpena.me/" target="_blank" rel="noopener noreferrer">jonathancarpena.me</a>
-> built with
+
+> Built with
 > <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>
 > and hosted with
 > <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.
