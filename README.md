@@ -56,3 +56,6 @@ npm run dev
 | 700          | ![#301386](https://via.placeholder.com/10/301386?text=+) `#301386` |
 | 800          | ![#200d59](https://via.placeholder.com/10/200d59?text=+) `#200d59` |
 | 900          | ![#10062d](https://via.placeholder.com/10/10062d?text=+) `#10062d` |
+
+## Credit
+> Some design inspiration from bchiang7 
