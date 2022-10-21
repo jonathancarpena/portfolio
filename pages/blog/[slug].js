@@ -110,11 +110,14 @@ function SingleBlog({ blog }) {
                                 <span>{item.hyperlink.value}</span>
                             </a>
 
-                            : (
-                                item.mark
-                                    ? <span key={`${item.value}-${idx}`} className={`${marks[item.mark.type]} inline`}>{item.value}</span>
-                                    : <span key={`${item.value}-${idx}`}>{item.value}</span>
-                            )
+                            :
+                            <span
+                                key={`${item.value}-${idx}`}
+                                className={`${item.mark ? marks[item.mark.type] : ''} leading-8 md:leading-9 lg:leading-10 tracking-wide`}>
+                                {item.value}
+                            </span>
+
+
                     )
                 })
             )
@@ -142,7 +145,7 @@ function SingleBlog({ blog }) {
             const display = gatherMarks(content)
 
             return (
-                <p className='flex space-x-0.5  text-xl md:text-2xl'>
+                <p className='text-xl md:text-2xl'>
                     {markedUpContent(display)}
                 </p>
             )
@@ -151,9 +154,9 @@ function SingleBlog({ blog }) {
         const BQ = ({ content }) => {
             const display = gatherMarks(content[0].content)
             return (
-                <p className='text-xl md:text-2xl relative py-3 bg-gray-100 flex items-center break-words'>
+                <p className='text-xl md:text-2xl relative py-5 bg-gray-100 flex items-center break-words'>
                     <span className='text-transparent absolute h-full bg-accent-400 '>_</span>
-                    <span className='relative left-5 w-[93%]'>{markedUpContent(display)}</span>
+                    <span className='relative left-8 w-[94%]'>{markedUpContent(display)}</span>
                 </p>
             )
         }
