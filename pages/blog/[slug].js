@@ -125,7 +125,7 @@ function SingleBlog({ blog }) {
         const H2 = ({ content }) => {
             const display = gatherMarks(content)
             return (
-                <h2 className='text-3xl font-semibold'>
+                <h2 className='text-2xl md:text-4xl font-semibold'>
                     {markedUpContent(display)}
                 </h2>
             )
@@ -134,7 +134,7 @@ function SingleBlog({ blog }) {
         const H3 = ({ content }) => {
             const display = gatherMarks(content)
             return (
-                <h3 className='text-2xl font-semibold'>
+                <h3 className='text-xl md:text-3xl font-semibold'>
                     {markedUpContent(display)}
                 </h3>
             )
@@ -220,7 +220,7 @@ function SingleBlog({ blog }) {
 
 
         return (
-            <div className='flex flex-col md:px-5'>
+            <div className='flex flex-col md:px-5 lg:px-7 lg:pb-7 '>
                 {elements.map((node, idx) => (
                     <div
                         key={`element-${node.type.name}-${idx}`}
@@ -236,13 +236,13 @@ function SingleBlog({ blog }) {
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className={`${blog ? 'min-h-[75vh] justify-center top-24' : 'top-28'}  bg-white lg:drop-shadow-xl mb-40 lg:mb-28 relative  place-self-start flex flex-col space-y-10 px-5  lg:px-0 max-w-6xl w-full `}>
+            <div className={`${blog ? 'min-h-[75vh] justify-center top-20 md:top-24' : 'top-28'}  bg-white lg:drop-shadow-xl mb-40 lg:mb-28 relative  place-self-start flex flex-col  px-3 lg:px-0 max-w-6xl w-full `}>
 
-                {blog
+                {!blog
                     ? <Loading />
                     : <>
                         <div>
-                            <div className='min-h-[500px] relative overflow-hidden rounded-t-lg'>
+                            <div className='min-h-[350px] md:min-h-[500px] relative overflow-hidden rounded-t-lg'>
                                 <Image
                                     priority
                                     src={`https:${fields.thumbnail.fields.file.url}`}
@@ -252,16 +252,16 @@ function SingleBlog({ blog }) {
                                 />
                             </div>
                             {/* Header */}
-                            <div className='bg-white opacity-90 pt-5 rounded-t-xl relative bottom- z-50 md:px-5'>
-                                <h1 className='text-start mb-2 md:mb-4 text-5xl font-bold md:text-7xl'>
+                            <div className='bg-white opacity-90 py-7 rounded-t-xl relative  z-50 md:px-5 lg:px-7'>
+                                <h1 className='text-start mb-2 font-bold text-4xl md:text-7xl'>
                                     {fields.title}
                                 </h1>
 
-                                <h2 className='text-start text-stone-600 text-2xl md:text-3xl mb-2 md:mb-4  '>
+                                <h2 className='text-start text-stone-600 text-xl md:text-3xl mb-2  '>
                                     {formatDate(createdAt)}
                                 </h2>
 
-                                <ul className='flex text-stone-500'>
+                                <ul className='flex text-stone-500 text-xs md:text-sm'>
                                     <li className='mr-2'>Tags: </li>
                                     {fields.tags.map((item, idx) => (
                                         <li key={item} className='italic mr-1 capitalize '>
@@ -272,6 +272,10 @@ function SingleBlog({ blog }) {
                                 </ul>
                             </div>
                         </div>
+                        <div className='md:px-5 lg:px-7 mt-2 mb-5'>
+                            <hr className='' />
+                        </div>
+
 
 
                         {generateRichText(fields.body)}

@@ -11,7 +11,9 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
     return (
 
-        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={`h-full relative flex flex-col border-[1px]     ${darkPreview ? 'text-black ' : ''}`} >
+        <div
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)} className={`h-full relative flex flex-col border-[1px]     ${darkPreview ? 'text-black ' : ''}`} >
 
             {/* Image */}
             <div className='overflow-hidden'>
@@ -85,7 +87,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 function Work() {
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className=' mb-40 lg:mb-28 relative top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+            <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 
                 {/* Header */}
                 <div>

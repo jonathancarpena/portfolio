@@ -3,14 +3,14 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { FiBriefcase, FiZap, FiEdit2, FiFile } from 'react-icons/fi'
-import useScroll from '../../lib/hooks/useScroll'
+// import useScroll from '../../lib/hooks/useScroll'
 
 
 function NavItem({ text, link, icon }) {
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
     const [wiggle, setWiggle] = useState(false)
-    const scroll = useScroll()
+    // const scroll = useScroll()
     const { pathname } = useRouter()
 
     const baseStyles = "px-2 py-1 rounded-md  cursor-pointer transition-all duration-200"
@@ -21,16 +21,17 @@ function NavItem({ text, link, icon }) {
 
         if (pathname === link) {
             setActive(true)
-        } else if (pathname === "/" && text === "contact") {
-            if (scroll >= 3800 && scroll <= 4700) {
-                setActive(true)
-            } else {
-                setActive(false)
-            }
+            // } else if (pathname === "/" && text === "contact") {
+            //     if (scroll >= 3800 && scroll <= 4700) {
+            //         setActive(true)
+            //     } else {
+            //         setActive(false)
+            //     }
+            // } else {
         } else {
             setActive(false)
         }
-    }, [pathname, scroll, link, text])
+    }, [pathname, link])
     function handleClick() {
         if (active) {
             setWiggle(true)
@@ -64,9 +65,8 @@ function MobileNavItem({ text, link, icon }) {
 
     const [active, setActive] = useState(false)
     const [wiggle, setWiggle] = useState(false)
-    const scroll = useScroll()
+    // const scroll = useScroll()
     const { pathname } = useRouter()
-
     const baseStyles = "border-b-4  flex justify-center items-center px-3 pt-3 pb-2  active:scale-90 active:bg-gray-200 active:border-b-gray-200  cursor-pointer transition-all duration-200"
 
 
@@ -74,16 +74,17 @@ function MobileNavItem({ text, link, icon }) {
 
         if (pathname.includes(link)) {
             setActive(true)
-        } else if (pathname === "/" && text === "contact") {
-            if (scroll >= 3548 && scroll <= 3856) {
-                setActive(true)
-            } else {
-                setActive(false)
-            }
+            // } else if (pathname === "/" && text === "contact") {
+            //     if (scroll >= 3548 && scroll <= 3856) {
+            //         setActive(true)
+            //     } else {
+            //         setActive(false)
+            //     }
+            // } else {
         } else {
             setActive(false)
         }
-    }, [pathname, scroll, link, text])
+    }, [pathname, link])
     function handleClick() {
         if (active) {
             setWiggle(true)
