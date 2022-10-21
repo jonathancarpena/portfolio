@@ -156,7 +156,7 @@ function SingleBlog({ blog }) {
             return (
                 <p className='text-xl md:text-2xl relative py-5 bg-gray-100 flex items-center break-words'>
                     <span className='text-transparent absolute h-full bg-accent-400 '>_</span>
-                    <span className='relative left-8 w-[94%]'>{markedUpContent(display)}</span>
+                    <span className='relative left-8 w-[85%] md:left-8 md:w-[94%] break-words'>{markedUpContent(display)}</span>
                 </p>
             )
         }
@@ -192,7 +192,7 @@ function SingleBlog({ blog }) {
 
             return (
 
-                <div className=' justify-center  bg-gray-100 flex  p-5 max-h-[600px] my-3  '>
+                <div className=' justify-center  bg-gray-100 flex  p-5 max-h-[300px] md:max-h-[600px] my-3  '>
                     <Image
                         priority
                         src={`https:${content.fields.file.url}`}
@@ -250,7 +250,7 @@ function SingleBlog({ blog }) {
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className={`${blog ? 'min-h-[75vh] justify-center top-20 md:top-24' : 'top-28'}  bg-white lg:drop-shadow-xl mb-40 lg:mb-28 relative  place-self-start flex flex-col  px-3 lg:px-0 max-w-6xl w-full `}>
+            <div className={`${blog ? 'min-h-[75vh] justify-center top-20 md:top-24' : 'top-28'}  bg-white lg:drop-shadow-xl mb-40 lg:mb-28 relative  place-self-start flex flex-col  px-5 lg:px-0 max-w-6xl w-full `}>
 
                 {!blog
                     ? <Loading />
