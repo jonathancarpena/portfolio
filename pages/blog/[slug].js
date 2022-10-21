@@ -123,7 +123,7 @@ function SingleBlog({ blog }) {
         const H2 = ({ content }) => {
             const display = gatherMarks(content)
             return (
-                <h2 className='text-2xl md:text-4xl font-semibold'>
+                <h2 className='text-3xl md:text-4xl font-semibold'>
                     {markedUpContent(display)}
                 </h2>
             )
@@ -132,7 +132,7 @@ function SingleBlog({ blog }) {
         const H3 = ({ content }) => {
             const display = gatherMarks(content)
             return (
-                <h3 className='text-xl md:text-3xl font-semibold'>
+                <h3 className='text-2xl md:text-3xl font-semibold'>
                     {markedUpContent(display)}
                 </h3>
             )
@@ -142,7 +142,7 @@ function SingleBlog({ blog }) {
             const display = gatherMarks(content)
 
             return (
-                <p className='flex space-x-0.5'>
+                <p className='flex space-x-0.5  text-xl md:text-2xl'>
                     {markedUpContent(display)}
                 </p>
             )
@@ -151,7 +151,7 @@ function SingleBlog({ blog }) {
         const BQ = ({ content }) => {
             const display = gatherMarks(content[0].content)
             return (
-                <p className='relative py-3 bg-gray-100 flex items-center break-words'>
+                <p className='text-xl md:text-2xl relative py-3 bg-gray-100 flex items-center break-words'>
                     <span className='text-transparent absolute h-full bg-accent-400 '>_</span>
                     <span className='relative left-5 w-[93%]'>{markedUpContent(display)}</span>
                 </p>
@@ -161,7 +161,7 @@ function SingleBlog({ blog }) {
         const UL = ({ content }) => {
             const ulDisplay = content.map((item, idx) => <P key={`ul-${idx}`} content={item.content[0].content} />)
             return (
-                <ul className='flex flex-col'>
+                <ul className='flex flex-col text-xl md:text-2xl'>
                     {ulDisplay.map((node, idx) => (
                         <li key={`ul-${idx}-${node.props.value}`} className='flex items-center ml-3'>
                             <span className='mr-1'><FiChevronRight /></span>
@@ -174,7 +174,7 @@ function SingleBlog({ blog }) {
         const OL = ({ content }) => {
             const olDisplay = content.map((item) => <P key={`ul-${idx}`} content={item.content[0].content} />)
             return (
-                <ol className='flex flex-col'>
+                <ol className='flex flex-col text-xl md:text-2xl'>
                     {olDisplay.map((node, idx) => (
                         <li key={`ul-${idx}-${node.props.value}`} className='flex items-center ml-4'>
                             <span className='mr-1'>{idx + 1}.</span>
@@ -188,7 +188,8 @@ function SingleBlog({ blog }) {
         const IMG = ({ content }) => {
 
             return (
-                <div className=' justify-center flex   max-h-[600px]  '>
+
+                <div className=' justify-center  bg-gray-100 flex  p-5 max-h-[600px] my-5  '>
                     <Image
                         priority
                         src={`https:${content.fields.file.url}`}
@@ -198,8 +199,9 @@ function SingleBlog({ blog }) {
                         objectFit="contain"
                         objectPosition="center"
                     />
-
                 </div>
+
+
             )
         }
 
@@ -222,10 +224,9 @@ function SingleBlog({ blog }) {
                 {elements.map((node, idx) => (
                     <div
                         key={`element-${node.type.name}-${idx}`}
-                        className={node.type.name === 'H2' || node.type.name === 'H3' ? 'mb-0.5' : 'mb-3'}>
+                        className={'mb-3'}>
                         {React.cloneElement(node)}
                     </div>
-
                 ))
                 }
             </div >
@@ -251,7 +252,7 @@ function SingleBlog({ blog }) {
                             </div>
                             {/* Header */}
                             <div className='bg-white opacity-90 py-7 rounded-t-xl relative  z-50 md:px-5 lg:px-7'>
-                                <h1 className='text-start mb-2 font-bold text-4xl md:text-7xl'>
+                                <h1 className='text-start mb-2 font-bold text-3xl md:text-6xl'>
                                     {blog.fields.title}
                                 </h1>
 
