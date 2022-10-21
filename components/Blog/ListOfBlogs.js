@@ -17,7 +17,7 @@ function Blog({ details }) {
                 setShow(false)
             }
         }
-    }, [hover])
+    }, [hover, show])
     return (
         <Link href={`/blog/${details.fields.slug}`}>
             <li onMouseLeave={() => setHover(false)} onMouseEnter={() => setHover(true)} className=' cursor-pointer hover:scale-105 active:scale-95 hover:drop-shadow-xl transition-all ease-in-out duration-150 h-max flex flex-col drop-shadow-lg '>
@@ -71,7 +71,7 @@ function ListOfBlogs({ tags, blogs }) {
             const newBlogs = blogs.filter((item) => item.fields.tags.includes(filter))
             setFilterBlogs(newBlogs)
         }
-    }, [filter])
+    }, [filter, blogs])
 
     function resetFilters() {
         setFilter(false)

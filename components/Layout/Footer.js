@@ -19,7 +19,7 @@ function Footer() {
 
 
     return (
-        <footer className='text-lg py-20  w-full flex justify-center items-center bg-accent-600'>
+        <footer className='text-lg pt-20 pb-28 lg:py-20  w-full flex justify-center items-center bg-accent-600'>
 
 
             <div className='max-w-7xl px-10 flex flex-col space-y-20 w-full  text-white'>
@@ -84,9 +84,7 @@ function Footer() {
                                 <li key={`Socials-${item.text}-${idx}`} className='cursor-pointer hover:underline text-3xl'>
                                     <a href={Socials[item]['link']} target="_blank" rel="noopener noreferrer">
                                         {Socials[item].icon}
-                                        {/* <span className='capitalize'>
-                                            {item}
-                                        </span> */}
+
                                     </a>
                                 </li>
                             ))}

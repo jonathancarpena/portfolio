@@ -53,8 +53,6 @@ export async function getStaticProps({ params }) {
 }
 
 function SingleBlog({ blog }) {
-    const { fields, sys: { createdAt } } = blog
-
     function formatDate(date) {
         const months = [
             'January', 'February', 'March', 'April',
@@ -161,7 +159,7 @@ function SingleBlog({ blog }) {
         }
 
         const UL = ({ content }) => {
-            const ulDisplay = content.map((item) => <P content={item.content[0].content} />)
+            const ulDisplay = content.map((item, idx) => <P key={`ul-${idx}`} content={item.content[0].content} />)
             return (
                 <ul className='flex flex-col'>
                     {ulDisplay.map((node, idx) => (
@@ -174,7 +172,7 @@ function SingleBlog({ blog }) {
             )
         }
         const OL = ({ content }) => {
-            const olDisplay = content.map((item) => <P content={item.content[0].content} />)
+            const olDisplay = content.map((item) => <P key={`ul-${idx}`} content={item.content[0].content} />)
             return (
                 <ol className='flex flex-col'>
                     {olDisplay.map((node, idx) => (
@@ -245,8 +243,8 @@ function SingleBlog({ blog }) {
                             <div className='min-h-[350px] md:min-h-[500px] relative overflow-hidden rounded-t-lg'>
                                 <Image
                                     priority
-                                    src={`https:${fields.thumbnail.fields.file.url}`}
-                                    alt={fields.thumbnail.fields.title}
+                                    src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                                    alt={blog.fields.thumbnail.fields.title}
                                     layout="fill"
                                     objectFit='cover'
                                 />
@@ -254,19 +252,19 @@ function SingleBlog({ blog }) {
                             {/* Header */}
                             <div className='bg-white opacity-90 py-7 rounded-t-xl relative  z-50 md:px-5 lg:px-7'>
                                 <h1 className='text-start mb-2 font-bold text-4xl md:text-7xl'>
-                                    {fields.title}
+                                    {blog.fields.title}
                                 </h1>
 
                                 <h2 className='text-start text-stone-600 text-xl md:text-3xl mb-2  '>
-                                    {formatDate(createdAt)}
+                                    {formatDate(blog.sys.createdAt)}
                                 </h2>
 
                                 <ul className='flex text-stone-500 text-xs md:text-sm'>
                                     <li className='mr-2'>Tags: </li>
-                                    {fields.tags.map((item, idx) => (
+                                    {blog.fields.tags.map((item, idx) => (
                                         <li key={item} className='italic mr-1 capitalize '>
                                             {item}
-                                            {idx !== fields.tags.length - 1 && <span>,</span>}
+                                            {idx !== blog.fields.tags.length - 1 && <span>,</span>}
                                         </li>
                                     ))}
                                 </ul>
@@ -278,7 +276,7 @@ function SingleBlog({ blog }) {
 
 
 
-                        {generateRichText(fields.body)}
+                        {generateRichText(blog.fields.body)}
 
                     </>
 
