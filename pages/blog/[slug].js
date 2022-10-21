@@ -189,7 +189,7 @@ function SingleBlog({ blog }) {
 
             return (
 
-                <div className=' justify-center  bg-gray-100 flex  p-5 max-h-[600px] my-5  '>
+                <div className=' justify-center  bg-gray-100 flex  p-5 max-h-[600px] my-3  '>
                     <Image
                         priority
                         src={`https:${content.fields.file.url}`}
@@ -199,6 +199,18 @@ function SingleBlog({ blog }) {
                         objectFit="contain"
                         objectPosition="center"
                     />
+                </div>
+
+
+            )
+        }
+
+        const HR = () => {
+
+            return (
+
+                <div className='my-5'>
+                    <hr />
                 </div>
 
 
@@ -215,7 +227,7 @@ function SingleBlog({ blog }) {
             if (item.nodeType === 'unordered-list') elements.push(<UL content={item.content} />)
             if (item.nodeType === 'ordered-list') elements.push(<OL content={item.content} />)
             if (item.nodeType === 'blockquote') elements.push(<BQ content={item.content} />)
-            if (item.nodeType === 'hr') elements.push(<hr />)
+            if (item.nodeType === 'hr') elements.push(<HR />)
         })
 
 
