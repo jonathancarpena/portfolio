@@ -22,8 +22,8 @@ function Footer() {
                     <div >
                         <span className=' font-semibold inline-block mb-1'>General</span>
                         <ul className='flex flex-col space-y-2'>
-                            {General.map((item) => (
-                                <li key={`${item.text}`} className=' cursor-pointer hover:underline'>
+                            {General.map((item, idx) => (
+                                <li key={`General-${item.text}-${idx}`} className=' cursor-pointer hover:underline'>
                                     <Link href={item.link} >
                                         <span>
                                             {item.text}
@@ -45,8 +45,8 @@ function Footer() {
                     <div>
                         <span className=' font-semibold inline-block mb-1'>Other</span>
                         <ul className='flex flex-col space-y-2'>
-                            {Object.keys(Socials).map((item) => (
-                                <li key={`${item.text}`} className='cursor-pointer hover:underline'>
+                            {Object.keys(Socials).map((item, idx) => (
+                                <li key={`Other-${item.text}-${idx}`} className='cursor-pointer hover:underline'>
                                     <a href={Socials[item]['link']} target="_blank" rel="noopener noreferrer">
                                         <span className='capitalize'>
                                             {item}
