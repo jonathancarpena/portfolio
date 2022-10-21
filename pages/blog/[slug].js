@@ -256,7 +256,7 @@ function SingleBlog({ blog }) {
                     ? <Loading />
                     : <>
                         <div>
-                            <div className='min-h-[350px] md:min-h-[500px] relative overflow-hidden rounded-t-lg'>
+                            <div className='border-[1px] min-h-[350px] md:min-h-[500px] relative overflow-hidden rounded-t-lg'>
                                 <Image
                                     priority
                                     src={`https:${blog.fields.thumbnail.fields.file.url}`}

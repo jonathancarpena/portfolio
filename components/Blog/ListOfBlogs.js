@@ -20,8 +20,8 @@ function Blog({ details }) {
     }, [hover, show])
     return (
         <Link href={`/blog/${details.fields.slug}`}>
-            <li onMouseLeave={() => setHover(false)} onMouseEnter={() => setHover(true)} className=' rounded-t-lg cursor-pointer lg:hover:scale-105 active:scale-95 lg:hover:drop-shadow-xl transition-all ease-in-out duration-150 h-max flex flex-col drop-shadow-lg '>
-                <div className='min-h-[300px] relative overflow-hidden rounded-t-lg  select-none'>
+            <li onMouseLeave={() => setHover(false)} onMouseEnter={() => setHover(true)} className=' border-[1px] rounded-t-lg cursor-pointer lg:hover:scale-105 active:scale-95 lg:hover:drop-shadow-xl transition-all ease-in-out duration-150 h-max flex flex-col drop-shadow-lg '>
+                <div className='min-h-[300px] relative overflow-hidden rounded-t-lg  select-none '>
                     <Image
                         priority
                         src={`https:${details.fields.thumbnail.fields.file.url}`}
