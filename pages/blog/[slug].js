@@ -164,10 +164,10 @@ function SingleBlog({ blog }) {
         const UL = ({ content }) => {
             const ulDisplay = content.map((item, idx) => <P key={`ul-${idx}`} content={item.content[0].content} />)
             return (
-                <ul className='flex flex-col text-xl md:text-2xl'>
+                <ul className='-mt-2 flex flex-col text-xl md:text-2xl'>
                     {ulDisplay.map((node, idx) => (
-                        <li key={`ul-${idx}-${node.props.value}`} className='flex items-center ml-3'>
-                            <span className='mr-1'><FiChevronRight /></span>
+                        <li key={`ul-${idx}-${node.props.value}`} className='flex items-center ml-4'>
+                            <span className='mr-2'><FiChevronRight /></span>
                             {React.cloneElement(node)}
                         </li>
                     ))}
@@ -177,9 +177,9 @@ function SingleBlog({ blog }) {
         const OL = ({ content }) => {
             const olDisplay = content.map((item, idx) => <P key={`ol-${idx}`} content={item.content[0].content} />)
             return (
-                <ol className='-mt-3 flex flex-col text-xl md:text-2xl'>
+                <ol className='-mt-2 flex flex-col text-xl md:text-2xl'>
                     {olDisplay.map((node, idx) => (
-                        <li key={`ol-${idx}-${node.props.value}`} className='flex items-center ml-6'>
+                        <li key={`ol-${idx}-${node.props.value}`} className='flex items-center ml-4'>
                             <span className='mr-2'>{idx + 1}.</span>
                             {React.cloneElement(node)}
                         </li>
