@@ -129,7 +129,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className='hidden lg:block sticky top-0 z-50 bg-gradient-to-b from-white to-transparent    text-black px-5 py-32  w-full   '>
+            <nav className='hidden lg:block sticky top-0 z-50   bg-gradient-to-b from-white to-transparent  text-black px-5 py-32  w-full   '>
 
                 <div className=' relative bottom-[7rem] text-black   w-full flex justify-between items-center'>
                     {/*  Brand */}
