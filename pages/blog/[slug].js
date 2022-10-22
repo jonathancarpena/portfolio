@@ -145,7 +145,7 @@ function SingleBlog({ blog }) {
             const display = gatherMarks(content)
 
             return (
-                <p className='text-xl md:text-2xl'>
+                <p className='text-lg md:text-xl lg:text-2xl'>
                     {markedUpContent(display)}
                 </p>
             )
@@ -154,7 +154,7 @@ function SingleBlog({ blog }) {
         const BQ = ({ content }) => {
             const display = gatherMarks(content[0].content)
             return (
-                <p className='h-max text-xl md:text-2xl relative py-5 bg-gray-100 flex items-center break-words'>
+                <p className='h-max text-lg md:text-xl lg:text-2xl relative py-5 bg-gray-100 flex items-center break-words'>
                     <span className='text-transparent absolute h-full bg-accent-400 '>_</span>
                     <span className='relative left-8 w-[85%] md:left-8 md:w-[94%] break-words'>{markedUpContent(display)}</span>
                 </p>
@@ -164,10 +164,10 @@ function SingleBlog({ blog }) {
         const UL = ({ content }) => {
             const ulDisplay = content.map((item, idx) => <P key={`ul-${idx}`} content={item.content[0].content} />)
             return (
-                <ul className='-mt-2 flex flex-col text-xl md:text-2xl'>
+                <ul className='-mt-2 flex flex-col text-lg md:text-xl lg:text-2xl'>
                     {ulDisplay.map((node, idx) => (
-                        <li key={`ul-${idx}-${node.props.value}`} className='flex items-center ml-4'>
-                            <span className='mr-2'><FiChevronRight /></span>
+                        <li key={`ul-${idx}-${node.props.value}`} className='flex items-start ml-4'>
+                            <span className='mr-2 mt-1'><FiChevronRight /></span>
                             {React.cloneElement(node)}
                         </li>
                     ))}
@@ -177,10 +177,10 @@ function SingleBlog({ blog }) {
         const OL = ({ content }) => {
             const olDisplay = content.map((item, idx) => <P key={`ol-${idx}`} content={item.content[0].content} />)
             return (
-                <ol className='-mt-2 flex flex-col text-xl md:text-2xl'>
+                <ol className='-mt-2 flex flex-col text-lg md:text-xl lg:text-2xl'>
                     {olDisplay.map((node, idx) => (
-                        <li key={`ol-${idx}-${node.props.value}`} className='flex items-center ml-4'>
-                            <span className='mr-2'>{idx + 1}.</span>
+                        <li key={`ol-${idx}-${node.props.value}`} className='flex items-start ml-4'>
+                            <span className='mr-2 mt-1'>{idx + 1}.</span>
                             {React.cloneElement(node)}
                         </li>
                     ))}
