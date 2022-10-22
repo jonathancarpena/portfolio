@@ -32,9 +32,12 @@ function Blog({ details }) {
                 </div>
 
                 <div className='bg-white p-3 flex flex-col justify-between relative min-h-[185px]'>
-                    <h3 className='capitalize text-2xl font-semibold break-words select-none'>{details.fields.title}</h3>
+                    <div>
+                        <h3 className='capitalize text-2xl font-semibold break-words select-none mb-1.5'>{details.fields.title}</h3>
 
-                    <p className=' text-gray-400 select-none '>{details.fields.summary}</p>
+                        <p className=' text-gray-400 select-none '>{details.fields.summary}</p>
+                    </div>
+
                     <ul className='flex flex-wrap  '>
                         {details.fields.tags.sort().map((tag) => (
                             <li
