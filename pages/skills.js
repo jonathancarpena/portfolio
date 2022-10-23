@@ -1,4 +1,5 @@
-import React from 'react'
+import { useEffect } from 'react'
+import { useUpdateSeo } from '../lib/hooks/useSeo'
 
 
 const SkillCard = ({ text }) => {
@@ -24,6 +25,13 @@ const SkillList = ({ heading, skillset = [] }) => {
 }
 
 function Skills() {
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: 'My Skillset | Jonathan Carpena - Full Stack Software Engineer',
+            description: "My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences.",
+        })
+    })
 
     const skillset = {
         frontEnd: ["react", 'typescript', 'redux', 'next.js', 'jQuery', 'HTML5', "CSS3", "SASS", "Apollo"],
@@ -31,6 +39,7 @@ function Skills() {
         "testing/deployment": ["jest", "React Testing", "Cypress", "AWS", "Firebase", "Heroku", "netlify"],
         tools: ["git", "NPM", 'Webpack', "Babel", "postman", "VS Code"]
     }
+
 
 
     return (

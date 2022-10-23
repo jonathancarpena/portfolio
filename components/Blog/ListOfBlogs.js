@@ -154,14 +154,14 @@ function ListOfBlogs({ tags, blogs }) {
                         </div>
                     </div>
 
-                    <div className=' lg:hidden flex justify-center items-baseline   mb-8    '>
-                        <span className='flex items-center space-x-1  mr-3'>
+                    <div className=' lg:hidden flex flex-col justify-center items-baseline   mb-8    '>
+                        <span className='flex items-center space-x-1 '>
                             <FiFilter />
                             <span className='w-max'>
                                 Filter By:
                             </span>
                         </span>
-                        <ul className='flex  flex-wrap  w-max'>
+                        <ul className='flex  flex-wrap '>
 
                             <li>
                                 <button onClick={resetFilters} className={`${!filter ? 'text-accent-500  ' : ''}  cursor-pointer capitalize outline-none bg-white  rounded-md mr-1.5`}>
@@ -183,6 +183,7 @@ function ListOfBlogs({ tags, blogs }) {
 
                                 </li>
                             ))}
+
 
                         </ul>
                     </div>

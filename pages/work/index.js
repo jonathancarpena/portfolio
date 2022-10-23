@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Projects from '../../lib/projects'
-
+import { useUpdateSeo } from '../../lib/hooks/useSeo'
 import { FiGithub, FiExternalLink, FiPlay } from 'react-icons/fi'
 
 
@@ -85,6 +85,13 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
     )
 }
 function Work() {
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: 'My Work | Jonathan Carpena - Full Stack Software Engineer',
+            description: `My name is Jonathan Carpena and this is a place where I showcase the things I have built. (Spoilers: They're mostly full-stack web applications)`
+        })
+    })
     return (
         <div className='min-h-screen flex justify-center items-center'>
             <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>

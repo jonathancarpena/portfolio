@@ -1,8 +1,9 @@
-import React from 'react'
+import { cloneElement, useEffect } from 'react'
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import { FiChevronRight, FiLink } from 'react-icons/fi'
 import Loading from '../../components/Layout/Loading'
+import { useUpdateSeo } from '../../lib/hooks/useSeo'
 
 export async function getStaticPaths() {
     const client = createClient({
@@ -53,6 +54,14 @@ export async function getStaticProps({ params }) {
 }
 
 function SingleBlog({ blog }) {
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: `${blog.fields.metaTitle} | Jonathan Carpena's Blog`,
+            description: `${blog.fields.metaDescription} - Jonathan Carpena's Blog`
+        })
+    })
+
     function formatDate(date) {
         const months = [
             'January', 'February', 'March', 'April',
@@ -168,7 +177,7 @@ function SingleBlog({ blog }) {
                     {ulDisplay.map((node, idx) => (
                         <li key={`ul-${idx}-${node.props.value}`} className='flex items-start ml-4'>
                             <span className='mr-2 mt-1'><FiChevronRight /></span>
-                            {React.cloneElement(node)}
+                            {cloneElement(node)}
                         </li>
                     ))}
                 </ul>
@@ -181,7 +190,7 @@ function SingleBlog({ blog }) {
                     {olDisplay.map((node, idx) => (
                         <li key={`ol-${idx}-${node.props.value}`} className='flex items-start ml-4'>
                             <span className='mr-2 mt-1'>{idx + 1}.</span>
-                            {React.cloneElement(node)}
+                            {cloneElement(node)}
                         </li>
                     ))}
                 </ol>
@@ -211,11 +220,9 @@ function SingleBlog({ blog }) {
         const HR = () => {
 
             return (
-
                 <div className='my-5'>
                     <hr />
                 </div>
-
 
             )
         }
@@ -240,7 +247,7 @@ function SingleBlog({ blog }) {
                     <div
                         key={`element-${node.type.name}-${idx}`}
                         className={'mb-3'}>
-                        {React.cloneElement(node)}
+                        {cloneElement(node)}
                     </div>
                 ))
                 }

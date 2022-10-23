@@ -1,9 +1,22 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { FiHome } from 'react-icons/fi'
-import Image from 'next/image'
+import { useUpdateSeo } from '../lib/hooks/useSeo'
+import { useRouter } from 'next/router'
 
 function NotFound() {
+    const router = useRouter()
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: 'Ooops! Are you lost?',
+            description: "404 Page - jonathancarpena.me",
+        })
+
+        setTimeout(() => {
+            router.push('/')
+        }, 5000)
+    })
     return (
         <div className='  relative top-12 h-[70vh] flex-col flex justify-center items-center'>
             <h1 className='text-center mb-10 text-5xl font-bold md:text-8xl'>

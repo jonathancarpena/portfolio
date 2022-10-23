@@ -1,8 +1,7 @@
-import React from 'react'
-import { FiBook, FiBriefcase, FiMessageSquare, FiUser } from 'react-icons/fi'
-
+import { useEffect } from 'react'
+import { FiBook, FiBriefcase, FiMessageSquare, FiUser, FiEdit2 } from 'react-icons/fi'
 import Socials from '../lib/socials'
-
+import { useUpdateSeo } from '../lib/hooks/useSeo'
 
 const Card = ({ text, link, icon }) => {
     return (
@@ -14,13 +13,19 @@ const Card = ({ text, link, icon }) => {
     )
 }
 function Links() {
-
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: "Links | Jonathan Carpena",
+            description: "Jonathan Carpena's Links",
+        })
+    })
     const ExternalLinks = [
         { text: 'Contact Me', link: '/#contact', icon: <FiMessageSquare /> },
+        { text: 'My Blog', link: '/blog', icon: <FiEdit2 /> },
         { text: 'My Work', link: 'work', icon: <FiBriefcase /> },
         { text: 'Portfolio', link: '/', icon: <FiUser /> },
         { text: 'Resume', link: './Jonathan Carpena Resume.pdf', icon: <FiBook /> },
-
     ]
 
     return (

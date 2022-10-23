@@ -1,5 +1,5 @@
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
+import { useUpdateSeo } from '../../../lib/hooks/useSeo'
 
 
 // Data
@@ -54,6 +54,13 @@ function Demo({ project, youtubeID }) {
         setTimeStamp(startTime)
     }
 
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: `${project.name} Demo | Jonathan Carpena - Full Stack Software Engineer`,
+            description: `${project.name} (Live Demo) built by Jonathan Carpena. Project Description: ${project.description}`
+        })
+    })
 
 
 

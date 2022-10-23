@@ -1,10 +1,18 @@
 import { useState } from 'react'
-
+import { useUpdateSeo } from '../lib/hooks/useSeo'
 
 // 1450x500
 function Thumbnail() {
     const [input, setInput] = useState('')
     const [color, setColor] = useState('accent')
+
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: "Blog Thumbnail Generator | Jonathan Carpena's Blog",
+            description: "Jonathan Carpena's Blog Post Thumbnail Generator",
+        })
+    })
 
     const background = {
         accent: 'bg-accent-400',

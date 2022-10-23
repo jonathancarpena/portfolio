@@ -1,6 +1,8 @@
 import { createClient } from 'contentful'
 import Loading from '../../components/Layout/Loading'
 import ListOfBlogs from '../../components/Blog/ListOfBlogs'
+import { useUpdateSeo } from '../../lib/hooks/useSeo'
+import { useEffect } from 'react'
 
 export async function getStaticProps() {
     const client = createClient({
@@ -40,6 +42,13 @@ export async function getStaticProps() {
 }
 
 function AllBlogs({ blogs, tags }) {
+    const updateSeo = useUpdateSeo()
+    useEffect(() => {
+        updateSeo({
+            title: 'Blog Posts | Jonathan Carpena - Full Stack Software Engineer',
+            description: 'My name is Jonathan Carpena and this is a place where I document my thoughts (write blog posts) about topics ranging from my career/journey as a Software Engineer to my personal book recommendations'
+        })
+    })
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
