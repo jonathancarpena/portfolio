@@ -31,13 +31,13 @@ function Blog({ details }) {
                     />
                 </div>
 
-                <div className='bg-white p-3 flex flex-col justify-between relative min-h-[240px] lg:min-h-[190px]'>
+                <div className='bg-white p-3 flex flex-col justify-between relative md:min-h-[160px] lg:min-h-[190px]'>
                     <div>
                         <h3 className='capitalize text-2xl font-semibold break-words select-none mb-1.5'>{details.fields.title}</h3>
-                        <p className=' text-gray-400 select-none text-sm lg:text-base '>{details.fields.summary}</p>
+                        <p className=' text-gray-400 select-none text-sm lg:text-lg '>{details.fields.summary}</p>
                     </div>
 
-                    <ul className='flex flex-wrap mb-1 '>
+                    <ul className='flex flex-wrap mb-1 mt-3 md:mt-1 lg:mt-0 '>
                         {details.fields.tags.sort().map((tag) => (
                             <li
                                 key={`${details.fields.thumbnail.fields.title}-tag-${tag}`}
@@ -152,20 +152,16 @@ function ListOfBlogs({ tags, blogs }) {
                                 ))}
                             </ul>
                         </div>
-
-
-
                     </div>
 
-                    <div className='lg:hidden flex justify-center  items-center space-x-3 mb-8 flex-wrap  '>
-                        <span className='flex items-center space-x-1'>
+                    <div className=' lg:hidden flex justify-center items-baseline   mb-8    '>
+                        <span className='flex items-center space-x-1  mr-3'>
                             <FiFilter />
-                            <span className=''>
+                            <span className='w-max'>
                                 Filter By:
                             </span>
-
                         </span>
-                        <ul className='flex  flex-wrap'>
+                        <ul className='flex  flex-wrap  w-max'>
 
                             <li>
                                 <button onClick={resetFilters} className={`${!filter ? 'text-accent-500  ' : ''}  cursor-pointer capitalize outline-none bg-white  rounded-md mr-1.5`}>
@@ -186,9 +182,8 @@ function ListOfBlogs({ tags, blogs }) {
                                     }
 
                                 </li>
-
-
                             ))}
+
                         </ul>
                     </div>
                 </>
