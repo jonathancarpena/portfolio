@@ -31,11 +31,10 @@ function Blog({ details }) {
                     />
                 </div>
 
-                <div className='bg-white p-3 flex flex-col justify-between relative min-h-[150px] md:min-h-[190px]'>
+                <div className='bg-white p-3 flex flex-col justify-between relative min-h-[240px] md:min-h-[190px]'>
                     <div>
                         <h3 className='capitalize text-2xl font-semibold break-words select-none mb-1.5'>{details.fields.title}</h3>
-
-                        <p className=' text-gray-400 select-none '>{details.fields.summary}</p>
+                        <p className=' text-gray-400 select-none text-sm lg:text-base '>{details.fields.summary}</p>
                     </div>
 
                     <ul className='flex flex-wrap mb-1 '>

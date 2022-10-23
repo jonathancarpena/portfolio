@@ -20,7 +20,7 @@ function Thumbnail() {
         <div className='h-screen flex flex-col justify-center items-center'>
             <div className='relative w-[1550px]  h-[600px] flex justify-center items-center'>
                 <div className={`${background[color]} bg- w-[1450px] h-[500px]  z-50 flex justify-center items-center`}>
-                    <span className=' drop-shadow-[10px_10px_2px_rgba(0,0,0,0.35)]   font-semibold text-white text-[6rem] text-center leading-none tracking-tight'>{input}</span>
+                    <p className=' w-[500px]  drop-shadow-[10px_10px_2px_rgba(0,0,0,0.35)] font-semibold text-white text-[6rem] text-center leading-none tracking-tight'>{input}</p>
                 </div>
 
                 <div className='bg-[#303030] w-full h-full opacity-20 absolute z-10' />
