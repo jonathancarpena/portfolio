@@ -15,10 +15,10 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
         <li className={`h-max relative border-2 overflow-hidden rounded-md  lg:border-none lg:overflow-visible ${darkPreview ? 'text-white lg:text-black' : ''}`}>
 
             {direction === "left" &&
-                <div className={` flex lg:-space-x-14    `} >
+                <div className={` flex items-center lg:-space-x-14    `} >
 
                     {/* Image */}
-                    <div className="border-[1px] overflow-hidden blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
+                    <div className="border-[1px] overflow-hidden blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[700px] lg:min-h-[400px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
                         <Image
                             alt={`${project.name}-preview`}
                             src={project.preview}
@@ -77,7 +77,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
             }
 
             {direction === "right" &&
-                <div className={` flex lg:-space-x-14    `} >
+                <div className={` flex items-center lg:-space-x-14    `} >
 
 
                     {/* Details */}
@@ -123,7 +123,7 @@ export const Project = ({ direction = "left", project = null, darkPreview = fals
                     </div>
 
                     {/* Image */}
-                    <div className=" border-[1px] overflow-hidden blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[615px] lg:min-h-[350px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
+                    <div className=" border-[1px] overflow-hidden blur-md absolute z-0 h-full w-full object-cover rounded-md lg:blur-none lg:opacity-100 lg:relative lg:min-w-[700px] lg:min-h-[400px]   lg:hover:z-50 lg:hover:scale-105 lg:hover:drop-shadow-xl transition-all duration-200" >
                         <Image
                             alt={`${project.name}-preview`}
                             src={project.preview}
