@@ -1,7 +1,12 @@
-import { useEffect } from 'react'
-import { FiBook, FiBriefcase, FiMessageSquare, FiUser, FiEdit2 } from 'react-icons/fi'
+// Components
+import SEO from '../components/Layout/SEO'
+
+// Data
 import Socials from '../lib/socials'
-import { useUpdateSeo } from '../lib/hooks/useSeo'
+
+// Icons
+import { FiBook, FiBriefcase, FiMessageSquare, FiUser, FiEdit2 } from 'react-icons/fi'
+
 
 const Card = ({ text, link, icon }) => {
     return (
@@ -12,14 +17,9 @@ const Card = ({ text, link, icon }) => {
         </a>
     )
 }
+
 function Links() {
-    const updateSeo = useUpdateSeo()
-    useEffect(() => {
-        updateSeo({
-            title: "Links | Jonathan Carpena",
-            description: "Jonathan Carpena's Links",
-        })
-    })
+
     const ExternalLinks = [
         { text: 'Contact Me', link: '/#contact', icon: <FiMessageSquare /> },
         { text: 'My Blog', link: '/blog', icon: <FiEdit2 /> },
@@ -29,42 +29,40 @@ function Links() {
     ]
 
     return (
-        <div className='min-h-screen flex justify-center items-center'>
-            <div className=' select-none relative top-10 lg:top-80 place-self-start flex flex-col justify-center items-center  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+        <>
+            <SEO title="Jonathan Carpena's Links" description="Jonathan Carpena's Links" />
+            <div className='min-h-screen flex justify-center items-center'>
+                <div className=' select-none relative top-10 lg:top-80 place-self-start flex flex-col justify-center items-center  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 
-                {/* Header */}
-                <div>
-                    <h1 className='text-center mb-2 text-6xl font-bold md:text-6xl'>
-                        Links
-                    </h1>
-                    <h2 className='text-center text-stone-600 text-2xl '>
-                        Just Some Extra Stuff.
-                    </h2>
+                    {/* Header */}
+                    <div>
+                        <h1 className='text-center mb-2 text-6xl font-bold md:text-6xl'>
+                            Links
+                        </h1>
+                        <h2 className='text-center text-stone-600 text-2xl '>
+                            Just Some Extra Stuff.
+                        </h2>
+                    </div>
+
+                    <ul className='flex justify-around items-center w-full max-w-sm'>
+                        {Object.keys(Socials).map((item, idx) => (
+
+                            <a key={`Social-${idx}`} href={Socials[item]['link']} target="_blank" rel="noopener noreferrer" className='text-2xl'>
+                                {Socials[item]['icon']}
+                            </a>
+                        ))}
+                    </ul>
+
+                    <ul className='max-w-sm w-full flex flex-col space-y-7  items-center justify-center'>
+                        {ExternalLinks.map((item) => (
+                            <Card key={item.text} link={item.link} text={item.text} icon={item.icon} />
+                        ))}
+
+                    </ul>
                 </div>
-
-                <ul className='flex justify-around items-center w-full max-w-sm'>
-                    {Object.keys(Socials).map((item, idx) => (
-
-                        <a key={`Social-${idx}`} href={Socials[item]['link']} target="_blank" rel="noopener noreferrer" className='text-2xl'>
-                            {Socials[item]['icon']}
-                        </a>
-                    ))}
-                </ul>
-
-                <ul className='max-w-sm w-full flex flex-col space-y-7  items-center justify-center'>
-                    {ExternalLinks.map((item) => (
-                        <Card key={item.text} link={item.link} text={item.text} icon={item.icon} />
-                    ))}
-
-                </ul>
-
-
-
-
-
             </div>
+        </>
 
-        </div>
     )
 }
 

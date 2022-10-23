@@ -1,9 +1,13 @@
-import { cloneElement, useEffect } from 'react'
+import { cloneElement } from 'react'
 import { createClient } from 'contentful'
+
+// Components
 import Image from 'next/image'
-import { FiChevronRight, FiLink } from 'react-icons/fi'
 import Loading from '../../components/Layout/Loading'
-import { useUpdateSeo } from '../../lib/hooks/useSeo'
+import SEO from '../../components/Layout/SEO'
+
+// Icons
+import { FiChevronRight, FiLink } from 'react-icons/fi'
 
 export async function getStaticPaths() {
     const client = createClient({
@@ -54,13 +58,7 @@ export async function getStaticProps({ params }) {
 }
 
 function SingleBlog({ blog }) {
-    const updateSeo = useUpdateSeo()
-    useEffect(() => {
-        updateSeo({
-            title: `${blog.fields.metaTitle} | Jonathan Carpena's Blog`,
-            description: `${blog.fields.metaDescription} - Jonathan Carpena's Blog`
-        })
-    })
+
 
     function formatDate(date) {
         const months = [
@@ -256,59 +254,67 @@ function SingleBlog({ blog }) {
     }
 
     return (
-        <div className='min-h-screen flex justify-center items-center'>
-            <div className={`${blog ? 'min-h-[75vh] justify-center top-20 md:top-24' : 'top-28'}  bg-white lg:drop-shadow-xl mb-40 lg:mb-28 relative  place-self-start flex flex-col  px-5 lg:px-0 max-w-6xl w-full `}>
+        <>
 
-                {!blog
-                    ? <Loading />
-                    : <>
-                        <div>
-                            <div className='border-[1px] min-h-[350px] md:min-h-[500px] relative overflow-hidden rounded-t-lg'>
-                                <Image
-                                    priority
-                                    src={`https:${blog.fields.thumbnail.fields.file.url}`}
-                                    alt={blog.fields.thumbnail.fields.title}
-                                    layout="fill"
-                                    objectFit='cover'
-                                />
+            <div className='min-h-screen flex justify-center items-center'>
+                <div className={`${blog ? 'min-h-[75vh] justify-center top-20 md:top-24' : 'top-28'}  bg-white lg:drop-shadow-xl mb-40 lg:mb-28 relative  place-self-start flex flex-col  px-5 lg:px-0 max-w-6xl w-full `}>
+
+                    {!blog
+                        ? <>
+                            <SEO
+                                title="Blog Posts | Jonathan Carpena - Full Stack Software Engineer"
+                                description="My name is Jonathan Carpena and this is a place where I document my thoughts (write blog posts) about topics ranging from my career/journey as a Software Engineer to my personal book recommendations"
+                            />
+                            <Loading />
+                        </>
+                        : <>
+                            <SEO title={`${blog.fields.metaTitle} | Jonathan Carpena's Blog`} description={`${blog.fields.metaDescription} - Jonathan Carpena's Blog`} />
+                            <div>
+                                <div className='border-[1px] min-h-[350px] md:min-h-[500px] relative overflow-hidden rounded-t-lg'>
+                                    <Image
+                                        priority
+                                        src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                                        alt={blog.fields.thumbnail.fields.title}
+                                        layout="fill"
+                                        objectFit='cover'
+                                    />
+                                </div>
+                                {/* Header */}
+                                <div className='bg-white opacity-90 py-7 rounded-t-xl relative  z-50 md:px-5 lg:px-7'>
+                                    <h1 className='text-start mb-2 font-bold text-3xl md:text-6xl'>
+                                        {blog.fields.title}
+                                    </h1>
+
+                                    <h2 className='text-start text-stone-600 text-xl md:text-3xl mb-2  '>
+                                        {formatDate(blog.sys.createdAt)}
+                                    </h2>
+
+                                    <ul className='flex text-stone-500 text-xs md:text-sm'>
+                                        <li className='mr-2'>Tags: </li>
+                                        {blog.fields.tags.map((item, idx) => (
+                                            <li key={item} className='italic mr-1 capitalize '>
+                                                {item}
+                                                {idx !== blog.fields.tags.length - 1 && <span>,</span>}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                            {/* Header */}
-                            <div className='bg-white opacity-90 py-7 rounded-t-xl relative  z-50 md:px-5 lg:px-7'>
-                                <h1 className='text-start mb-2 font-bold text-3xl md:text-6xl'>
-                                    {blog.fields.title}
-                                </h1>
-
-                                <h2 className='text-start text-stone-600 text-xl md:text-3xl mb-2  '>
-                                    {formatDate(blog.sys.createdAt)}
-                                </h2>
-
-                                <ul className='flex text-stone-500 text-xs md:text-sm'>
-                                    <li className='mr-2'>Tags: </li>
-                                    {blog.fields.tags.map((item, idx) => (
-                                        <li key={item} className='italic mr-1 capitalize '>
-                                            {item}
-                                            {idx !== blog.fields.tags.length - 1 && <span>,</span>}
-                                        </li>
-                                    ))}
-                                </ul>
+                            <div className='md:px-5 lg:px-7 mt-2 mb-5'>
+                                <hr className='' />
                             </div>
-                        </div>
-                        <div className='md:px-5 lg:px-7 mt-2 mb-5'>
-                            <hr className='' />
-                        </div>
+
+                            {generateRichText(blog.fields.body)}
+
+                        </>
+
+                    }
 
 
 
-                        {generateRichText(blog.fields.body)}
-
-                    </>
-
-                }
-
-
-
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

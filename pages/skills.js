@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { useUpdateSeo } from '../lib/hooks/useSeo'
+// Components
+import SEO from '../components/Layout/SEO'
 
 
 const SkillCard = ({ text }) => {
@@ -25,14 +25,6 @@ const SkillList = ({ heading, skillset = [] }) => {
 }
 
 function Skills() {
-    const updateSeo = useUpdateSeo()
-    useEffect(() => {
-        updateSeo({
-            title: 'My Skillset | Jonathan Carpena - Full Stack Software Engineer',
-            description: "My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences.",
-        })
-    })
-
     const skillset = {
         frontEnd: ["react", 'typescript', 'redux', 'next.js', 'jQuery', 'HTML5', "CSS3", "SASS", "Apollo"],
         backEnd: ["Node.js", "express", "mongoDB", "mySQL", "RESTful API"],
@@ -41,35 +33,32 @@ function Skills() {
     }
 
 
-
     return (
-        <div className='min-h-screen flex justify-center items-center'>
-            <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+        <>
+            <SEO title="My Skillset | Jonathan Carpena - Full Stack Software Engineer" description="My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences." />
+            <div className='min-h-screen flex justify-center items-center'>
+                <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 
-                {/* Header */}
-                <div>
-                    <h1 className='text-center mb-2 md:mb-4 text-6xl font-bold md:text-8xl'>
-                        My Skillset
-                    </h1>
-                    <h2 className='text-center text-stone-600 text-2xl md:text-3xl '>
-                        Everything My Brain Knows So Far
-                    </h2>
+                    {/* Header */}
+                    <div>
+                        <h1 className='text-center mb-2 md:mb-4 text-6xl font-bold md:text-8xl'>
+                            My Skillset
+                        </h1>
+                        <h2 className='text-center text-stone-600 text-2xl md:text-3xl '>
+                            Everything My Brain Knows So Far
+                        </h2>
+                    </div>
+
+                    <ul className='flex flex-col space-y-10'>
+                        <SkillList heading={"Front End"} skillset={skillset.frontEnd} />
+                        <SkillList heading={"Back End"} skillset={skillset.backEnd} />
+                        <SkillList heading={"Testing & Deployment"} skillset={skillset['testing/deployment']} />
+                        <SkillList heading={"Developer Tools"} skillset={skillset.tools} />
+                    </ul>
                 </div>
-
-                <ul className='flex flex-col space-y-10'>
-                    <SkillList heading={"Front End"} skillset={skillset.frontEnd} />
-                    <SkillList heading={"Back End"} skillset={skillset.backEnd} />
-                    <SkillList heading={"Testing & Deployment"} skillset={skillset['testing/deployment']} />
-                    <SkillList heading={"Developer Tools"} skillset={skillset.tools} />
-                </ul>
-
-
-
-
-
             </div>
+        </>
 
-        </div>
     )
 }
 

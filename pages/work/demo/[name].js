@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
-import { useUpdateSeo } from '../../../lib/hooks/useSeo'
-
+import { useState } from 'react'
 
 // Data
 import Projects from '../../../lib/projects'
+
+// Components
+import SEO from '../../../components/Layout/SEO'
 
 // Icons
 import { FiClock } from 'react-icons/fi'
@@ -54,20 +55,11 @@ function Demo({ project, youtubeID }) {
         setTimeStamp(startTime)
     }
 
-    const updateSeo = useUpdateSeo()
-    useEffect(() => {
-        updateSeo({
-            title: `${project.name} Demo | Jonathan Carpena - Full Stack Software Engineer`,
-            description: `${project.name} (Live Demo) built by Jonathan Carpena. Project Description: ${project.description}`
-        })
-    })
-
-
-
-
 
     return (
         <>
+
+            <SEO title={`${project.name} (Live Demo) | Jonathan Carpena - Full Stack Software Engineer`} description={`${project.name} (Live Demo) built by Jonathan Carpena. Project Description: ${project.description}`} />
             <div className='relative  top-28 mb-48  lg:top-40 lg:mb-40 '>
 
 

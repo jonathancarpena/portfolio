@@ -1,17 +1,21 @@
 import React from 'react'
 import Head from 'next/head'
-import useSeo from '../../lib/hooks/useSeo'
 
 
 
-function SEO() {
-    const seo = useSeo()
+
+function SEO({
+    title = "Jonathan Carpena - Full Stack Software Engineer",
+    description = "My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences.",
+    keywords = "Full-Stack Software Engineer, Software Engineer, Self-Taught Developer, Web Development, Computer Science"
+}) {
+
 
     return (
         <Head>
-            <title>{seo.title}</title>
-            <meta name="description" content={seo.description} />
-            <meta name="keywords" content={seo.keywords} />
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta name="keywords" content={keywords} />
 
 
             {/* Default */}

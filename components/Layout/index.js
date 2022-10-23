@@ -5,7 +5,6 @@ import Footer from './Footer'
 import SocialButtons from './SocialButtons'
 import HomeButton from './HomeButton'
 import { useRouter } from 'next/router'
-import SEO from './SEO'
 
 
 function Layout({ children }) {
@@ -13,7 +12,7 @@ function Layout({ children }) {
 
     return (
         <>
-            <SEO />
+
             <div className='font-body flex justify-center items-center flex-col'>
                 <div className='relative w-full max-w-screen-2xl '>
                     {router.pathname !== '/links' && <Navbar />}

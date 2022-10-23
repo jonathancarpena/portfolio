@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Projects from '../../lib/projects'
-import { useUpdateSeo } from '../../lib/hooks/useSeo'
 import { FiGithub, FiExternalLink, FiPlay } from 'react-icons/fi'
+import SEO from '../../components/Layout/SEO'
+
 
 
 
@@ -85,40 +86,32 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
     )
 }
 function Work() {
-    const updateSeo = useUpdateSeo()
-    useEffect(() => {
-        updateSeo({
-            title: 'My Work | Jonathan Carpena - Full Stack Software Engineer',
-            description: `My name is Jonathan Carpena and this is a place where I showcase the things I have built. (Spoilers: They're mostly full-stack web applications)`
-        })
-    })
+
     return (
-        <div className='min-h-screen flex justify-center items-center'>
-            <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+        <>
+            <SEO title="My Work | Jonathan Carpena - Full Stack Software Engineer" description="My name is Jonathan Carpena and this is a place where I showcase the things I have built. (Spoilers: They're mostly full-stack web applications)" />
+            <div className='min-h-screen flex justify-center items-center'>
+                <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
+                    {/* Header */}
+                    <div>
+                        <h1 className='text-center mb-2 md:mb-4 text-6xl font-bold md:text-8xl'>
+                            All of the Things I Built
+                        </h1>
+                        <h2 className='text-center text-stone-600 text-2xl md:text-3xl'>
+                            My Blood, Sweat, and Tears
+                        </h2>
+                    </div>
+                    <ul className='grid gap-4 md:gap-0 grid-cols-1 md:grid-cols-2  lg:grid-cols-3  '>
+                        {Projects.map((item) => (
 
-                {/* Header */}
-                <div>
-                    <h1 className='text-center mb-2 md:mb-4 text-6xl font-bold md:text-8xl'>
-                        All of the Things I Built
-                    </h1>
-                    <h2 className='text-center text-stone-600 text-2xl md:text-3xl'>
-                        My Blood, Sweat, and Tears
-                    </h2>
+                            <ProjectSquare key={`project-${item.id}`} project={item} featured={item.featured} />
+
+
+                        ))}
+                    </ul>
                 </div>
-
-
-                <ul className='grid gap-4 md:gap-0 grid-cols-1 md:grid-cols-2  lg:grid-cols-3  '>
-                    {Projects.map((item) => (
-
-                        <ProjectSquare key={`project-${item.id}`} project={item} featured={item.featured} />
-
-
-                    ))}
-
-                </ul>
             </div>
-
-        </div>
+        </>
     )
 }
 
