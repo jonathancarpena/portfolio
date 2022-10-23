@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useUpdateSeo } from '../lib/hooks/useSeo'
 
 // 1450x500
