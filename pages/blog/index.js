@@ -31,7 +31,10 @@ export async function getStaticProps() {
     })
 
     return {
-        props: { blogs: items, tags: tags.sort() },
+        props: {
+            blogs: items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt)),
+            tags: tags.sort()
+        },
         revalidate: 1,
     };
 }
