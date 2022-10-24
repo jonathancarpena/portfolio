@@ -12,22 +12,26 @@ function Hero() {
                 </h1>
 
                 <div>
+
                     <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
-                        Currently helping local businesses make the most of their customers and audiences, by providing them with great user experiences.
+                        Building beautiful React + MongoDB full stack applications for clients one piece at a time!
                     </p>
+                    {/* <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
+                        Currently helping local businesses make the most of their customers and audiences, by providing them with great user experiences.
+                    </p> */}
 
                 </div>
 
-                <Link href="/#featured-work" scroll={false}>
+                <Link href="/#about-me" scroll={false}>
 
                     <button className=' bg-black hover:bg-accent-500 active:bg-accent-600 active:scale-95 transition-all ease-in-out  duration text-white p-4 rounded-lg'>
-                        View My Work
+                        Learn More
                     </button>
 
 
                 </Link>
 
-                <Link href="/#featured-work" scroll={false}>
+                <Link href="/#about-me" scroll={false}>
 
                     <button className='relative top-4 block animate-bounce text-3xl'>
                         <FiArrowDownCircle />

@@ -1,14 +1,51 @@
-import React from 'react'
-import { FiChevronRight } from 'react-icons/fi'
+// Components
 import Section from './Section'
 import Image from 'next/image'
 
-function About() {
+// Icons
+import { FiChevronRight } from 'react-icons/fi'
 
-    const Technologies = ["React", "Typescript", "Redux", "Node.js", "Express", "MongoDB"]
+
+
+function TechStack() {
+    const Technologies = ["React", "Typescript", "Redux", "Node.js", "MongoDB", "MySQL"]
+    // const [hover, setHover] = useState(false)
+    // const [show, setShow] = useState(false)
+
+    // useEffect(() => {
+    //     if (hover) {
+    //         setTimeout(() => {
+    //             setShow(true)
+    //         }, 100)
+    //     } else {
+    //         if (show) {
+    //             setShow(false)
+    //         }
+    //     }
+    // }, [hover, show])
 
     return (
-        <Section className=' h-screen flex justify-center items-center'>
+        <div className='relative' >
+            <p>{`Here are a few technologies I’ve been working with recently:`}</p>
+            <ul className='grid grid-cols-2 w-3/4 mt-2'>
+                {Technologies.map((item) => (
+                    <li key={`technologies-${item}`} className='flex space-x-2 items-center'>
+                        <FiChevronRight className='text-accent-500' />
+                        <span>{item}</span>
+                    </li>
+                ))}
+            </ul>
+
+
+        </div>
+    )
+}
+function About() {
+
+
+
+    return (
+        <Section id="about-me" className=' h-screen flex justify-center items-center'>
 
             <div className='border-[1px]   drop-shadow-lg md:drop-shadow-xl  rounded-lg  bg-white '>
 
@@ -23,7 +60,7 @@ function About() {
                         />
                     </div>
                     <div className='w-full lg:w-1/2 flex flex-col justify-center space-y-5 p-7 '>
-                        <p className='text-4xl font-semibold'>
+                        <p className='text-3xl md:text-4xl font-semibold'>
                             A little bit about me
                         </p>
 
@@ -48,18 +85,7 @@ function About() {
 
 
                         {/* Tech Stack */}
-                        <div>
-                            <p>{`Here are a few technologies I’ve been working with recently:`}</p>
-                            <ul className='grid grid-cols-2 w-3/4 mt-2'>
-                                {Technologies.map((item) => (
-                                    <li key={`technologies-${item}`} className='flex space-x-2 items-center'>
-                                        <FiChevronRight className='text-accent-500' />
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                        </div>
+                        <TechStack />
                     </div>
                 </div>
 
