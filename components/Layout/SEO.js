@@ -5,9 +5,9 @@ import Head from 'next/head'
 
 
 function SEO({
-    title = "Jonathan Carpena - Full Stack Software Engineer",
-    description = "My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences.",
-    keywords = "Full-Stack Software Engineer, Software Engineer, Self-Taught Developer, Web Development, Computer Science"
+    title = "Jonathan Carpena - Front End Engineer",
+    description = "My name is Jonathan Carpena, and I'm a Front End Engineer specializing in building and designing exceptional digital experiences.",
+    keywords = "Front End Engineer, Software Engineer, Self-Taught Developer, Web Development, Computer Science"
 }) {
 
 

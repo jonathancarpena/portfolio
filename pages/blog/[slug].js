@@ -262,7 +262,7 @@ function SingleBlog({ blog }) {
                     {!blog
                         ? <>
                             <SEO
-                                title="Blog Posts | Jonathan Carpena - Full Stack Software Engineer"
+                                title="Blog Posts | Jonathan Carpena - Front End Engineer"
                                 description="My name is Jonathan Carpena and this is a place where I document my thoughts (write blog posts) about topics ranging from my career/journey as a Software Engineer to my personal book recommendations"
                             />
                             <Loading />

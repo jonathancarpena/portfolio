@@ -35,7 +35,7 @@ function Skills() {
 
     return (
         <>
-            <SEO title="My Skillset | Jonathan Carpena - Full Stack Software Engineer" description="My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences." />
+            <SEO title="My Skillset | Jonathan Carpena - Front End Engineer" description="My name is Jonathan Carpena, and I'm a Front End Engineer specializing in building and designing exceptional digital experiences." />
             <div className='min-h-screen flex justify-center items-center'>
                 <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
 

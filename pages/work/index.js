@@ -89,7 +89,7 @@ function Work() {
 
     return (
         <>
-            <SEO title="My Work | Jonathan Carpena - Full Stack Software Engineer" description="My name is Jonathan Carpena and this is a place where I showcase the things I have built. (Spoilers: They're mostly full-stack web applications)" />
+            <SEO title="My Work | Jonathan Carpena - Front End Engineer" description="My name is Jonathan Carpena and this is a place where I showcase the things I have built. (Spoilers: They're mostly web applications)" />
             <div className='min-h-screen flex justify-center items-center'>
                 <div className=' mb-40 lg:mb-28 relative top-20 md:top-28 place-self-start flex flex-col  space-y-10 px-5 lg:px-0 max-w-5xl w-full '>
                     {/* Header */}

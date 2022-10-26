@@ -10,7 +10,7 @@ function Home() {
 
   return (
     <>
-      <SEO title="Jonathan Carpena - Full Stack Software Engineer" description="My name is Jonathan Carpena, and I'm a Full Stack Software Engineer specializing in building and designing exceptional digital experiences." />
+      <SEO title="Jonathan Carpena - Front End Engineer" description="My name is Jonathan Carpena, and I'm a Front End Engineer specializing in building and designing exceptional digital experiences." />
       <Hero />
       <About />
       <Work />

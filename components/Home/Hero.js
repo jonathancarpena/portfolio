@@ -8,13 +8,13 @@ function Hero() {
             <div className='max-w-screen-2xl  flex flex-col justify-center space-y-4 items-center '>
                 <p className='text-2xl font-medium text-stone-600 md:text-4xl'>{`Hello I'm Jonathan,`}</p>
                 <h1 className=' text-center text-5xl font-bold md:text-8xl'>
-                    {`I'm a full`}<span className='text-accent-500'>-</span>stack developer and thingy<span className='text-accent-500'>-</span>builder
+                    {`I'm a front`}<span className='text-accent-500'>-</span>end developer and thingy<span className='text-accent-500'>-</span>builder
                 </h1>
 
                 <div>
 
                     <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
-                        Building beautiful React + MongoDB full stack applications for clients one piece at a time!
+                        Building beautiful React.js applications for all types of clients one piece at a time!
                     </p>
                     {/* <p className='px-5 max-w-screen-md text-center text-lg text-stone-600 md:text-xl'>
                         Currently helping local businesses make the most of their customers and audiences, by providing them with great user experiences.

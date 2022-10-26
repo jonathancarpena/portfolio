@@ -8,7 +8,7 @@ import { FiChevronRight } from 'react-icons/fi'
 
 
 function TechStack() {
-    const Technologies = ["React", "Typescript", "Redux", "Node.js", "MongoDB", "MySQL"]
+    const Technologies = ["React", "Typescript", "Redux", "Next.js", "Node.js", "MySQL"]
     // const [hover, setHover] = useState(false)
     // const [show, setShow] = useState(false)
 
@@ -66,21 +66,17 @@ function About() {
 
                         {/* Coding Background */}
                         <p>
-                            {` I'm a full-stack software engineer specializing in building and designing exceptional digital experiences.
-    I began tinkering with coding and programming since I was 10, but not until college did I began taking it
-    more seriously. Since then, I have upgraded my technology toolkit and am capable of building responsive web
-    applications.`}
+                            {` I'm a front-end engineer specializing in building and designing exceptional digital experiences. I began tinkering with coding and programming when I was 10, but not until college did I begin taking it more seriously. Since then, I have upgraded my technology toolkit and am capable of building responsive web applications.
+`}
                         </p>
 
                         {/* Current Occupation */}
                         <p>
-                            {`Most recently, I've been helping local businesses make the most of their customers and audiences,
-    by providing them with great user experiences.`}
+                            {`Most recently, I've been helping local businesses make the most of their customers and audiences, by providing them with great user experiences.`}
                         </p>
 
                         {/* Outside of Work */}
-                        <p> {`Outside the professional environment, I enjoy creating lifestyle videos, debating what food actually deserves
-    a 10/10 in taste, and walking my dog!`}</p>
+                        <p> {`Outside the professional environment, I enjoy creating lifestyle videos, debating what food actually deserves a 10/10 in taste, and walking my dog!`}</p>
 
 
 

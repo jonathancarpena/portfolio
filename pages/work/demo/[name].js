@@ -59,7 +59,7 @@ function Demo({ project, youtubeID }) {
     return (
         <>
 
-            <SEO title={`${project.name} (Live Demo) | Jonathan Carpena - Full Stack Software Engineer`} description={`${project.name} (Live Demo) built by Jonathan Carpena. Project Description: ${project.description}`} />
+            <SEO title={`${project.name} (Live Demo) | Jonathan Carpena - Front End Engineer`} description={`${project.name} (Live Demo) built by Jonathan Carpena. Project Description: ${project.description}`} />
             <div className='relative  top-28 mb-48  lg:top-40 lg:mb-40 '>
 
 
