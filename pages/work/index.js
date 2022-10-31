@@ -18,7 +18,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
             {/* Image */}
             <div className='overflow-hidden'>
-                <div className={`${hover ? "scale-110" : ''} min-h-[225px] relative transition-all duration-200   `}>
+                <div className={`${hover ? "scale-125" : ''} min-h-[225px] relative transition-all duration-200   `}>
                     <Image
                         alt={`${project.name}-preview`}
                         src={project.preview}
@@ -35,7 +35,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
 
             {/* Details */}
 
-            <div className={`h-max p-4 md:p-10 z-20 justify-start bg-white flex flex-col space-y-3 md:space-y-5 `} >
+            <div className={`h-max p-4 md:p-8 z-20 justify-start bg-white flex flex-col space-y-3 md:space-y-5 border-t-[1px] `} >
 
                 <div>
                     <p className='text-accent-500 uppercase font-semibold text-base select-none'>
@@ -46,7 +46,7 @@ const ProjectSquare = ({ project, featured, darkPreview }) => {
                     </p>
                 </div>
 
-                <p className={` cursor-pointer select-none break-words    `}>
+                <p className={`  select-none break-words    `}>
                     {project.brief ? project.brief : `${project.name} description.`}
                 </p>
 
