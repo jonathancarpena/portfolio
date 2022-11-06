@@ -8,7 +8,7 @@
 ## 📸 Screenshots
 
 <ul style="display:flex flex-direction:column">
-<img src="./screenshots/landing.PNG" width="690" height="375" alt="landing"> 
+<img src="./screenshots/landing.PNG"  alt="landing" style="max-width=100%; max-height=375px"> 
 <img src="./screenshots/about.PNG" width="690" height="375" alt="about"> 
 <img src="./screenshots/work.PNG" width="690" height="375" alt="work"> 
 <img src="./screenshots/skills.PNG" width="690" height="375" alt="skills"> 
