@@ -21,7 +21,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 const ContactPage = () => {
   const [submitterName, setSubmitterName] = useState("");
   const [showToast, setShowToast] = useState(true)
-  const router = useRouter();
+
   const darkMode = useDarkMode()
   const confirmationScreenVisible =
     router.query?.success && router.query.success === "true";
